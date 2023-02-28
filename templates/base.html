@@ -17,12 +17,20 @@
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <!--Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <!--Link to CSS Stylesheet-->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
+        <!--Font Awesome Kit Code-->
+        <script src="https://kit.fontawesome.com/657a87c31d.js" crossorigin="anonymous"></script>
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--jQuery code also replaced from slim to min from code.jquery.com-->
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -37,6 +45,13 @@
   </head>
   
   <body>
-  
+    <header class="container-fluid fixed-top">
+
+    </header>
+    {% if messages %}
+        <div class="message-container">
+            
+        </div>
+    {% endif %}
   </body>
 </html>

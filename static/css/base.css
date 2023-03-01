@@ -38,9 +38,9 @@ body {
 }
 
 .shop-button {
-    background: #575756;
-    color: white;
-    min-width: 260px;
+    background: white;
+    color: #575756;
+    min-width: 180px;
 }
 
 .btn-grey {
@@ -54,9 +54,9 @@ body {
 .btn-grey:hover,
 .btn-grey:active,
 .btn-grey:focus {
-    background: white;
+    background: #white;
     color: #575756;
-    border: 1px solid #575756; 
+    /* border: 1px solid #575756;  */
 }
 
 .text-everwear-grey {

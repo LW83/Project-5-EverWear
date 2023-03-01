@@ -1,2 +1,92 @@
-logo-font
-text-black
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/hero_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 400;
+}
+
+.logo-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+.landing-logo-font{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-button {
+    background: #575756;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-grey {
+    background: #575756;
+    color: white;
+}
+
+.shop-button:hover,
+.shop-button:active,
+.shop-button:focus,
+.btn-grey:hover,
+.btn-grey:active,
+.btn-grey:focus {
+    background: white;
+    color: #575756;
+    border: 1px solid #575756; 
+}
+
+.text-everwear-grey {
+    color: #575756 !important;
+}
+
+.border-grey {
+    border: 1px solid #575756 !important;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Larger container on x-large screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}

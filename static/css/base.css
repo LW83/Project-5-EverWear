@@ -43,7 +43,7 @@ body {
     min-width: 180px;
 }
 
-.btn-grey {
+.btn-everwear-grey {
     background: #575756;
     color: white;
 }
@@ -51,9 +51,9 @@ body {
 .shop-button:hover,
 .shop-button:active,
 .shop-button:focus,
-.btn-grey:hover,
-.btn-grey:active,
-.btn-grey:focus {
+.btn-everwear-grey:hover,
+.btn-everwear-grey:active,
+.btn-everwear-grey:focus {
     background: #white;
     color: #575756;
     /* border: 1px solid #575756;  */
@@ -63,7 +63,7 @@ body {
     color: #575756 !important;
 }
 
-.border-grey {
+.border-evewear-grey {
     border: 1px solid #575756 !important;
 }
 

@@ -67,6 +67,16 @@ body {
     border: 1px solid #575756 !important;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: whitesmoke;
+    z-index: -1;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Larger container on x-large screens */

@@ -5,7 +5,7 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}" class="dropdown-item">By Price</a>
                 <!-- <a href="" class="dropdown-item ">By Rating</a> -->
                 <a href="" class="dropdown-item ">By Category</a>
                 <!-- <a href="{% url 'products' %}" class="dropdown-item">All Products</a> -->
@@ -13,19 +13,19 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="#" id="hats-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="{% url 'products' %}?category=hats" id="hats-link" aria-haspopup="true" aria-expanded="false">
                 Hats
             </a>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="#" id="hoodies-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="{% url 'products' %}?category=hoodies" id="hoodies-link" aria-haspopup="true" aria-expanded="false">
                 Hoodies
             </a>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="#" id="tshirts-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-everwear-grey mr-5" href="{% url 'products' %}?category=t_shirts" id="tshirts-link" aria-haspopup="true" aria-expanded="false">
                 T-Shirts
             </a>
         </li>

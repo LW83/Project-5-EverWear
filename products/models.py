@@ -40,14 +40,14 @@ class Product(models.Model):
     description = models.TextField()
     size = models.IntegerField(choices=SIZE)
     colour = models.IntegerField(choices=COLOUR)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=0)
     """ Stock and sale code leveraged from DNL Bowers """
     stock = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     sale = models.BooleanField(default=False)
     discounted_price = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=False)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=6, decimal_places=0, null=True, blank=False)
+    rating = models.DecimalField(max_digits=6, decimal_places=1, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

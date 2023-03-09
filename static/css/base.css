@@ -13,6 +13,13 @@ body {
     font-weight: 400;
 }
 
+#base_body {
+    height: calc(100vh - 400px);
+    color: #555;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 400;
+}
+
 .logo-font {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -53,7 +60,10 @@ body {
 .shop-button:focus,
 .btn-everwear-grey:hover,
 .btn-everwear-grey:active,
-.btn-everwear-grey:focus {
+.btn-everwear-grey:focus, 
+.category-badge:hover, /* Check during testing */
+.category-badge:active,
+.category-badge:focus {
     background: #white;
     color: #575756;
     /* border: 1px solid #575756;  */
@@ -75,6 +85,18 @@ body {
     position: fixed;
     background: whitesmoke;
     z-index: -1;
+}
+
+.btt-button {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
 }
 
 /* -------------------------------- Media Queries */

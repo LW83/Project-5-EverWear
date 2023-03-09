@@ -55,6 +55,19 @@ body {
     color: white;
 }
 
+.btn-outline-everwear-grey {
+    background: white;
+    color: #575756 !important; 
+    border: 1px solid black;
+}
+
+.btn-outline-everwear-grey:hover,
+.btn-outline-everwear-grey:active,
+.btn-outline-everwear-grey:focus {
+    background: #578756;
+    color: white !important;
+}
+
 .shop-button:hover,
 .shop-button:active,
 .shop-button:focus,

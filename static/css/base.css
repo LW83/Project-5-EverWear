@@ -64,7 +64,7 @@ body {
 .category-badge:hover, /* Check during testing */
 .category-badge:active,
 .category-badge:focus {
-    background: #white;
+    background: white;
     color: #575756;
     /* border: 1px solid #575756;  */
 }

@@ -22,7 +22,7 @@
 <li class="list-inline-item dropdown">
     <a class="text-everwear-grey nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
-            <div><i class="fas fa-user fa-lg"></i></div>
+            <div><span class="material-symbols-outlined">account_circle</span></div>
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -39,9 +39,16 @@
     </div>
 </li>
 <li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-everwear-grey{% endif %} nav-link d-block d-lg-none" href="">
+    <a class="text-everwear-grey nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
         <div class="text-center">
-            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <span class="material-symbols-outlined">local_mall</span>
+        </div>
+    </a>
+</li>
+<li class="list-inline-item">
+    <a class="text-everwear-grey nav-link" href="">
+        <div class="text-center">
+            <div><span class="material-symbols-outlined">favorite</span></div>
         </div>
     </a>
 </li>

@@ -1,9 +1,6 @@
 from django.db import models
 
 
-from django.db import models
-
-
 class Category(models.Model):
     ''' Model for product categories'''
 
@@ -53,3 +50,18 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# class ProductVariant(models.Model):
+#     product = models.ForeignKey(Product,on_delete=models.CASCADE)
+#     colour = models.ForeignKey(Colour,on_delete=models.CASCADE)
+#     size = models.ForeignKey(Size, on_delete=models.CASCADE)
+#     amount_in_stock = models.IntegerField()
+
+#     class Meta:
+#         constraints = [
+#             models.UniqueConstraint(
+#                 fields=['product', 'color', 'size'],
+#                 name='unique_prod_color_size_combo'
+#             )
+#         ]

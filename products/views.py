@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
 
 from .models import Category, Product
 from .forms import ProductForm

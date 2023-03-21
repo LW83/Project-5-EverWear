@@ -3,9 +3,7 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
-    ''' 
-    Form to store payment and delivery details
-    '''
+    """ Form to store payment and delivery details """
     class Meta:
         model = UserProfile
         exclude = ('user',)

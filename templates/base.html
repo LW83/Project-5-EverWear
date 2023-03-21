@@ -110,8 +110,8 @@
                     </div>
                 </a>
             </li>
-            <li class="list-inline-item">
-                <a class="text-everwear-grey nav-link" href="">
+            <li class="list-inline-item"><!--Update if not grand total need to ensure logged in-->
+                <a class="{% if grand_total %}text-everwear-green{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'wishlist' %}">
                     <div class="text-center">
                         <div><span class="material-symbols-outlined">favorite</span></div>
                     </div>

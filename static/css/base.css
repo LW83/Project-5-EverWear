@@ -9,7 +9,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Monserrat', sans-serif;
+    font-family: 'Monserrat', sans-serif !important;
     font-weight: 400;
 }
 

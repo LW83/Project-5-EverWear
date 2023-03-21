@@ -3,6 +3,7 @@ from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """Enables editing of Order line items from Admin"""
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
@@ -25,6 +26,12 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('order_number', 'date', 'full_name',
                     'order_total', 'delivery_cost',
                     'grand_total',)
+
+    search_fields = ['order_number', 'order_profile', 'date',
+                     'full_name', 'email', 'phone_number',
+                     'stripe_pid', 'country',]
+    
+    list_filter = ('date', )
 
     ordering = ('-date',)
 

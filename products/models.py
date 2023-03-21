@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    ''' Model for product categories'''
+    """ Model for product categories"""
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -26,7 +26,7 @@ SIZE = ((0, "Universal"), (1, "X-Small"), (2, "Small"),
 
 
 class Product(models.Model):
-    '''Model for product information'''
+    """Model for product information"""
 
     class Meta:
         verbose_name_plural = 'Products'
@@ -65,3 +65,36 @@ class Product(models.Model):
 #                 name='unique_prod_color_size_combo'
 #             )
 #         ]
+
+
+""" DNL Bowers"""
+# def get_rating(self):
+#         """Calculates the overall rating for the product"""
+
+#         if self.number_of_ratings == 0:
+#             return 0
+#         else:
+#             self.current_rating = round(
+#                 self.accumulative_rating / self.number_of_ratings, 2)
+#             return self.current_rating
+
+#     def save(self, *args, **kwargs):
+#         """
+#         Override the original save method to set the price
+#         according to if it has a sale or not
+#         """
+#         self.get_rating()
+
+#         if self.stock_level <= 0:
+#             self.in_stock = False
+#         else:
+#             self.in_stock = True
+
+#         self.slug = slugify(self.name)
+
+#         if self.has_sale:
+#             self.price = self.discounted_price
+#         else:
+#             self.price = self.rrp
+
+#         super().save(*args, **kwargs)

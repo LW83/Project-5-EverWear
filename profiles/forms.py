@@ -3,6 +3,9 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    ''' 
+    Form to store payment and delivery details
+    '''
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -14,6 +17,8 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
+            'default_delivery_name': 'Name',
+            'default_email': 'Email Address',
             'default_phone_number': 'Phone Number',
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',

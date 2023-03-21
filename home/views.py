@@ -1,10 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 
 def landing_page(request):
-    ''' View to display index page '''
+    """ View to display landing page of site """
 
     return render(request, 'home/landing_page.html')
 

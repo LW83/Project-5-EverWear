@@ -20,6 +20,13 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+    search_fields = (
+        'name',
+        'description',
+        'sku',
+        'category',
+    )
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

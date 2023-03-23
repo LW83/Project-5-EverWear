@@ -59,7 +59,11 @@ def order_history(request, order_number):
 def wishlist(request):
     """ Display user's wishlist items from Very Academy Tutorial """
     products = Product.objects.filter(wishlist=request.user)
-    return render(request, "profiles/profile/wishlist.html", {"wishlist": products})
+    template = 'profiles/wishlist.html'
+    context = {
+        'wishlist': products
+    }
+    return render(request, template, context)
 
 
 @login_required

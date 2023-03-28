@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 
-from .models import Category, Product
+from .models import (Category, Product, Variant,
+                     Colour, Size, ImageVariant)
 from .forms import ProductForm
 
 
@@ -62,14 +63,36 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, id):
     """ View to show details of selected product """
 
-    product = get_object_or_404(Product, pk=product_id)
+    query = request.GET.get('q')
+    product = Product.objects.get(pk=id)
+    category = Category.objects.all()
+    # product = get_object_or_404(Product, pk=product_id)
+    # image = ImageVariant.objects.filter(product_id=id)
 
     context = {
         'product': product,
+        # 'image': image,
+        'category': category,
     }
+
+    if product.variant_options != "None":
+        if request.method == 'POST':
+            variant_id = request.POST.get('variant_optionsid')
+            variant = Variant.objects.get(id=variant_id)
+            colours = Variant.objects.filter(product_id=id,size_id=variant.size_id )
+            sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
+            # query += variant.title+' Size:' +str(variant.size) +' Colour:' +str(variant.colour)
+        else:
+            variants = Variant.objects.filter(product_id=product_id)
+            colours = Variant.objects.filter(product_id=id,size_id=variants[0].size_id )
+            sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
+            variant = Variant.objects.get(id=variants[0].id)
+        context.update({'sizes': sizes, 'colours': colours,
+                        'variant': variant,
+                        })
 
     return render(request, 'products/product_detail.html', context)
 

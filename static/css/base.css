@@ -13,6 +13,12 @@ body {
     font-weight: 400;
 }
 
+footer {
+    background-color: #575656;
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+
 #base_body {
     height: calc(100vh - 400px);
     color: #555;

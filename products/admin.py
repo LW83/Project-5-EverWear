@@ -1,24 +1,29 @@
 from django.contrib import admin
 from .models import (Product, Category, Size, Colour,
-                     ImageVariant, ProductVariant)
+                     ImageVariant, Variant)
 
 import admin_thumbnails
 
 
-class ProductVariantAdminInline(admin.TabularInline):
-    """Enables editing of Product Variations from Admin"""
-    model = ProductVariant
-
-
+@admin_thumbnails.thumbnail('image_variant')
 class ImageVariantAdminInline(admin.TabularInline):
     """Enables editing of Image Variations from Admin"""
     model = ImageVariant
     readonly_fields = ('id',)
+    extra = 1
+
+
+class VariantAdminInline(admin.TabularInline):
+    """Enables editing of Product Variations from Admin"""
+    model = Variant
+    readonly_fields = ('image_tag',)
+    extra = 1
 
 
 @admin_thumbnails.thumbnail('image')
 class ProductAdmin(admin.ModelAdmin):
-    inlines = (ProductVariantAdminInline, ImageVariantAdminInline)
+    prepopulated_fields = {'slug': ('name',)}
+    inlines = (VariantAdminInline, ImageVariantAdminInline)
     list_display = (
         'sku',
         'name',
@@ -27,8 +32,6 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image_tag',
     )
-
-    # readonly_fields = ('image_tag',)
 
     ordering = ('sku',)
 
@@ -62,7 +65,7 @@ class ColourAdmin(admin.ModelAdmin):
     )
 
 
-class ProductVariantAdmin(admin.ModelAdmin):
+class VariantAdmin(admin.ModelAdmin):
     list_display = (
         'product',
         'colour',
@@ -71,18 +74,17 @@ class ProductVariantAdmin(admin.ModelAdmin):
         'amount_in_stock',
         'sale',
         'discounted_price',
-        'image_id',
+        'image_tag',
     )
 
 
-# @admin_thumbnails.thumbnail('image_variant')
+@admin_thumbnails.thumbnail('image_variant')
 class ImageVariantAdmin(admin.ModelAdmin):
-        list_display = (
-                'product',
-                'alt',
-                'image_variant',
-                # 'image_thumbnail',
-            )
+    list_display = (
+            'product',
+            'image_variant',
+            'image_variant_thumbnail',
+        )
 
 
 admin.site.register(Product, ProductAdmin)
@@ -90,4 +92,4 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Colour, ColourAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(ImageVariant, ImageVariantAdmin)
-admin.site.register(ProductVariant, ProductVariantAdmin)
+admin.site.register(Variant, VariantAdmin)

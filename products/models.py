@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -9,8 +10,11 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=50)
+    friendly_name = models.CharField(max_length=100, null=True, blank=True)
+
+    def get_url(self):
+        return reverse('products_by_category', args=[self.name])
 
     def __str__(self):
         return self.name
@@ -19,7 +23,7 @@ class Category(models.Model):
         return self.friendly_name
 
 
-VARIANTS = (('None', 'None'), 
+VARIANTS = (('None', 'None'),
             ('Size', 'Size'),
             ('Colour', 'Colour'),
             ('Size-Colour', 'Size-Colour'),
@@ -32,7 +36,8 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Products'
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.CASCADE)
+    slug = models.SlugField(null=True, default=None, unique=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
@@ -41,15 +46,18 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(max_length=254, null=True, blank=True)
-    variant = models.CharField(max_length=15, choices=VARIANTS, default='Size-Colour')
+    variant_options = models.CharField(max_length=15, choices=VARIANTS, default='Size-Colour')
     wishlist = models.ManyToManyField(User, related_name="wishlist", blank=True)
+
+    def get_url(self):
+        return reverse('product_detail', args=[self.category.slug, self.slug])
 
     def __str__(self):
         return self.name
 
     def image_tag(self):
-        if Product.image_url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(Product.image_url))
+        if self.image.url is not None:
+            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
         else:
             return ""
 
@@ -77,19 +85,18 @@ class Size(models.Model):
 
 
 class ImageVariant(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='image_variant')
-    alt = models.CharField(max_length=50, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,blank=True)
+    image_variant_alt = models.CharField(max_length=50, blank=True)
     # image_variant_url = models.URLField(max_length=1024, null=True, blank=True)
     image_variant = models.ImageField(null=True, blank=True)
 
-    # def image_thumbnail(self):
-    #     if ImageVariant.image_variant_url is not None:
-    #         return mark_safe('<img src="{}" height="50"/>'.format(ImageVariant.image_variant_url))
-    #     else:
-    #         return ""
+    def __str__(self):
+        return self.name
 
 
-class ProductVariant(models.Model):
+class Variant(models.Model):
+    title = models.CharField(max_length=120)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     colour = models.ForeignKey(Colour,on_delete=models.CASCADE, null=True, blank=True)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
@@ -100,10 +107,13 @@ class ProductVariant(models.Model):
         max_digits=6, decimal_places=0, null=True, blank=True)
     image_id = models.IntegerField(blank=True, null=True, default=0)
 
+    def __str__(self):
+        return self.title
+
     def image(self):
         img = ImageVariant.objects.get(id=self.image_id)
         if img.id is not None:
-            varimage_variant = img.image.url
+            varimage_variant = img.image_variant.url
         else:
             varimage_variant = ""
         return varimage_variant
@@ -111,17 +121,10 @@ class ProductVariant(models.Model):
     def image_tag(self):
         img = ImageVariant.objects.get(id=self.image_id)
         if img.id is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(img.image.url))
+            return mark_safe('<img src="{}" height="50"/>'.format(img.image_variant.url))
         else:
             return ""
 
-#     class Meta:
-#         constraints = [
-#             models.UniqueConstraint(
-#                 fields=['product', 'color', 'size'],
-#                 name='unique_prod_color_size_combo'
-#             )
-#         ]
 
 """ DNL Bowers"""
 # def get_rating(self):

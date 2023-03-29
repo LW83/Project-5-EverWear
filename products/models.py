@@ -161,16 +161,6 @@ class ProductReview(models.Model):
 
 
 """ DNL Bowers"""
-# def get_rating(self):
-#         """Calculates the overall rating for the product"""
-
-#         if self.number_of_ratings == 0:
-#             return 0
-#         else:
-#             self.current_rating = round(
-#                 self.accumulative_rating / self.number_of_ratings, 2)
-#             return self.current_rating
-
 #     def save(self, *args, **kwargs):
 #         """
 #         Override the original save method to set the price

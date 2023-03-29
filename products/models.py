@@ -43,7 +43,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=0)
-    rating = models.DecimalField(max_digits=6, decimal_places=1, null=True, blank=True)
+    # rating = models.DecimalField(max_digits=6, decimal_places=1, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(max_length=254, null=True, blank=True)
@@ -64,14 +64,14 @@ class Product(models.Model):
 
     """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py """
     def averageReview(self):
-        reviews = ProductReview.objects.filter(product=self, status=True).aggregate(average=Avg('rating'))
+        reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('rating'))
         avg = 0
         if reviews['average'] is not None:
             avg = float(reviews['average'])
         return avg
 
     def countReview(self):
-        reviews = ProductReview.objects.filter(product=self, status=True).aggregate(count=Count('id'))
+        reviews = ProductReview.objects.filter(product=self).aggregate(count=Count('id'))
         count = 0
         if reviews['count'] is not None:
             count = int(reviews['count'])

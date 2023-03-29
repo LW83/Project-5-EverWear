@@ -1,14 +1,16 @@
 from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
+from django.db.models import Max, Min, Count, Avg
 
 from .models import (Category, Product, Variant,
-                     Colour, Size, ImageVariant, 
+                     Colour, Size, ImageVariant,
                      ProductReview)
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
@@ -68,7 +70,17 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = ProductReview.objects.filter(product_id=product.id, status=True)
+    # reviews = ProductReview.objects.filter(product_id=product.id)
+    reviewForm = ReviewForm()
+
+    canAdd = True
+    reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
+    if request.user.is_authenticated:
+        if reviewCheck > 0:
+            canAdd = False
+
+    reviews = ProductReview.objects.filter(product=product)
+    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
     # product_variants = product.objects.select_related()
     # product_variants = product.variant_set.all()
     # colours = product_variants.colour.set.all()
@@ -76,7 +88,9 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
+        'reviewForm': reviewForm,
         'reviews': reviews,
+        # 'avg_reviews': avg_reviews,
         # 'product_variants': product_variants,
         # 'product_variants': product_variants,
         # 'colours': colours,
@@ -188,26 +202,42 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-@login_required
 def submit_review(request, product_id):
-    url = request.META.get('HTTP_REFERER')
-    if request.method == 'POST':
-        try:
-            reviews = ProductReview.objects.get(user__id=request.user.id, product__id=product_id)
-            form = ReviewForm(request.POST, instance=reviews)
-            form.save()
-            messages.success(request, 'Thank you! Your review has been updated.')
-            return redirect(url)
-        except ProductReview.DoesNotExist:
-            form = ReviewForm(request.POST)
-            if form.is_valid():
-                data = ProductReview()
-                data.subject = form.cleaned_data['subject']
-                data.rating = form.cleaned_data['rating']
-                data.review = form.cleaned_data['review']
-                data.ip = request.META.get('REMOTE_ADDR')
-                data.product_id = product_id
-                data.user_id = request.user.id
-                data.save()
-                messages.success(request, 'Thank you! Your review has been submitted.')
-                return redirect(url)
+    product = Product.objects.get(pk=product_id)
+    user = request.user
+    form = ReviewForm
+    review = ProductReview.objects.create(
+        user=user,
+        product=product,
+        review_text=request.POST['review_text'],
+        review_rating=request.POST['review_rating'],
+        )
+    data = {
+        'user': user.username,
+        'review_text': request.POST['review_text'],
+        'review_rating': request.POST['review_rating']
+    }
+
+    avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
+
+    return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews})
+
+# url = request.META.get('HTTP_REFERER')
+    # if request.method == 'POST':
+    #     try:
+    #         reviews = ProductReview.objects.get(user__id=request.user.id, product__id=product_id)
+    #         form = ReviewForm(request.POST, instance=reviews)
+    #         form.save()
+    #         messages.success(request, 'Thank you! Your review has been updated.')
+    #         return redirect(reverse('product_detail', args=[product.id]))
+    #     except ProductReview.DoesNotExist:
+    #         form = ReviewForm(request.POST)
+    #         if form.is_valid():
+    #             data = ProductReview()
+    #             data.review_rating = form.cleaned_data['review_rating']
+    #             data.review_text = form.cleaned_data['review_text']
+    #             data.product_id = product_id
+    #             data.user_id = request.user.id
+    #             data.save()
+    #             messages.success(request, 'Thank you! Your review has been submitted.')
+    #             return redirect(reverse('product_detail', args=[product.id]))

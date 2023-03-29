@@ -14,6 +14,7 @@ body {
 }
 
 footer {
+    margin-bottom:0px !important;
     background-color: #575656;
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;

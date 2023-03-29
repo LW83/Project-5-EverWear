@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 
 from .models import (Category, Product, Variant,
-                     Colour, Size, ImageVariant)
+                     Colour, Size, ImageVariant, 
+                     ProductReview)
 from .forms import ProductForm
 
 
@@ -63,38 +64,60 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, id):
-    """ View to show details of selected product """
+def product_detail(request, product_id):
+    """ A view to show individual product details """
 
-    query = request.GET.get('q')
-    product = Product.objects.get(pk=id)
-    category = Category.objects.all()
-    # product = get_object_or_404(Product, pk=product_id)
-    # image = ImageVariant.objects.filter(product_id=id)
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = ProductReview.objects.filter(product_id=product.id, status=True)
+    # product_variants = product.objects.select_related()
+    # product_variants = product.variant_set.all()
+    # colours = product_variants.colour.set.all()
+    # sizes = product_variants.size.set.all()
 
     context = {
         'product': product,
-        # 'image': image,
-        'category': category,
+        'reviews': reviews,
+        # 'product_variants': product_variants,
+        # 'product_variants': product_variants,
+        # 'colours': colours,
+        # 'sizes': sizes,
     }
 
-    if product.variant_options != "None":
-        if request.method == 'POST':
-            variant_id = request.POST.get('variant_optionsid')
-            variant = Variant.objects.get(id=variant_id)
-            colours = Variant.objects.filter(product_id=id,size_id=variant.size_id )
-            sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
-            # query += variant.title+' Size:' +str(variant.size) +' Colour:' +str(variant.colour)
-        else:
-            variants = Variant.objects.filter(product_id=product_id)
-            colours = Variant.objects.filter(product_id=id,size_id=variants[0].size_id )
-            sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
-            variant = Variant.objects.get(id=variants[0].id)
-        context.update({'sizes': sizes, 'colours': colours,
-                        'variant': variant,
-                        })
-
     return render(request, 'products/product_detail.html', context)
+
+
+# def product_detail(request, id):
+#     """ View to show details of selected product """
+
+#     query = request.GET.get('q')
+#     product = Product.objects.get(pk=id)
+#     category = Category.objects.all()
+#     # product = get_object_or_404(Product, pk=product_id)
+#     # image = ImageVariant.objects.filter(product_id=id)
+
+#     context = {
+#         'product': product,
+#         # 'image': image,
+#         'category': category,
+#     }
+
+#     if product.variant_options != "None":
+#         if request.method == 'POST':
+#             variant_id = request.POST.get('variant_optionsid')
+#             variant = Variant.objects.get(id=variant_id)
+#             colours = Variant.objects.filter(product_id=id,size_id=variant.size_id )
+#             sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
+#             # query += variant.title+' Size:' +str(variant.size) +' Colour:' +str(variant.colour)
+#         else:
+#             variants = Variant.objects.filter(product_id=product_id)
+#             colours = Variant.objects.filter(product_id=id,size_id=variants[0].size_id )
+#             sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
+#             variant = Variant.objects.get(id=variants[0].id)
+#         context.update({'sizes': sizes, 'colours': colours,
+#                         'variant': variant,
+#                         })
+
+#     return render(request, 'products/product_detail.html', context)
 
 
 @login_required
@@ -163,3 +186,28 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product succesfully deleted.')
     return redirect(reverse('products'))
+
+
+@login_required
+def submit_review(request, product_id):
+    url = request.META.get('HTTP_REFERER')
+    if request.method == 'POST':
+        try:
+            reviews = ProductReview.objects.get(user__id=request.user.id, product__id=product_id)
+            form = ReviewForm(request.POST, instance=reviews)
+            form.save()
+            messages.success(request, 'Thank you! Your review has been updated.')
+            return redirect(url)
+        except ProductReview.DoesNotExist:
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                data = ProductReview()
+                data.subject = form.cleaned_data['subject']
+                data.rating = form.cleaned_data['rating']
+                data.review = form.cleaned_data['review']
+                data.ip = request.META.get('REMOTE_ADDR')
+                data.product_id = product_id
+                data.user_id = request.user.id
+                data.save()
+                messages.success(request, 'Thank you! Your review has been submitted.')
+                return redirect(url)

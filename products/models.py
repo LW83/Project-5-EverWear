@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from django.urls import reverse
+from django.db.models import Count, Avg
 
 
 class Category(models.Model):
@@ -61,6 +62,21 @@ class Product(models.Model):
         else:
             return ""
 
+    """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py """
+    def averageReview(self):
+        reviews = ProductReview.objects.filter(product=self, status=True).aggregate(average=Avg('rating'))
+        avg = 0
+        if reviews['average'] is not None:
+            avg = float(reviews['average'])
+        return avg
+
+    def countReview(self):
+        reviews = ProductReview.objects.filter(product=self, status=True).aggregate(count=Count('id'))
+        count = 0
+        if reviews['count'] is not None:
+            count = int(reviews['count'])
+        return count
+
 
 class Colour(models.Model):
     name = models.CharField(max_length=30)
@@ -86,7 +102,7 @@ class Size(models.Model):
 
 class ImageVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50,blank=True)
+    name = models.CharField(max_length=50, blank=True)
     image_variant_alt = models.CharField(max_length=50, blank=True)
     # image_variant_url = models.URLField(max_length=1024, null=True, blank=True)
     image_variant = models.ImageField(null=True, blank=True)
@@ -97,8 +113,8 @@ class ImageVariant(models.Model):
 
 class Variant(models.Model):
     title = models.CharField(max_length=120)
-    product = models.ForeignKey(Product,on_delete=models.CASCADE)
-    colour = models.ForeignKey(Colour,on_delete=models.CASCADE, null=True, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    colour = models.ForeignKey(Colour, on_delete=models.CASCADE, null=True, blank=True)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     in_stock = models.BooleanField(default=True)
     amount_in_stock = models.IntegerField()
@@ -124,6 +140,24 @@ class Variant(models.Model):
             return mark_safe('<img src="{}" height="50"/>'.format(img.image_variant.url))
         else:
             return ""
+
+
+""" https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """
+RATING = ((1, '1'), (2, '2'), (3, '3'),
+          (4, '4'), (5, '5'),)
+
+
+class ProductReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    review_text = models.TextField()
+    review_rating = models.CharField(choices=RATING, max_length=150)
+
+    class Meta:
+        verbose_name_plural = 'Reviews'
+
+    def get_review_rating(self):
+        return self.review_rating
 
 
 """ DNL Bowers"""

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (Product, Category, Size, Colour,
-                     ImageVariant, Variant)
+                     ImageVariant, Variant, ProductReview)
 
 import admin_thumbnails
 
@@ -93,3 +93,4 @@ admin.site.register(Colour, ColourAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(ImageVariant, ImageVariantAdmin)
 admin.site.register(Variant, VariantAdmin)
+admin.site.register(ProductReview)

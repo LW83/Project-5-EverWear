@@ -1,13 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.http import HttpResponse, JsonResponse
-from django.db.models import Q
+from django.db.models import Q, Max, Min, Count, Avg
 from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
-from django.db.models import Max, Min, Count, Avg
 
-from .models import (Category, Product, Variant,
+from .models import (Category, Product, ProductAttribute,
                      Colour, Size, ImageVariant,
                      ProductReview)
 from .forms import ProductForm, ReviewForm
@@ -66,11 +65,14 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, id):
     """ A view to show individual product details """
 
-    product = get_object_or_404(Product, pk=product_id)
+    # product = get_object_or_404(Product, pk=product_id)
     # reviews = ProductReview.objects.filter(product_id=product.id)
+    product = Product.objects.get(id=id)
+    colours = ProductAttribute.objects.filter(product=product).values('colour__id','colour__name','colour__code').distinct()
+    sizes = ProductAttribute.objects.filter(product=product).values('size__id','size__name', 'size__code', 'price','colour__id').distinct()
     reviewForm = ReviewForm()
 
     canAdd = True
@@ -80,21 +82,16 @@ def product_detail(request, product_id):
             canAdd = False
 
     reviews = ProductReview.objects.filter(product=product)
-    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
-    # product_variants = product.objects.select_related()
-    # product_variants = product.variant_set.all()
-    # colours = product_variants.colour.set.all()
-    # sizes = product_variants.size.set.all()
+    avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
 
     context = {
         'product': product,
         'reviewForm': reviewForm,
         'reviews': reviews,
-        # 'avg_reviews': avg_reviews,
-        # 'product_variants': product_variants,
-        # 'product_variants': product_variants,
-        # 'colours': colours,
-        # 'sizes': sizes,
+        'canAdd': canAdd,
+        'avg_reviews': avg_reviews,
+        'colours': colours,
+        'sizes': sizes,
     }
 
     return render(request, 'products/product_detail.html', context)

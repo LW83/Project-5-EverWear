@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (Product, Category, Size, Colour,
-                     ImageVariant, Variant, ProductReview)
+                     ImageVariant, ProductAttribute, ProductReview)
 
 import admin_thumbnails
 
@@ -13,9 +13,9 @@ class ImageVariantAdminInline(admin.TabularInline):
     extra = 1
 
 
-class VariantAdminInline(admin.TabularInline):
+class ProductAttributeAdminInline(admin.TabularInline):
     """Enables editing of Product Variations from Admin"""
-    model = Variant
+    model = ProductAttribute
     readonly_fields = ('image_tag',)
     extra = 1
 
@@ -23,7 +23,7 @@ class VariantAdminInline(admin.TabularInline):
 @admin_thumbnails.thumbnail('image')
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    inlines = (VariantAdminInline, ImageVariantAdminInline)
+    inlines = (ProductAttributeAdminInline, ImageVariantAdminInline)
     list_display = (
         'sku',
         'name',
@@ -64,7 +64,7 @@ class ColourAdmin(admin.ModelAdmin):
     )
 
 
-class VariantAdmin(admin.ModelAdmin):
+class ProductAttributeAdmin(admin.ModelAdmin):
     list_display = (
         'product',
         'colour',
@@ -91,5 +91,5 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Colour, ColourAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(ImageVariant, ImageVariantAdmin)
-admin.site.register(Variant, VariantAdmin)
+admin.site.register(ProductAttribute, ProductAttributeAdmin)
 admin.site.register(ProductReview)

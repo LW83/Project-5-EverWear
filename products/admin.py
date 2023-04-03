@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Product, Category, Size, Colour,
+from .models import (Product, Category, Size, Color,
                      ImageVariant, ProductAttribute, ProductReview)
 
 import admin_thumbnails
@@ -56,18 +56,18 @@ class SizeAdmin(admin.ModelAdmin):
     )
 
 
-class ColourAdmin(admin.ModelAdmin):
+class ColorAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'code',
-        'colour_tag'
+        'color_tag'
     )
 
 
 class ProductAttributeAdmin(admin.ModelAdmin):
     list_display = (
         'product',
-        'colour',
+        'color',
         'size',
         'in_stock',
         'amount_in_stock',
@@ -88,7 +88,7 @@ class ImageVariantAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Colour, ColourAdmin)
+admin.site.register(Color, ColorAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(ImageVariant, ImageVariantAdmin)
 admin.site.register(ProductAttribute, ProductAttributeAdmin)

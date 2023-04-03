@@ -1,44 +1,121 @@
+$(document).ready(function(){
+
+		// Product Variation
+		$(".choose-size").hide();
+
+		// Show size according to selected color
+		$(".choose-color").on('click',function(){
+			$(".choose-size").removeClass('active');
+			$(".choose-color").removeClass('focused');
+			$(this).addClass('focused');
+
+			var _color=$(this).attr('data-color');
+
+			$(".choose-size").hide();
+			$(".color"+_color).show();
+			$(".color"+_color).first().addClass('active');
+
+			// var _price=$(".color"+_color).first().attr('data-price');
+			// $(".product-price").text(_price);
+
+		});
+		// End
+
+		// // Show the price according to selected size
+		// $(".choose-size").on('click',function(){
+		// 	$(".choose-size").removeClass('active');
+		// 	$(this).addClass('active');
+
+		// 	var _price=$(this).attr('data-price');
+		// 	$(".product-price").text(_price);
+		// })
+		// End
+
+		// Show the first selected color
+		$(".choose-color").first().addClass('focused');
+		var _color=$(".choose-color").first().attr('data-color');
+		// var _price=$(".choose-size").first().attr('data-price');
+
+		$(".color"+_color).show();
+		$(".color"+_color).first().addClass('active');
+		// $(".product-price").text(_price);
+
+		// Add to cart
+		// $(document).on('click',".add-to-cart",function(){
+		// 	var _vm=$(this);
+		// 	var _index=_vm.attr('data-index');
+		// 	var _qty=$(".product-qty-"+_index).val();
+		// 	var _productId=$(".product-id-"+_index).val();
+		// 	var _productImage=$(".product-image-"+_index).val();
+		// 	var _productTitle=$(".product-title-"+_index).val();
+		// 	var _productPrice=$(".product-price-"+_index).text();
+		// 	// Ajax
+		// 	$.ajax({
+		// 		url:'/add-to-cart',
+		// 		data:{
+		// 			'id':_productId,
+		// 			'image':_productImage,
+		// 			'qty':_qty,
+		// 			'title':_productTitle,
+		// 			'price':_productPrice
+		// 		},
+		// 		dataType:'json',
+		// 		beforeSend:function(){
+		// 			_vm.attr('disabled',true);
+		// 		},
+		// 		success:function(res){
+		// 			$(".cart-list").text(res.totalitems);
+		// 			_vm.attr('disabled',false);
+		// 		}
+		// 	});
+			// End
+		});
+		// End
+}
+
 // Product Review Save
+
 $("#addForm").submit(function(e){
-	$.ajax({
-		data:$(this).serialize(),
-		method:$(this).attr('method'),
-		url:$(this).attr('action'),
-		dataType:'json',
-		success:function(res){
-			if(res.bool==true){
-				$(".ajaxRes").html('Data has been added.');
-				$("#reset").trigger('click');
-				// Hide Button
-				$(".reviewBtn").hide();
-				// End
+	$(document).ready(function(){
+		$.ajax({
+			data:$(this).serialize(),
+			method:$(this).attr('method'),
+			url:$(this).attr('action'),
+			dataType:'json',
+			success:function(res){
+				if(res.bool==true){
+					$(".ajaxRes").html('Data has been added.');
+					$("#reset").trigger('click');
+					// Hide Button
+					$(".reviewBtn").hide();
+					// End
 
-				// create data for review
-				var _html='<blockquote class="blockquote text-right">';
-				_html+='<small>'+res.data.review_text+'</small>';
-				_html+='<footer class="blockquote-footer">'+res.data.user;
-				_html+='<cite title="Source Title">';
-				for(var i=1; i<=res.data.review_rating; i++){
-					_html+='<i class="fa fa-star text-warning"></i>';
+					// create data for review
+					var _html='<blockquote class="blockquote text-left">';
+					_html+='<small>'+res.data.review_text+'</small>';
+					_html+='<span class="text-muted">'+res.data.user;
+					// _html+='<cite title="Source Title">';
+					for(var i=1; i<=res.data.review_rating; i++){
+						_html+='<i class="fa fa-star"></i>';
+					}
+					// _html+='</cite>';
+					_html+='</span>';
+					_html+='</blockquote>';
+					_html+='</hr>';
+
+					$(".no-data").hide();
+
+					// Prepend Data
+					$(".review-list").prepend(_html);
+
+					// Hide Modal
+					$("#productReview").modal('hide');
+
+					// AVg Rating
+					$(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1))
 				}
-				_html+='</cite>';
-				_html+='</footer>';
-				_html+='</blockquote>';
-				_html+='</hr>';
-
-				$(".no-data").hide();
-
-				// Prepend Data
-				$(".review-list").prepend(_html);
-
-				// Hide Modal
-				$("#productReview").modal('hide');
-
-				// AVg Rating
-				$(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1))
 			}
-		}
-	});
-	e.preventDefault();
+		});
+		e.preventDefault();
 });
 // End

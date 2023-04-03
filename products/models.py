@@ -23,8 +23,8 @@ class Category(models.Model):
 
 VARIANTS = (('None', 'None'),
             ('Size', 'Size'),
-            ('Colour', 'Colour'),
-            ('Size-Colour', 'Size-Colour'),
+            ('Color', 'Color'),
+            ('Size-Color', 'Size-Color'),
             )
 
 
@@ -43,7 +43,7 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(max_length=254, null=True, blank=True)
-    variant_options = models.CharField(max_length=15, choices=VARIANTS, default='Size-Colour')
+    variant_options = models.CharField(max_length=15, choices=VARIANTS, default='Size-Color')
     wishlist = models.ManyToManyField(User, related_name="wishlist", blank=True)
 
     def get_url(self):
@@ -74,16 +74,16 @@ class Product(models.Model):
         return count
 
 
-class Colour(models.Model):
+class Color(models.Model):
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=10, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-    def colour_tag(self):
+    def color_tag(self):
         if self.code is not None:
-            return mark_safe('<p style="background-color:{}">Colour</p>'.format(self.code))
+            return mark_safe('<p style="background-color:{}">Color</p>'.format(self.code))
         else:
             return ""
 
@@ -114,7 +114,7 @@ class ImageVariant(models.Model):
 
 class ProductAttribute(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    colour = models.ForeignKey(Colour, on_delete=models.CASCADE, null=True, blank=True)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     image = models.ForeignKey(ImageVariant, on_delete=models.CASCADE)
     in_stock = models.BooleanField(default=True)
@@ -134,15 +134,20 @@ class ProductAttribute(models.Model):
 
 
 """ https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """
-RATING = ((1, '1'), (2, '2'), (3, '3'),
-          (4, '4'), (5, '5'),)
+RATING=(
+    (1,'1'),
+    (2,'2'),
+    (3,'3'),
+    (4,'4'),
+    (5,'5'),
+)
 
 
 class ProductReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     review_text = models.TextField()
-    review_rating = models.CharField(choices=RATING, max_length=150)
+    review_rating = models.CharField(choices=RATING,max_length=150)
 
     class Meta:
         verbose_name_plural = 'Reviews'

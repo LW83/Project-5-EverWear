@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 
 from .models import (Category, Product, ProductAttribute,
-                     Colour, Size, ImageVariant,
+                     Color, Size, ImageVariant,
                      ProductReview)
 from .forms import ProductForm, ReviewForm
 
@@ -71,26 +71,40 @@ def product_detail(request, id):
     # product = get_object_or_404(Product, pk=product_id)
     # reviews = ProductReview.objects.filter(product_id=product.id)
     product = Product.objects.get(id=id)
-    colours = ProductAttribute.objects.filter(product=product).values('colour__id','colour__name','colour__code').distinct()
-    sizes = ProductAttribute.objects.filter(product=product).values('size__id','size__name', 'size__code', 'price','colour__id').distinct()
+    colors = ProductAttribute.objects.filter(product=product).values('color__id', 'color__name', 'color__code').distinct()
+    sizes = ProductAttribute.objects.filter(product=product).values('size__id', 'size__name', 'size__code', 'color__id').distinct()
     reviewForm = ReviewForm()
 
     canAdd = True
-    reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
     if request.user.is_authenticated:
+        reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
         if reviewCheck > 0:
             canAdd = False
 
     reviews = ProductReview.objects.filter(product=product)
-    avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
+    count_reviews = ProductReview.objects.filter(product=product).aggregate(count=Count('id'))
+    # count = 0
+    # if reviews['count'] is not None:
+    #     count = int(reviews['count'])
+    #     return count
+
+    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
+
+    # def averageReview(self):
+    #     reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('rating'))
+    #     avg = 0
+    #     if reviews['average'] is not None:
+    #         avg = float(reviews['average'])
+    #     return avg
 
     context = {
         'product': product,
         'reviewForm': reviewForm,
         'reviews': reviews,
         'canAdd': canAdd,
-        'avg_reviews': avg_reviews,
-        'colours': colours,
+        'count_reviews': count_reviews,
+        # 'avg_reviews': avg_reviews,
+        'colors': colors,
         'sizes': sizes,
     }
 

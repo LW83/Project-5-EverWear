@@ -71,9 +71,12 @@ def product_detail(request, id):
     # product = get_object_or_404(Product, pk=product_id)
     # reviews = ProductReview.objects.filter(product_id=product.id)
     product = Product.objects.get(id=id)
+    product_attributes = ProductAttribute.objects.filter(product=product)
     colors = ProductAttribute.objects.filter(product=product).values('color__id', 'color__name', 'color__code').distinct()
     sizes = ProductAttribute.objects.filter(product=product).values('size__id', 'size__name', 'size__code', 'color__id').distinct()
     reviewForm = ReviewForm()
+
+    # filtered_sizes = product_attributes.filter('color__id=color__id')
 
     canAdd = True
     if request.user.is_authenticated:
@@ -109,40 +112,6 @@ def product_detail(request, id):
     }
 
     return render(request, 'products/product_detail.html', context)
-
-
-# def product_detail(request, id):
-#     """ View to show details of selected product """
-
-#     query = request.GET.get('q')
-#     product = Product.objects.get(pk=id)
-#     category = Category.objects.all()
-#     # product = get_object_or_404(Product, pk=product_id)
-#     # image = ImageVariant.objects.filter(product_id=id)
-
-#     context = {
-#         'product': product,
-#         # 'image': image,
-#         'category': category,
-#     }
-
-#     if product.variant_options != "None":
-#         if request.method == 'POST':
-#             variant_id = request.POST.get('variant_optionsid')
-#             variant = Variant.objects.get(id=variant_id)
-#             colours = Variant.objects.filter(product_id=id,size_id=variant.size_id )
-#             sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
-#             # query += variant.title+' Size:' +str(variant.size) +' Colour:' +str(variant.colour)
-#         else:
-#             variants = Variant.objects.filter(product_id=product_id)
-#             colours = Variant.objects.filter(product_id=id,size_id=variants[0].size_id )
-#             sizes = Variant.objects.raw('SELECT * FROM  product_variants  WHERE product_id=%s GROUP BY size_id',[id])
-#             variant = Variant.objects.get(id=variants[0].id)
-#         context.update({'sizes': sizes, 'colours': colours,
-#                         'variant': variant,
-#                         })
-
-#     return render(request, 'products/product_detail.html', context)
 
 
 @login_required

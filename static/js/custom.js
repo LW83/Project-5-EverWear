@@ -5,6 +5,7 @@ $(document).ready(function(){
 	// Show size according to selected color
 	$(".choose-color").on('click',function(){
 		$(".choose-color").removeClass('customfocuscolor');
+		$(".choose-color").removeClass('focus');
 		$(".size_section").show();
 		
 		$(this).addClass('customfocuscolor');
@@ -26,24 +27,14 @@ $(document).ready(function(){
 	// End
 });
 
-// // $(".choose-color").change(function() {
-// // 	var attr_size = $(this).find("option:selected").data("variation-id-1") //get attr value
-// // 	//hide all div inside buttons
-// // 	$("#buttons div").hide()
-// // 	//show only divs where match found
-// // 	$("#buttons input[data-variation-id-2=" + attr_size + "]").closest('div').show()
-  
-// //   });
-// //   $("select[name=size]").trigger('change')
-  
+function storeColor(id_product_color) {
+	var color = id_product_color.getAttribute('data-color-name'); 
+	$('#js_data_input').val(color)
+	console.log(color);
+}
 
-// $(".choose-color").on('click',function(){
-// 	$(".choose-size").removeClass('active');
-// 	$(".choose-color").removeClass('focused');
-// 	$(this).addClass('focused');
-
-// 	var _color=$(this).attr('data-color');
-
-// 	$(".choose-size").hide();
-// 	$(".color"+_color).show();
-// 	$(".color"+_color).first().addClass('active');
+function storeSize(id_product_size) {
+	var size = id_product_size.getAttribute('value'); 
+	$('#js_data_input2').val(size)
+	console.log(size);
+}

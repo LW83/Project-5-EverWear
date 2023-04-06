@@ -62,15 +62,14 @@
                             <div class="col-12">
                                 <p class="mt-3"><strong>Colour:</strong></p>
                                 <table>
-                                <tr>
-                                    <td>
-                                        {% for color in colors %}
-                                        <!-- <button class="btn btn-lg choose-color" data-color="{{color.color__id}}" style="background-color: {{color.color__color_code}}"></button> -->
-
-                                            <input type='button' name='product_color' id='id_product_color' class="btn btn-color choose-color" data-color="{{color.color__id}}" style="background-color: {{color.color__code}}"></input>
-                                        {% endfor %}
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            {% for color in colors %}
+                                            <input type='button' name='product_color' id='id_product_color' class="btn btn-color choose-color" data-color-name="{{color.color__name}}" data-color="{{color.color__id}}" style="background-color: {{color.color__code}}" onclick='storeColor(this)'>
+                                            {% endfor %}
+                                            <input type="hidden" name="color-box" value="" id="js_data_input">
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                             <div class="col-12 size_section">
@@ -79,9 +78,9 @@
                                     <tr>
                                         <td>
                                             {% for size in sizes %}
-                                            <!-- <button data-price="{{size.price}}" class="btn btn-outline-secondary btn-sm choose-size color{{size.color__id}}">{{size.size__title}}</button> -->
-                                            <input type='button' name='product_size' id='id_product_size' class="btn btn-outline-secondary btn-sm choose-size color{{size.color__id}}" data-size="{{size.size__id}}" value='{{size.size__code}}'></input>
+                                            <input type='button' name='product_size' id='id_product_size' class="btn btn-outline-secondary btn-sm choose-size color{{size.color__id}}" data-size="{{size.size__id}}" value='{{size.size__code}}' onclick='storeSize(this)'>
                                             {% endfor %}
+                                            <input type="hidden" name="size-box" value="" id="js_data_input2">
                                         </td>
                                     </tr>
                                 </table>
@@ -174,7 +173,7 @@
         </div>
     </div>
         {% else %}
-            <p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+            <p>You must be logged in to post a review. <span><a href="">Login now</a></span></p>
         {% endif %}
     </div> -->
       <!-- Product Review End 265 -291 Comment Out to Test Colour/Size -->

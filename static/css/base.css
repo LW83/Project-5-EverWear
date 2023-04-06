@@ -4,20 +4,28 @@ html {
     height: 100%;
 }
 
+#landing-body {
+    background-image: url('/media/hero_image.jpg') no-repeat center center fixed;
+    height: 100vh;
+    width: 100vw;
+    color: #555;
+    /* font-family: 'Monserrat', sans-serif !important; */
+    font-weight: 400;
+}
+
 body {
     background: url('/media/hero_image.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
     color: #555;
     /* font-family: 'Monserrat', sans-serif !important; */
     font-weight: 400;
 }
 
 footer {
-    margin-bottom:0px !important;
     background-color: #575656;
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
+    width: 100%;
 }
 
 #base_body {
@@ -30,6 +38,7 @@ footer {
 .logo-font {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
+    max-width: 80vw;
 }
 
 .landing-logo-font{

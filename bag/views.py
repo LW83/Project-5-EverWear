@@ -1,7 +1,7 @@
 from django.shortcuts import (get_object_or_404, HttpResponse, render,
                               redirect, reverse)
 from django.contrib import messages
-from products.models import Product
+from products.models import Product, ProductAttribute
 
 
 def view_bag(request):
@@ -13,28 +13,33 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add specified quantity of the specified product to the shopping bag """
 
-    product = Product.objects.get(pk=item_id)
+    # product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    if 'size-box' in request.POST:
+        print('SIZE IS WORKING')
+        size = request.POST['size-box']
     color = None
-    if 'product_color' in request.POST:
-        color = request.POST['product_color']
+    if 'color-box' in request.POST:
+        print('COLOR IS WORKING')
+        color = request.POST['color-box']
 
+    print('SIZE: ', size)
+    print('COLOR: ', color)
     bag = request.session.get('bag', {})
 
     if size and color:
         if item_id in list(bag.keys()):
-            if size and color in bag[item_id]['items_by_size_and_color'].keys():
-                bag[item_id]['items_by_size_and_color'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {product.name} in {color.name} quantity to {bag[item_id]["items_by_size_and_colour"][size][color]}')
+            if size and color in bag[item_id]['items_by_size']['items_by_color'].keys():
+                bag[item_id]['item_by_size'][size]['items_by_color'][color] += quantity
+                messages.success(request, f'Updated size {size.upper()} {product.name} in {color.name} quantity to {bag[item_id]["items_by_size"][size]["items_by_color"][color]}')
             else:
-                bag[item_id]['items_by_size'][size] = quantity
+                bag[item_id]['size'][size] = quantity
                 messages.success(request, f'Added {product.name} in size {size.upper()} to your bag')
         else:
-            bag[item_id] = {'items_by_size': {size: quantity}}
+            bag[item_id] = {'size': {size: quantity}}
             messages.success(request, f'Added {product.name} in size {size.upper()} to your bag')
     else:
         if item_id in list(bag.keys()):
@@ -45,9 +50,8 @@ def add_to_bag(request, item_id):
             messages.success(request, f'{product.name} has been added to your bag')
 
     request.session['bag'] = bag
+    print(bag)
     return redirect(redirect_url)
-
-    """ Add colour variation"""
 
 
 def adjust_bag(request, item_id):

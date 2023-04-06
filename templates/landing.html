@@ -61,25 +61,23 @@
         >
   </head>
   
-  <body>
+  <body id="landing-body">
     <header class="container-fluid fixed-top">
-      <div id = "topnav" class="row pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+        <div class="col-12">
+          <div class="row"></div>
+          <ul class="list-inline list-unstyled text-right mt-2">
             <li class="list-inline-item dropdown">
                 <a class="text-everwear-grey nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
-                        <div><span class="material-symbols-outlined">account_circle</span></div>
-                        <!-- <div><i class="far fa-user fa-lg"></i></div> -->
-                        <!-- <p class="my-0">My Account</p> -->
+                    <div class="text-right">
+                        <div><span class="material-symbols-outlined text-white">account_circle</span></div>
                     </div>
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                          <a href="" class="dropdown-item">Manage Store</a>
+                          <a href="{% url 'add_product' %}" class="dropdown-item">Manage Store</a>
                         {% endif %}
-                        <a href="" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -88,8 +86,8 @@
                 </div>
             </li>
           </ul>
+          </div>
         </div>
-      </div>
     </header>
 
     {% block page_header %}

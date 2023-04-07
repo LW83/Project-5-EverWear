@@ -46,6 +46,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
+        'image_tag',
     )
 
 
@@ -80,9 +81,9 @@ class ProductAttributeAdmin(admin.ModelAdmin):
 @admin_thumbnails.thumbnail('image_variant')
 class ImageVariantAdmin(admin.ModelAdmin):
     list_display = (
-            'product',
-            'image_variant',
-            'image_variant_thumbnail',
+        'product',
+        'image_variant',
+        'image_variant_thumbnail',
         )
 
 

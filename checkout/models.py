@@ -5,7 +5,7 @@ from django.db.models import Sum
 from django.conf import settings
 from django_countries.fields import CountryField
 
-from products.models import Product
+from products.models import Product, ProductAttribute, Color, Size
 from profiles.models import UserProfile
 
 ORDER_STATUS = (('Received', 'Received'), ('Processing', 'Processing'),
@@ -98,7 +98,8 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=2, null=True, blank=True)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
+    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,

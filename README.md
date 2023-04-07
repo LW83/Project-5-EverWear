@@ -15,3 +15,6 @@ Ratings from https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/s
 Bugs: 
 Login redirect error - had a login url in commented out code. Meant couldnt view product detail page when not logged in. Link; https://forum.djangoproject.com/t/reverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6
 Getting sizes to display dynamically - needed to have color_id in size fields in view
+
+Adding variations to the bag: https://github.com/LADCode2021/pp5-vape-city/blob/main/basket/contexts.py
+Int errors/key errors

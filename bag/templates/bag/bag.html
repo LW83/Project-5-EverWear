@@ -47,8 +47,8 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0"><strong>Size: </strong>{{ item.size|upper }}</p>
-                                        <p class="my-0"><strong>Colour: </strong>{{ item.color|upper }}</p>
+                                        <p class="my-0"><strong>Size: </strong>{% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0"><strong>Colour: </strong>{% if item.color %}{{ item.color }}{% else %}N/A{% endif %}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
@@ -79,14 +79,16 @@
                                                             </span>
                                                         </button>
                                                     </div>
-                                                    {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    {% if item.color and item.size %}
+                                                    <input type="hidden" name="product_item" value="{{ item.item }}">
+                                                    <input type="hidden" name="size-box" value="{{ item.size }}">
+                                                    <input type="hidden" name="color-box" value="{{ item.color }}">
                                                     {% endif %}
                                                 </div>
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_item="{{ item.item }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>

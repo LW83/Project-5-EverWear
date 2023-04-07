@@ -2,7 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
-from products.models import Product
+from products.models import Product, ProductAttribute, Color, Size
 
 
 def bag_contents(request):
@@ -24,14 +24,18 @@ def bag_contents(request):
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
-            for size, quantity in item_data['items_by_size'].items():
+            for item, quantity in item_data['items_by_variation'].items():
+                size = item.split('_')[1]
+                color = item.split('_')[2]
                 total += quantity * product.price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
+                    'item': item,
                     'quantity': quantity,
                     'product': product,
                     'size': size,
+                    'color': color,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:

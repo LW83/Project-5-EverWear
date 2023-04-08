@@ -1,6 +1,19 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category, ProductReview
+from .models import (Product, Category, ProductReview, ProductAttribute,
+                     Color, Size)
+
+
+class CategoryForm(forms.ModelForm):
+    """Form to allow editing of categories"""
+
+    class Meta:
+        model = Category
+        fields = ('name', 'friendly_name', 'image',
+                  'image_alt',)
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
 
 class ProductForm(forms.ModelForm):
@@ -8,7 +21,8 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ('category', 'sku', 'name', 'description', 'price',
+                  'image', 'image_alt', 'variant_options')
 
     image = forms.ImageField(label='Image', required=False,
                              widget=CustomClearableFileInput)
@@ -22,6 +36,27 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-1'
 
+
+class ProductVariationForm(forms.ModelForm):
+    """Form to allow editing of products"""
+
+    class Meta:
+        model = ProductAttribute
+        fields = ('__all__')
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     products = Product.objects.all()
+    #     names = [(p.id, p.name()) for p in products]
+    #     self.fields['products'].choices = names
+    #     for field_name, field in self.fields.items():
+    #         field.widget.attrs['class'] = 'border-black rounded-1'
+
+        # colours = Color.objects.all()
+        # sizes = Size.objects.all()
 
 class ReviewForm(forms.ModelForm):
     class Meta:

@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from .models import (Category, Product, ProductAttribute,
                      Color, Size, ImageVariant,
                      ProductReview)
-from .forms import ProductForm, ReviewForm
+from .forms import ProductForm, ReviewForm, ProductVariationForm, CategoryForm
 
 
 def all_products(request):
@@ -68,7 +68,6 @@ def all_products(request):
 def product_detail(request, id):
     """ A view to show individual product details """
 
-    # product = get_object_or_404(Product, pk=product_id)
     # reviews = ProductReview.objects.filter(product_id=product.id)
     product = Product.objects.get(id=id)
     product_attributes = ProductAttribute.objects.filter(product=product)
@@ -113,6 +112,42 @@ def product_detail(request, id):
 
 
 @login_required
+def manage_store(request):
+    """ View to display manage store page """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to access.')
+        return redirect(reverse('home'))
+    else:
+        return render(request, 'products/manage_store.html')
+
+
+@login_required
+def add_category(request):
+    """ Add a category to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to add cateogries.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            category = form.save()
+            messages.success(request, 'Category has been successfully added.')
+            return redirect(reverse('manage_store'))
+        else:
+            messages.error(request, 'Failed to add category. Please ensure the form is valid.')
+    else:
+        form = CategoryForm()
+
+    template = 'products/add_category.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
@@ -124,13 +159,39 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product has been successfully added.')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('manage_store'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
 
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_variation(request):
+    """ Add a variation to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductAttributeForm(request.POST, request.FILES)
+        if form.is_valid():
+            product_variant = form.save()
+            messages.success(request, 'Product variant has been successfully added.')
+            return redirect(reverse('manage_store'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductVariationForm()
+
+    template = 'products/add_variation.html'
     context = {
         'form': form,
     }

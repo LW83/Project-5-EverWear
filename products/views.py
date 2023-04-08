@@ -81,28 +81,15 @@ def product_detail(request, id):
     #     if reviewCheck > 0:
     #         canAdd = False
 
+    # Get the reviews
     reviews = ProductReview.objects.filter(product=product)
-    count_reviews = ProductReview.objects.filter(product=product).aggregate(count=Count('id'))
-    # count = 0
-    # if reviews['count'] is not None:
-    #     count = int(reviews['count'])
-    #     return count
-
-    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
-
-    # def averageReview(self):
-    #     reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('rating'))
-    #     avg = 0
-    #     if reviews['average'] is not None:
-    #         avg = float(reviews['average'])
-    #     return avg
 
     context = {
         'product': product,
         'reviewForm': reviewForm,
         'reviews': reviews,
         # 'canAdd': canAdd,
-        'count_reviews': count_reviews,
+        # 'count_reviews': count_reviews,
         # 'avg_reviews': avg_reviews,
         'colors': colors,
         'sizes': sizes,
@@ -260,23 +247,3 @@ def submit_review(request, product_id):
     avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
 
     return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews})
-
-# url = request.META.get('HTTP_REFERER')
-    # if request.method == 'POST':
-    #     try:
-    #         reviews = ProductReview.objects.get(user__id=request.user.id, product__id=product_id)
-    #         form = ReviewForm(request.POST, instance=reviews)
-    #         form.save()
-    #         messages.success(request, 'Thank you! Your review has been updated.')
-    #         return redirect(reverse('product_detail', args=[product.id]))
-    #     except ProductReview.DoesNotExist:
-    #         form = ReviewForm(request.POST)
-    #         if form.is_valid():
-    #             data = ProductReview()
-    #             data.review_rating = form.cleaned_data['review_rating']
-    #             data.review_text = form.cleaned_data['review_text']
-    #             data.product_id = product_id
-    #             data.user_id = request.user.id
-    #             data.save()
-    #             messages.success(request, 'Thank you! Your review has been submitted.')
-    #             return redirect(reverse('product_detail', args=[product.id]))

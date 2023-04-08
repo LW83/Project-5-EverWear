@@ -67,9 +67,9 @@ class Product(models.Model):
         else:
             return ""
 
-    """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py  IN VIEW OR MODEL""" 
+    """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py"""
     def averageReview(self):
-        reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('rating'))
+        reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('review_rating'))
         avg = 0
         if reviews['average'] is not None:
             avg = float(reviews['average'])

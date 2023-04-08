@@ -47,16 +47,6 @@ class ProductVariationForm(forms.ModelForm):
     image = forms.ImageField(label='Image', required=False,
                              widget=CustomClearableFileInput)
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     products = Product.objects.all()
-    #     names = [(p.id, p.name()) for p in products]
-    #     self.fields['products'].choices = names
-    #     for field_name, field in self.fields.items():
-    #         field.widget.attrs['class'] = 'border-black rounded-1'
-
-        # colours = Color.objects.all()
-        # sizes = Size.objects.all()
 
 class ReviewForm(forms.ModelForm):
     class Meta:

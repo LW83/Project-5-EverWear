@@ -18,9 +18,9 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
 
     item = None
-    if 'size-box' and 'color-box' in request.POST:
-        size = request.POST['size-box']
-        color = request.POST['color-box']
+    if 'size_box' and 'color_box' in request.POST:
+        size = request.POST['size_box']
+        color = request.POST['color_box']
         item = f'{item_id}_{size}_{color}'
     bag = request.session.get('bag', {})
 
@@ -70,8 +70,8 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     item = None
     if 'product_item' in request.POST:
-        size = request.POST['size-box']
-        color = request.POST['color-box']
+        size = request.POST['size_box']
+        color = request.POST['color_box']
         item = f'{item_id}_{size}_{color}'
     bag = request.session.get('bag', {})
 
@@ -118,10 +118,8 @@ def remove_from_bag(request, item_id):
     try:
         product = get_object_or_404(Product, pk=item_id)
         item = None
-        if 'size-box' and 'color-box' in request.POST:
-            size = request.POST['size-box']
-            color = request.POST['color-box']
-            item = f'{item_id}_{size}_{color}'
+        if 'product_item' in request.POST:
+            item = request.POST['product_item']
         bag = request.session.get('bag', {})
 
         if item:

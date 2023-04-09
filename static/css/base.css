@@ -5,12 +5,22 @@ html {
 }
 
 #landing-body {
-    background-image: url('/media/hero_image.jpg') no-repeat center center fixed;
+    /* background-image: url('/media/hero_image.jpg') no-repeat center center fixed;
     height: 100vh;
-    width: 100vw;
+    width: 100vw; */
     color: #555;
     /* font-family: 'Monserrat', sans-serif !important; */
     font-weight: 400;
+}
+
+#intro {
+    position:fixed;
+    margin-top: 30vh;
+}
+
+.symbol {
+    max-height: 200px;
+    max-width: auto;
 }
 
 body {
@@ -305,3 +315,31 @@ input[name='q']::placeholder {
         height: calc(100vh - 116px);
     }
 }
+
+@media (max-width: 800px) {
+   .symbol {
+    max-height: 150px;
+   }
+
+   #intro h1 {
+    font-size: 450%;
+   }
+
+   #intro  {
+    margin-top: 35vh
+   }
+}
+
+@media (max-width: 500px) {
+    .symbol {
+     max-height: 100px;
+    }
+ 
+    #intro h1 {
+     font-size: 300%;
+    }
+ 
+    #intro  {
+     margin-top: 40vh
+    }
+ }

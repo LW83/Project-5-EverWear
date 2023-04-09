@@ -65,9 +65,10 @@
   <body>
     <header class="container-fluid fixed-top">
       <div id = "topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-            <a href="{% url 'home' %}" class="nav-link main-logo-link">
-              <h2 class="logo-font text-everwear-grey my-0">EVERWEAR.</h2>
+        <div class="col-12 col-lg-4 header">
+            <a href="{% url 'home' %}" class="nav-linkbl">
+                <img class="symbol2" src="/media/grey_symbol.png" alt="EverWear symbol">
+                <h2 class="logo-font text-everwear-grey my-0">EVERWEAR.</h2>
             </a>
         </div>
         <!-- Search form -->
@@ -107,14 +108,14 @@
                 </div>
             </li>
             <li class="list-inline-item">
-                <a class="{% if grand_total %}text-everwear-green{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'view_bag' %}">
+                <a class="{% if grand_total %}text-everwear-blue{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'view_bag' %}">
                     <div class="text-center">
                         <div><span class="material-symbols-outlined">local_mall</span></div>
                     </div>
                 </a>
             </li>
             <li class="list-inline-item"><!--Update if not grand total need to ensure logged in-->
-                <a class="{% if grand_total %}text-everwear-green{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'wishlist' %}">
+                <a class="{% if wishlist.count %}text-everwear-red{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'wishlist' %}">
                     <div class="text-center">
                         <div><span class="material-symbols-outlined">favorite</span></div>
                     </div>

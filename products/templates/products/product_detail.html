@@ -5,22 +5,19 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container-fluid"> 
-        <!-- BREADCRUMB -->
-        <!-- <div id="breadcrumb">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/category/{{ product.category.id }}/{{ product.category.friendly_name }}">{{ product.category.title }}</a></li>
-                    <li class="active">{{ product.name }}</li>
-                </ul>
-            </div>
-        </div> -->
-        <!-- /BREADCRUMB -->
+    <div class="container-fluid products-container"> 
         <div class="row">
             <div class="col text-left mt-3">
-                <h2 class="logo-font">Product Information</h2>
-                <hr class="w-50 mb-1">
+                <h3 class="logo-font">Product Information</h3>
+            </div>
+            <div id="breadcrumb">
+                <div class="container-fluid">
+                    <ul class="breadcrumb text-left">
+                        <li><a href="{% url 'home' %}">Home/</a></li>
+                        <li><a href="{% url 'products' %}?category={{ category.name }}">{{ product.category.friendly_name }}/</a></li>
+                        <li class="active">{{ product.name }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -39,7 +36,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
+                    <h5 class="mb-0">{{ product.name }}</h5>
                     <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
                     {% if product.countReview != 0 %}
                     <div class="rating-star">
@@ -115,7 +112,7 @@
 
                             <div class="col-12">
                                 <input type="submit" class="btn btn-everwear-grey rounded-1 text-uppercase mt-2" value="Add to Bag">
-                                <a type="button" class="btn btn-outline-everwear-grey rounded-1 text-uppercase mt-2" href="{% url 'add_to_wishlist' product.id %}">Add to Wishlist</a>
+                                <a type="button" class="btn btn-outline-everwear-grey rounded-1 text-uppercase mt-2 wishlist_btn" href="{% url 'add_to_wishlist' product.id %}">Add to Wishlist</a>
                             </div>
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-1 mt-2">
@@ -132,7 +129,7 @@
             </div>
         </div>
 		<div class="col-md-6">
-                <span><h3>Customer Reviews </h3>
+                <span><h4>Customer Reviews </h4>
                     {% if user.is_authenticated %}
                     {% if canAdd %}
 				    <button data-toggle="modal" data-target="#productReview" type="button" class="btn btn-everwear-grey btn-sm float-right reviewBtn">Add Review</button>
@@ -177,7 +174,7 @@
             {% endif %}
         </div>
         <br>
-        <div class="card col-lg-6 col-sm-12">
+        <div class="card col-lg-6 col-sm-12 mb-2">
             <div class="card-body review-list" style="max-height: 400px; overflow: auto;">
                 {% if reviews %}
                     {% for review in reviews %}
@@ -201,6 +198,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script src="{% static '/js/custom.js' %}"></script>
+<script src="{% static '/js/custom.js' %}">
+</script>
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

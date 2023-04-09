@@ -27,7 +27,7 @@ body {
     background: url('/media/hero_image.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #555;
-    /* font-family: 'Monserrat', sans-serif !important; */
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
@@ -55,6 +55,14 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     color: white;
+}
+
+.allauth-form-inner-content button, .allauth-form-inner-content input{
+    border-radius: 2px !important;
+}
+
+.allauth-form-inner-content a {
+    color: #575656 !important;
 }
 
 /* from Bulma */

@@ -75,21 +75,21 @@ def product_detail(request, id):
     sizes = ProductAttribute.objects.filter(product=product).values('size__id', 'size__name', 'size__code', 'color__id').distinct()
     reviewForm = ReviewForm()
 
-    # canAdd = True
-    # if request.user.is_authenticated:
-    #     reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
-    #     if reviewCheck > 0:
-    #         canAdd = False
+    canAdd = True
+    if request.user.is_authenticated:
+        reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
+        if reviewCheck > 0:
+            canAdd = False
 
     # Get the reviews
     reviews = ProductReview.objects.filter(product=product)
+    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
 
     context = {
         'product': product,
         'reviewForm': reviewForm,
         'reviews': reviews,
-        # 'canAdd': canAdd,
-        # 'count_reviews': count_reviews,
+        'canAdd': canAdd,
         # 'avg_reviews': avg_reviews,
         'colors': colors,
         'sizes': sizes,

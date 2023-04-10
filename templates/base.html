@@ -76,7 +76,7 @@
             <form method="GET" action="{% url 'products' %}">
               <div class="input-group w-100">
                   <input class="form-control border border-everwear-grey rounded-1" type="search" name="q" placeholder="Search our site" aria-label="Search">
-                  <div class="input-group-append">
+                  <div class="input-group-append-search">
                       <button class="form-control btn btn-everwear-grey border border-everwear-grey rounded-1" type="submit">
                           <span class="icon">
                               <i class="fas fa-search"></i>
@@ -170,7 +170,7 @@
                 <span><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Link to Instagram (opens in a new tab)"><i class="fa fa-instagram text-white mx-2"></i></a></span>
             </div>
             </div>
-            <div class="col-6 col-md">
+            <div class="col-12 col-md">
             <h5>My Account</h5>
             <ul class="list-unstyled text-small">
             {% if request.user.is_authenticated %}
@@ -186,7 +186,7 @@
                 <li><a class="text-muted" href="{% url 'view_bag' %}">Checkout</a></li>
             </ul>
             </div>
-            <div class="col-6 col-md">
+            <div class="col-12 col-md">
             <h5>Customer Service</h5>
             <ul class="list-unstyled text-small">
                 <li><a class="text-muted" href="{% url 'about' %}">About Us</a></li>
@@ -194,7 +194,7 @@
                 <li><a class="text-muted" href="#">Privacy Policy</a></li>
             </ul>
             </div>
-            <div class="col-6 col-md">
+            <div class="col-12 col-md">
             <h5>Stay Connected</h5>
                     <p class="text-muted">Sign up to our newsletter for details of new products and sales</p>
                     <form>

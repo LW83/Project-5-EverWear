@@ -71,6 +71,7 @@ def product_detail(request, id):
     # reviews = ProductReview.objects.filter(product_id=product.id)
     product = Product.objects.get(id=id)
     product_attributes = ProductAttribute.objects.filter(product=product)
+    category = Category.objects.all()
     colors = ProductAttribute.objects.filter(product=product).values('color__id', 'color__name', 'color__code').distinct()
     sizes = ProductAttribute.objects.filter(product=product).values('size__id', 'size__name', 'size__code', 'color__id').distinct()
     reviewForm = ReviewForm()
@@ -90,6 +91,7 @@ def product_detail(request, id):
         'reviewForm': reviewForm,
         'reviews': reviews,
         'canAdd': canAdd,
+        'category': category,
         # 'avg_reviews': avg_reviews,
         'colors': colors,
         'sizes': sizes,

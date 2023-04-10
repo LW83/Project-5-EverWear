@@ -267,8 +267,9 @@ input[name='q']::placeholder {
     height: 40vh;
 }
 
-.login-a {
-    color:#575656;
+.login-a, 
+.checkout_anchor {
+    color:#575656 !important;
 }
 
 hr {
@@ -491,12 +492,12 @@ hr {
         width: 80% !important;
     }
 
-    .input-group-prepend,
-    .input-group-append {
+    .q-plus,
+    .q-minus {
         max-width: 5px !important;
     }
 
-    .qty_input {
+    .q-number {
         max-width: 50px !important;
         margin-left: 10px;
     }
@@ -515,12 +516,12 @@ hr {
         width: 80% !important;
     }
 
-    .input-group-prepend,
-    .input-group-append {
+    .q-plus,
+    .q-minus {
         max-width: 5px !important;
     }
 
-    .qty_input {
+    .q-number {
         max-width: 50px !important;
         margin-left: 10px;
     }
@@ -543,12 +544,7 @@ hr {
         width: 80% !important;
     }
 
-    .input-group-prepend,
-    .input-group-append {
-        max-width: 10px !important;
-    }
-
-    .qty_input {
+    .q-number {
         max-width: 50px !important;
         margin-left: 19px;
     }
@@ -562,15 +558,15 @@ hr {
 
  @media (min-width: 820px) {
     .quantity-button {
-        width: 100% !important;
+        width: 50% !important;
     }
 
-    .input-group-prepend,
-    .input-group-append {
+    .q-plus,
+    .q-minus {
         max-width: 10px !important;
-    }
+    } */
 
-    .qty_input {
+    .q-number {
         max-width: 50px !important;
         margin-left: 10px;
     }

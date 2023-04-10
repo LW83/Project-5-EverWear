@@ -65,7 +65,7 @@
   <body>
     <header class="container-fluid fixed-top">
       <div id = "topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 header">
+        <div class="col-12 col-lg-4 header mt-2">
             <a href="{% url 'home' %}" class="nav-linkbl">
                 <img class="symbol2" src="/media/grey_symbol.png" alt="EverWear symbol">
                 <h2 class="logo-font text-everwear-grey my-0">EVERWEAR.</h2>
@@ -159,30 +159,38 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="pt-4 my-md-5 pt-md-5 border-top container-fluid">
+    <footer class="pt-4 mt-4 container-fluid">
         <div class="row">
-            <div class="col-12 col-md">
+            <div class="col-12 col-md mb-4">
             <h3 class="logo-font text-white my-0">EVERWEAR.</h3>
             <small class="d-block mb-3 text-muted">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved</small>
             <div class="footer-social list-unstyled">
-                <span><a href="#"><i class="fa fa-facebook text-white mx-2"></i></a></span>
-                <span><a href="#"><i class="fa fa-twitter text-white mx-2"></i></a></span>
-                <span><a href="#"><i class="fa fa-instagram text-white mx-2"></i></a></span>
+                <span><a href="https://www.facebook.com/EverWearIE/" target="_blank" rel="noopener" aria-label="Link to Facebook (opens in a new tab)"><i class="fa fa-facebook text-white mx-2"></i></a></span>
+                <span><a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Link to Twitter (opens in a new tab)"><i class="fa fa-twitter text-white mx-2"></i></a></span>
+                <span><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Link to Instagram (opens in a new tab)"><i class="fa fa-instagram text-white mx-2"></i></a></span>
             </div>
             </div>
             <div class="col-6 col-md">
             <h5>My Account</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">My Account</a></li>
-                <li><a class="text-muted" href="#">Wishlist</a></li>
-                <li><a class="text-muted" href="#">Checkout</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a class="text-muted" href="{% url 'profile' %}">My Account</a></li>
+            {% else %}
+                <li><a class="text-muted" href="{% url 'account_signup' %}" class="dropdown-item">My Account</a></li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <li><a class="text-muted" href="{% url 'wishlist' %}">Wishlist</a></li>
+            {% else %}
+                <li><a class="text-muted" href="{% url 'account_signup' %}" class="dropdown-item">Wishlist</a></li>
+            {% endif %}
+                <li><a class="text-muted" href="{% url 'view_bag' %}">Checkout</a></li>
             </ul>
             </div>
             <div class="col-6 col-md">
             <h5>Customer Service</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">About Us</a></li>
-                <li><a class="text-muted" href="#">Shipping & Returns</a></li>
+                <li><a class="text-muted" href="{% url 'about' %}">About Us</a></li>
+                <li><a class="text-muted" href="{% url 'shipping' %}">Shipping & Returns</a></li>
                 <li><a class="text-muted" href="#">Privacy Policy</a></li>
             </ul>
             </div>
@@ -191,9 +199,9 @@
                     <p class="text-muted">Sign up to our newsletter for details of new products and sales</p>
                     <form>
                         <div class="form-group">
-                            <input class="input rounded-1" placeholder="Enter Email Address">
+                            <input class="input rounded-1" placeholder="Enter Email Address">          
+                            <button class="btn-outline-everwear-grey rounded-1 mb-4">Subscribe</button>
                         </div>
-                        <button class="btn-outline-everwear-grey rounded-1 mb-4">Subscribe</button>
                     </form>
             </div>
         </div>

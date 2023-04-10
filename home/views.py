@@ -16,6 +16,18 @@ def index(request):
     return render(request, 'home/index.html')
 
 
+def about(request):
+    """ View to display about us page of site """
+
+    return render(request, 'home/about.html')
+
+
+def shipping(request):
+    """ View to display about us page of site """
+
+    return render(request, 'home/shipping.html')
+
+
 def all_categories(request):
 
     categories = Category.objects.all()

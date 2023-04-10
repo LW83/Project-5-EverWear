@@ -4,15 +4,6 @@ html {
     height: 100%;
 }
 
-/* #landing-body {
-    /* background-image: url('/media/hero_image.jpg') no-repeat center center fixed;
-    height: 100vh;
-    width: 100vw; */
-    /* color: #555; */
-    /* font-family: 'Monserrat', sans-serif !important; */
-    /* font-weight: 400; */
-/* } */ 
-
 #intro {
     position:fixed;
     margin-top: 30vh;
@@ -29,10 +20,33 @@ body {
     color: #575656;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.home-image {
+    background: url('/media/lake.jpg') center center;
+    width: 100%;
+    height: 300px;
+    padding: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #575656;
+}
+
+.about-image {
+    background: url('/media/river.jpg') center center;
+    width: 100%;
+    height: 300px;
+    padding: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #575656;
 }
 
 .products-container {
-    margin-top: 112px !important;
+    margin-top: 114px !important;
 }
 
 footer {
@@ -40,14 +54,19 @@ footer {
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    /* margin: auto; */
 }
 
-#base_body {
+footer button {
+    border-radius: 2;
+}
+
+/* #base_body {
     height: calc(100vh - 400px);
     color: #555;
     font-family: 'Monserrat', sans-serif;
     font-weight: 400;
-}
+} */
 
 .header img {
     float: left;
@@ -64,6 +83,13 @@ footer {
     text-decoration: none !important;
 }
 
+.navbar {
+    background-color: #575656;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 18px;
+}
+
 .logo-font {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -76,19 +102,33 @@ footer {
     color: white;
 }
 
-.allauth-form-inner-content button, .allauth-form-inner-content input{
-    border-radius: 2px !important;
-}
-
-.allauth-form-inner-content a {
-    color: #575656 !important;
+.home-logo-font{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #575656;
 }
 
 .breadcrumb {
     background-color: whitesmoke !important;
 }
 
+.table {
+    color: #575656 !important;
+}
+
+.border-info{
+    border-color: #575656 !important; /* Change border for sort box */
+}
+
+.home-detail {
+    color: #575656;
+}
+
 /* from Bulma */
+.btn {
+    border-radius: 2px;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -115,7 +155,7 @@ footer {
 .btn-outline-everwear-grey {
     background: white;
     color: #575756 !important; 
-    border: 1px solid black;
+    border: 1px solid #575656;
 }
 
 .btn-outline-everwear-grey:hover,
@@ -123,6 +163,8 @@ footer {
 .btn-outline-everwear-grey:focus {
     background: #575656;
     color: white !important;
+    border-color: white;
+    border-radius: 2px;
 }
 
 .shop-button:hover,
@@ -136,7 +178,6 @@ footer {
 .category-badge:focus {
     background: white;
     color: #575756;
-    /* border: 1px solid #575756;  */
 }
 
 .text-everwear-grey {
@@ -213,6 +254,17 @@ input[name='q']::placeholder {
     height: 30vh;
 }
 
+.product-cards img {
+    height: 40vh;
+}
+
+/* Card hover css from LADCode2021 */
+
+.product-cards:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
 /* ------------------------------- Bootstrap Toasts */
 
 .message-container {
@@ -240,13 +292,21 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Allauth form formatting */
 
+/* .allauth-form-inner-content button, .allauth-form-inner-content input{
+    border-radius: 2px !important;
+} */
+
+.allauth-form-inner-content a {
+    color: #575656 !important;
+}
+
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
 }
 
 .allauth-form-inner-content input {
-    border-color: #000;
+    border-color: #575656;
     border-radius: 0;
 }
 
@@ -275,7 +335,7 @@ input[name='q']::placeholder {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0;
+    border-radius: 2px;
 
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -286,10 +346,6 @@ input[name='q']::placeholder {
 	color: #fff;
     background-color: #222;
     border-color: #222;
-}
-
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
 }
 
 /* Product Form */
@@ -311,12 +367,12 @@ input[name='q']::placeholder {
 
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #dc3545;
+    border-color:  rgb(180, 10, 10);
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color:  rgb(180, 10, 10);
+    border-color:  rgb(180, 10, 10);
     border-radius: 0;
 }
 
@@ -353,6 +409,23 @@ input[name='q']::placeholder {
     body {
         height: calc(100vh - 116px);
     }
+
+    .navbar {
+        background-color: white;
+        width: 100% !important;
+        padding: 0 !important;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        margin-left: 4px;
+    }
+
+    .products-container {
+        margin-top: 66px !important;
+    }
+
+    #main-nav a {
+        color: #575656 !important;
+    }
 }
 
 @media (max-width: 800px) {
@@ -380,5 +453,33 @@ input[name='q']::placeholder {
  
     #intro  {
      margin-top: 40vh
+    }
+ }
+ 
+ @media (max-width: 1728px) {
+    .product-cards img {
+        height: 32vh;
+    }
+ }
+
+ @media (max-width: 981px) {
+    .product-cards img {
+        height: 28vh;
+    }
+ }
+
+ @media (max-width: 420px) {
+    .product-cards img {
+        height: 40vh;
+    }
+
+    .sort-select-wrapper {
+        width: 100%;
+    }
+ }
+
+@media (max-width: 375px) {
+    .product-cards img {
+        height: 42vh;
     }
  }

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %} Shipping {% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container-fluid products-container">
+        <div class="col-12 about-image"></div>
+        <div class="col-10 offset-1 text-center">
+            <h1 class="home-logo-font mt-2">
+                EVERWEAR. 
+            </h1>
+            <h4 class="home-logo-font mt-1">
+                Delivery Information
+            </h4>
+            <p> Delivery of your purchases will be made on the next working day. Our delivery network has been carefully selected based on efficient transport to minimise the impact of delivery.
+                All deliveries will require signature on arrival. You will be notified via text message to the mobile number in your order of delivery details and changes to the proposed date can
+                be made via the link in the message if the proposed time/date does not suit. 
+            </p>
+            <br>
+            <br>    
+            <h5>Our Delivery Charges</h5>
+            <p>Our delivery charges are standard across all locations and include any customs or duties taxes arising on importation</p>
+            <div class="text-center">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Purchase Value</th>
+                    <th>Delivery Charge</th>
+                </tr>
+                <tr>
+                    <td>
+                        Up to €50
+                    </td>
+                    <td>
+                        10% of the order price
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Over €50
+                    </td>
+                    <td>
+                        Free
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <br>
+            <br>
+            <h5>Returns</h5>
+            <p>Returns can be made via the returns docket included in your delivery. All amounts will be credited back to the payment mechanism used on purchase.</p>
+        </div>
+    </div>
+{% endblock %}

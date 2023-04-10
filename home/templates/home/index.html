@@ -3,32 +3,38 @@
 
 {% block extra_title %} Homepage {% endblock %}
 
-{% block page_header %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-
-            </div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="overlay"></div>
-    <div class="container-fluid products-container"> 
+    <div class="container-fluid products-container">
+        <div class="col-12 home-image"></div>
+        <div class="col-10 offset-1 text-center">
+            <h1 class="home-logo-font mt-2">
+                EVERWEAR. 
+            </h1>
+            <h4 class="home-logo-font mt-1">
+                ALL. THINGS. EQUAL.
+            </h4>
+            <p>Welcome to EverWear. At EverWear we believe, live and work by our motto that all things are created equal. This means we prioritise respect, diversity and inclusion in our workplace
+               and our customer base. It is also reflected in the core of how we make our clothes sourcing our materials from fairtrade organic suppliers to ensure minimal impact on the earth's
+               resources and fair treatment and pay for our supply chain. Our clothes are also made to last to further minimise waste and depletion of natural resources in the production of clothing. 
+               We make our clothes with a conscience but we do not compromise style in getting there. Thank you for being a part of the EverWear journey. 
+            </p>
+        </div>
+    </div>
+    <div class="container-fluid"> 
         <div class="row">
-            <div class="col text-left mt-3">
-                <h2 class="logo-font">Our Range</h2>
+            <div class="col-12 text-center mt-4">
+                <h2 class="logo-font mx-auto my-auto">Our Current Range</h2>
                 <br>
                 {% for c in current_categories %}
-                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                    <a class="text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white text-everwear-grey rounded-1 border border-dark">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
             </div>
         </div>
         <div class="row">
-            <div class="container col-10 offset-1">
+            <div class="container col-11 offset-.5">
                 <div class="row mt-1 mb-2">
                     {% for category in categories %}
                         <div class="col-sm-6 col-md-6 col-lg-5 col-xl-4">

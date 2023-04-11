@@ -20,3 +20,14 @@ Adding variations to the bag: https://github.com/LADCode2021/pp5-vape-city/blob/
 Int errors/key errors
 
 Fixing the footer to stay at bottom regardless of content and screen size: https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
+
+
+
+Credits
+Stock images
+DNL Bowers
+LadCode
+Stack Overflow
+Slack
+Privacy Policy Generator: https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#
+TINY PNG

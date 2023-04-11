@@ -23,9 +23,15 @@ def about(request):
 
 
 def shipping(request):
-    """ View to display about us page of site """
+    """ View to display shipping page of site """
 
     return render(request, 'home/shipping.html')
+
+
+def privacy(request):
+    """ View to display privacy page of site """
+
+    return render(request, 'home/privacy.html')
 
 
 def all_categories(request):

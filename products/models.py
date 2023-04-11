@@ -121,7 +121,7 @@ class ImageVariant(models.Model):
         return self.name
 
     def image_tag(self):
-        if self.image:
+        if self.image_variant:
             if self.image_variant.url is not None:
                 return mark_safe('<img src="{}" height="50"/>'.format(self.image_variant.url))
             else:
@@ -134,7 +134,7 @@ class ProductAttribute(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
-    image = models.ForeignKey(ImageVariant, on_delete=models.CASCADE)
+    image = models.ForeignKey(ImageVariant, on_delete=models.CASCADE, null=True, blank=True)
     in_stock = models.BooleanField(default=True)
     amount_in_stock = models.IntegerField()
     sale = models.BooleanField(default=False)
@@ -143,15 +143,6 @@ class ProductAttribute(models.Model):
 
     def __str__(self):
         return self.product.name
-
-    def image_tag(self):
-        if self.image:
-            if self.image.url is not None:
-                return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
-            else:
-                return ""
-        else:
-            return ""
 
 
 """ https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """

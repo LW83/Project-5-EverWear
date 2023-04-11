@@ -16,7 +16,6 @@ class ImageVariantAdminInline(admin.TabularInline):
 class ProductAttributeAdminInline(admin.TabularInline):
     """Enables editing of Product Variations from Admin"""
     model = ProductAttribute
-    readonly_fields = ('image_tag',)
     extra = 1
 
 
@@ -74,7 +73,6 @@ class ProductAttributeAdmin(admin.ModelAdmin):
         'amount_in_stock',
         'sale',
         'discounted_price',
-        'image_tag',
     )
 
 

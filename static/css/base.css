@@ -284,6 +284,19 @@ hr {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
+/* Mailchimp embedded form styling */
+
+#mc_embed_signup {
+    background:#575656; 
+    clear:left; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+#mc_embed_signup .foot {
+    display: block;
+}
+
 /* ------------------------------- Bootstrap Toasts */
 
 .message-container {

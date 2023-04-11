@@ -30,7 +30,13 @@ LadCode
 Privacy Policy Generator: https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#
 
 
-
+Who are your users?
+Which online platforms would you find lots of your users?
+Would your users use social media? If yes, which platforms do you think you would find them on?
+What do your users need? Could you meet that need with useful content? If yes, how could you best deliver that content to them?
+Would your business run sales or offer discounts? How do you think your users would most like to hear about these offers?
+What are the goals of your business? Which marketing strategies would offer the best ways to meet those goals?
+Would your business have a budget to spend on advertising? Or would it need to work with free or low cost options to market itself?
 
 # EverWear 
 ***
@@ -82,7 +88,6 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
   * [**Credits**](#credits)
     * [**Resources**](#resources)
     * [**Code Utilisation**](#code-utilisation)
-    * [**People**](#people)
 
 ***
 ## Concept and Planning 

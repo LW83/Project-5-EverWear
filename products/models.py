@@ -24,8 +24,11 @@ class Category(models.Model):
         return self.friendly_name
 
     def image_tag(self):
-        if self.image.url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+        if self.image:
+            if self.image.url is not None:
+                return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+            else:
+                return ""
         else:
             return ""
 
@@ -62,8 +65,11 @@ class Product(models.Model):
         return self.name
 
     def image_tag(self):
-        if self.image.url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+        if self.image:
+            if self.image.url is not None:
+                return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+            else:
+                return ""
         else:
             return ""
 
@@ -115,8 +121,11 @@ class ImageVariant(models.Model):
         return self.name
 
     def image_tag(self):
-        if self.image_variant.url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(self.image_variant.url))
+        if self.image:
+            if self.image_variant.url is not None:
+                return mark_safe('<img src="{}" height="50"/>'.format(self.image_variant.url))
+            else:
+                return ""
         else:
             return ""
 
@@ -136,8 +145,11 @@ class ProductAttribute(models.Model):
         return self.product.name
 
     def image_tag(self):
-        if self.image.url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+        if self.image:
+            if self.image.url is not None:
+                return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+            else:
+                return ""
         else:
             return ""
 

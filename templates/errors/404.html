@@ -1,36 +1,22 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+
+{% block extra_title %} Error {% endblock %}
+
 {% block content %}
-
-    <main class="container no-gutters mx-auto my-3">
-
-        <div class="row mx-auto my-3">
-            
-            <div class="col-12 text-center">
-
-                <h1 class="text-uppercase pb-3">Page Not Found (404)</h1>
-
-                <p>
-                    The page you were looking for doesn't exist. You may have mistyped the address or the page may have moved.
-                </p>
-
-            </div>
-
+    <div class="overlay"></div>
+    <div class="container-fluid products-container">
+        <div class="col-12 about-image"></div>
+        <div class="col-10 offset-1 text-center">
+            <h1 class="home-logo-font mt-2">
+                EVERWEAR. 
+            </h1>
+            <h4 class="home-logo-font mt-1">
+                PAGE NOT FOUND (404)         
+            </h4>
+            <p>Sorry but the page you were looking for doesn't exist. You may have mistyped the address or the page may have moved.</p>
+            <br>    
+            <p>Click <a class="navbar-brand" href="{% url 'home' %}" aria-label="returns you back to the home page">here</a> to head back to the homepage</p>
         </div>
-
-        <div class="row mx-auto my-3">
-
-            <div class="col-sm-3"></div>
-
-            <div class="col-sm-6 text-center px-2">
-
-                <p>Click <a class="navbar-brand" href="{% url 'home' %}" aria-label="returns you back to the home page"> here </a> to head back to the homepage</p>
-                    
-            </div>
-            
-            <div class="col-sm-3"></div>
-        
-        </div>
-
-    </main>
+    </div>
 {% endblock %}

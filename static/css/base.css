@@ -54,19 +54,11 @@ footer {
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
-    /* margin: auto; */
 }
 
 footer button {
     border-radius: 2;
 }
-
-/* #base_body {
-    height: calc(100vh - 400px);
-    color: #555;
-    font-family: 'Monserrat', sans-serif;
-    font-weight: 400;
-} */
 
 .header img {
     float: left;

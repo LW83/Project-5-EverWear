@@ -22,7 +22,7 @@ Int errors/key errors
 Fixing the footer to stay at bottom regardless of content and screen size: https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
 
 Deployment - 400 Bad Request on Product detail - Slack - debug to true and got a not of suspicious operation and needed to remove slash before custom js file link at bottom of page. 
-Deployment - Logos - not displaying on Heroku
+Deployment - Logos - not displaying on Heroku if they are standalone images (e.g. logo), make sure that the path in HTML is correct - /media/ will only work in Gitpod; for Heroku (and for both actually), you need {{ MEDIA_URL }} - like this: src="{{ MEDIA_URL }}my_image.jpg"
 
 
 

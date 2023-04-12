@@ -25,9 +25,9 @@
             <div class="col-12 col-lg-6">
                 <p class="text-muted mt-sm-2">Order History</p>
                 <div class="order-history table-responsive">
-                    {% if order %}
+                    {% if orders %}
                     <table class="table table-sm table-borderless">
-                        <thead>
+                        <thead class="text-everwear-grey">
                             <tr>
                                 <th>Order Number</th>
                                 <th>Date</th>
@@ -38,13 +38,13 @@
                         <tbody>
                             {% for order in orders %}
                                 <tr>
-                                    <td>
+                                    <td class="small">
                                         <a href="{% url 'order_history' order.order_number %}"
                                         title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}
                                         </a>
                                     </td>
-                                    <td>{{ order.date }}</td>
+                                    <td class="small">{{ order.date }}</td>
                                     <td>
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
@@ -53,14 +53,14 @@
                                                         Size {{ item.size|upper }}
                                                     {% endif %}
                                                     {% if item.color %}
-                                                        Size {{ item.color }}
+                                                        Colour {{ item.color }}
                                                     {% endif %}
                                                     {{ item.product.name }} x{{ item.quantity }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
+                                    <td class="small">€{{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

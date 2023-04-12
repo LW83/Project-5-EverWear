@@ -27,9 +27,9 @@
         <!--Link to CSS Stylesheet-->
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <!--Favicon Links-->
-        <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ MEDIA_URL }}apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ MEDIA_URL }}favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ MEDIA_URL }}favicon-16x16.png">
         <link rel="manifest" href="media/site.webmanifest">
     {% endblock %}
 
@@ -69,7 +69,7 @@
       <div id = "topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 header mt-2">
             <a href="{% url 'home' %}" class="nav-linkbl">
-                <img class="symbol2" src="/media/grey_symbol.png" alt="EverWear symbol">
+                <img class="symbol2" src="{{ MEDIA_URL }}grey_symbol.png" alt="EverWear symbol">
                 <h2 class="logo-font text-everwear-grey my-0">EVERWEAR.</h2>
             </a>
         </div>

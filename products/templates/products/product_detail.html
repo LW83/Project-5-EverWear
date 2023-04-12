@@ -14,7 +14,7 @@
                 <div class="container-fluid">
                     <ul class="breadcrumb text-left">
                         <li><a href="{% url 'home' %}">Home/</a></li>
-                        <li><a href="{% url 'products' %}?category={{ category.name }}">{{ product.category.friendly_name }}/</a></li>
+                        <li><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}/</a></li>
                         <li class="active">{{ product.name }}</li>
                     </ul>
                 </div>

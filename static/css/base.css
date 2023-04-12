@@ -372,6 +372,10 @@ hr {
     border-color: #222;
 }
 
+.allauth-form-inner-content input {
+    border-radius: 2px
+}
+
 /* Product Form */
 
 .btn-file {

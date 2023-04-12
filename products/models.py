@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 from django.db.models import Count, Avg
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Category(models.Model):
@@ -145,21 +146,17 @@ class ProductAttribute(models.Model):
         return self.product.name
 
 
-""" https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """
-RATING=(
-    (1,'1'),
-    (2,'2'),
-    (3,'3'),
-    (4,'4'),
-    (5,'5'),
-)
+""" Adapted from https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """
 
 
 class ProductReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     review_text = models.TextField()
-    review_rating = models.CharField(choices=RATING,max_length=150)
+    review_rating = models.IntegerField(
+                    default=5, validators=[MinValueValidator(1),
+                                           MaxValueValidator(5)]
+    )
 
     class Meta:
         verbose_name_plural = 'Reviews'

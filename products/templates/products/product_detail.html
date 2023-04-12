@@ -41,11 +41,11 @@
                     {% if product.countReview != 0 %}
                     <div class="rating-star">
                         <span>
-                            <i class="fa fa-star{% if avg_reviews < 0.5 %}-o{% elif avg_reviews >= 0.5 and avg_reviews < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg_reviews < 1.5 %}-o{% elif avg_reviews >= 1.5 and avg_reviews < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg_reviews < 2.5 %}-o{% elif avg_reviews >= 2.5 and avg_reviews < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg_reviews < 3.5 %}-o{% elif avg_reviews >= 3.5 and avg_reviews < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg_reviews < 4.5 %}-o{% elif avg_reviews >= 4.5 and avg_reviews < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReviews < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReviews < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReviews < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReviews < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
                             <span>{{ product.countReview }} reviews</span>
                         </span>
                     </div>
@@ -112,7 +112,7 @@
 
                             <div class="col-12">
                                 <input type="submit" class="btn btn-everwear-grey rounded-1 text-uppercase mt-2" value="Add to Bag">
-                                <a type="button" class="btn btn-outline-everwear-grey rounded-1 text-uppercase mt-2 wishlist_btn" href="{% url 'add_to_wishlist' product.id %}">Add to Wishlist</a>
+                                <a type="button" class="btn btn-outline-everwear-grey rounded-1 text-uppercase mt-2 wishlist_btn" href="{% url 'add_to_wishlist' product.id %}" onClick="window.location.reload();">Add to Wishlist</a>
                             </div>
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-1 mt-2">
@@ -122,7 +122,7 @@
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
                             </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}"><!--TO BE UPDATED FOR WISHLIST-->
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
                 </div>
@@ -148,11 +148,11 @@
                             {% endif %}
                             <span class="rating-star">
                                 <span>
-                                    <i class="fa fa-star avg-rating {% if avg_reviews.avg_rating < 0.5 %}-o{% elif avg_reviews.avg_ratinrg >= 0.5 and avg_reviews.avg_rating < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    <i class="fa fa-star avg-rating {% if avg_reviews.avg_rating < 1.5 %}-o{% elif avg_reviews.avg_rating >= 1.5 and avg_reviews.avg_rating < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    <i class="fa fa-star avg-rating {% if avg_reviews.avg_rating < 2.5 %}-o{% elif avg_reviews.avg_rating >= 2.5 and avg_reviews.avg_rating < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    <i class="fa fa-star avg-rating {% if avg_reviews.avg_rating < 3.5 %}-o{% elif avg_reviews.avg_rating >= 3.5 and avg_reviews.avg_rating < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    <i class="fa fa-star avg-rating {% if avg_reviews.avg_rating < 4.5 %}-o{% elif avg_reviews.avg_rating >= 4.5 and avg_reviews.avg_rating < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                    <i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                    <i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReviews < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                    <i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReviews < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                    <i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReviews < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                    <i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReviews < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
                                     <span>{{product.countReview}} reviews</span>
                                 </span>
                             </span>
@@ -172,7 +172,7 @@
                                     <form method="post" id="addForm" action="{% url 'submit_review' product.id %}">
                                         {% csrf_token %}
                                         {{ reviewForm|crispy }}
-                                            <button type="submit" class="btn btn-everwear-grey">Submit</button>
+                                            <button type="submit" class="btn btn-everwear-grey" onClick="window.location.reload();">Submit</button>
                                             <input type="reset" class="btn btn-outline-everwear-grey" value="Reset" id="reset"/>
                                         <p class="ajaxRes"></p>
                                     </form>

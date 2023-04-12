@@ -81,8 +81,6 @@ $("#addForm").submit(function(e){
 				// Hide Modal
 				$("#productReview").hide();
 
-				// AVg Rating
-				$(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1))
 			}
 		}
 	});

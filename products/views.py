@@ -82,9 +82,7 @@ def product_detail(request, id):
         if reviewCheck > 0:
             canAdd = False
 
-    # Get the reviews
     reviews = ProductReview.objects.filter(product=product)
-    # avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
 
     context = {
         'product': product,
@@ -92,7 +90,6 @@ def product_detail(request, id):
         'reviews': reviews,
         'canAdd': canAdd,
         'category': category,
-        # 'avg_reviews': avg_reviews,
         'colors': colors,
         'sizes': sizes,
     }
@@ -246,6 +243,4 @@ def submit_review(request, product_id):
         'review_rating': request.POST['review_rating']
     }
 
-    avg_reviews = ProductReview.objects.filter(product=product).aggregate(avg_rating=Avg('review_rating'))
-
-    return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews})
+    return JsonResponse({'bool': True, 'data': data})

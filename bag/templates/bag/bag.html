@@ -80,7 +80,7 @@
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-product_item="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-size_box="{{ item.size }}" data-color_box="{{ item.color }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3 d-none d-sm-table-cell">
                                         <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -140,19 +140,21 @@
         form.submit();
     })
 
-    // Remove item and reload on click
+    // Script to remove color and size specific item
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size_box');
+        var color = $(this).data('color_box');
         var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 
-                    'product_size': size};
+                    'size_box': size,
+                    'color_box': color}
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+        .done(function() {
+            location.reload();
+        });
     })
 </script>
 {% endblock %}

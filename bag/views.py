@@ -130,7 +130,8 @@ def remove_from_bag(request, item_id):
                 bag.pop(item_id)
             messages.success(
                 request,
-                f'Removed 'f'{product.name} in {size.upper()} and {color} from your bag'
+                f'Removed 'f'{product.name} in {size.upper()} and {color}'
+                ' from your bag'
                 )
         else:
             if item_id in list(bag.keys()):

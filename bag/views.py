@@ -16,13 +16,13 @@ def add_to_bag(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    bag = request.session.get('bag', {})
 
     item = None
     if 'size_box' and 'color_box' in request.POST:
         size = request.POST['size_box']
         color = request.POST['color_box']
         item = f'{item_id}_{size}_{color}'
-    bag = request.session.get('bag', {})
 
     if item:
         if item_id in list(bag.keys()):

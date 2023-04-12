@@ -376,6 +376,10 @@ hr {
     border-radius: 2px
 }
 
+.btn:disabled {
+    color: lightgray;
+}
+
 /* Product Form */
 
 .btn-file {

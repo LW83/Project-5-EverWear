@@ -1,6 +1,7 @@
 /// Tailored from CodeArtisanLab ///
 
 $(document).ready(function(){
+	$('#add_bag').attr('disabled',true);
 	// Product Variation
 	$(".size_section").hide();
 
@@ -20,6 +21,7 @@ $(document).ready(function(){
 	});
 
 	$(".choose-size").on('click',function(){
+		$('#add_bag').attr('disabled', false);
 		$(".choose-size").removeClass('customfocussize')
 			
 		$(this).addClass('customfocussize');

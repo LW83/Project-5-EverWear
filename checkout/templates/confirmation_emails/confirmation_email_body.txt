@@ -11,7 +11,7 @@ Grant Total: €{{ order.grand_total }}
 
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.county }}.
 
-If you have any questions in relation to your order, please contact us at {{ contact_email }}
+If you have any questions in relation to your order, please contact us at hello@everwear.ie
 
 Thank you for your support. 
 

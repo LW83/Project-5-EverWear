@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-3">
                         <p class="my-0">€{{ total }}</p>
-                        <p class="my-0">€{{ delivery }}</p>
-                        <p class="my-0"><strong>€{{ grand_total }}</strong></p>
+                        <p class="my-0">€{{ delivery | floatformat:0 }}</p>
+                        <p class="my-0"><strong>€{{ grand_total | floatformat:0 }}</strong></p>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div id="loading-overlay" class="text-center">
+    <div id="loading-overlay" class="comtainer">
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">
                 <i class="fas fa-3x fa-sync-alt fa-spin"></i>

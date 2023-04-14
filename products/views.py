@@ -77,7 +77,8 @@ def product_detail(request, id):
 
     canAdd = True
     if request.user.is_authenticated:
-        reviewCheck = ProductReview.objects.filter(user=request.user, product=product).count()
+        reviewCheck = ProductReview.objects.filter(user=request.user,
+                                                   product=product).count()
         if reviewCheck > 0:
             canAdd = False
 
@@ -110,7 +111,8 @@ def manage_store(request):
 def add_category(request):
     """ Add a category to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, you do not have permission to add cateogries.')
+        messages.error(request, 'Sorry, you do not have permission \
+                                 to add cateogries.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -120,7 +122,8 @@ def add_category(request):
             messages.success(request, 'Category has been successfully added.')
             return redirect(reverse('manage_store'))
         else:
-            messages.error(request, 'Failed to add category. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add category. Please ensure \
+                                    the form is valid.')
     else:
         form = CategoryForm()
 
@@ -136,7 +139,8 @@ def add_category(request):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, you do not have permission to add products.')
+        messages.error(request, 'Sorry, you do not have permission to \
+                                 add products.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -146,7 +150,8 @@ def add_product(request):
             messages.success(request, 'Product has been successfully added.')
             return redirect(reverse('manage_store'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the \
+                                     form is valid.')
     else:
         form = ProductForm()
 
@@ -169,10 +174,12 @@ def add_variation(request):
         form = ProductVariationForm(request.POST, request.FILES)
         if form.is_valid():
             product_variant = form.save()
-            messages.success(request, 'Product variant has been successfully added.')
+            messages.success(request, 'Product variant has been successfully \
+                                       added.')
             return redirect(reverse('manage_store'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure \
+                                     the form is valid.')
     else:
         form = ProductVariationForm()
 
@@ -188,7 +195,8 @@ def add_variation(request):
 def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, you do not have permission to edit products.')
+        messages.error(request, 'Sorry, you do not have permission to \
+                                 edit products.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -196,10 +204,12 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Selected product has been successfully updated.')
+            messages.success(request, 'Selected product has been successfully \
+                                       updated.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. Please ensure \
+                                     the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -217,7 +227,8 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, you do not have permission to delete products.')
+        messages.error(request, 'Sorry, you do not have permission to delete \
+                                 products.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)

@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	$(".choose-size").on('click',function(){
 		$('#add_bag').attr('disabled', false);
-		$(".choose-size").removeClass('customfocussize')
+		$(".choose-size").removeClass('customfocussize');
 			
 		$(this).addClass('customfocussize');
 	
@@ -33,13 +33,13 @@ $(document).ready(function(){
 
 function storeColor(id_product_color) {
 	var color = id_product_color.getAttribute('data-color-name'); 
-	$('#js_data_input').val(color)
+	$('#js_data_input').val(color);
 	console.log(color);
 }
 
 function storeSize(id_product_size) {
 	var size = id_product_size.getAttribute('value'); 
-	$('#js_data_input2').val(size)
+	$('#js_data_input2').val(size);
 	console.log(size);
 }
 

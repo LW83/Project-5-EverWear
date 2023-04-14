@@ -622,19 +622,20 @@ __Newsletter__
 
 __HTML Validation__
   
-  - There are no errors for the site when passed through the W3C validator. 
-
-  ![W3C validator](./media/readme/)
+  - There are 3 errors remaining for the site when passed through the W3C validator. 
 
 __CSS Validation__
 
-  - There are no errors for the site when passed through the W3C validator. Warnings were found in relation to the links for Bootstrap and Font Awesome. These were left as is. 
-
-  ![CSS validator](./media/readme/)
+  - There are no errors for the site when passed through the W3C Jigsaw validator.  
 
 __Python Validation__
 
-  - The only issues found in any of the python files when passing through the Pep8CI online validator related to line length and some of these were deliberately left as is mostly to avoid impacting the functionality of the code and in a few instances due to the code being easier to read when left as is. 
+  - The only issues found in any of the python files when passing through the Gitpod Linter related to line length and some of these were deliberately left as is mostly to avoid impacting the functionality of the code and in a few instances due to the code being easier to read when left as is. 
+
+__JS Validation__
+  
+  - There are no errors for the site when passed through the JSHint validator. 
+  - Scripts at the bottom of HTML templates were also checked with no warnings.
 
 ### Lighthouse Performance Testing
 
@@ -765,7 +766,7 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      - [Slack](https://slack.com/intl/en-ie/): For general guidance and research on project considerations. 
      - [W3C HTML Validator](https://validator.w3.org/)
      - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-     - [Pep8CI Validator](https://pep8ci.herokuapp.com/#)
+     - [JSHint Validator](https://jshint.com/)
      - [Heroku](https://id.heroku.com/login): To deploy the site
      - [Lucidchart](https://www.lucidchart.com): To create a flow chart of the site logic ***********
      - [Elephant SQL](https://www.elephantsql.com/): For the database underpinning the site
@@ -779,6 +780,7 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      Privacy Generator
      Tiny PNG
      https://www.xml-sitemaps.com/
+     favicon
 
 ***
 ## Credits   

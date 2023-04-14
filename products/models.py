@@ -47,7 +47,8 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Products'
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', null=True, blank=True,
+                                 on_delete=models.CASCADE)
     slug = models.SlugField(null=True, default=None, unique=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -56,8 +57,10 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(max_length=254, null=True, blank=True)
-    variant_options = models.CharField(max_length=15, choices=VARIANTS, default='Size-Color')
-    wishlist = models.ManyToManyField(User, related_name="wishlist", blank=True)
+    variant_options = models.CharField(max_length=15, choices=VARIANTS,
+                                       default='Size-Color')
+    wishlist = models.ManyToManyField(User, related_name="wishlist",
+                                      blank=True)
 
     def get_url(self):
         return reverse('product_detail', args=[self.category.slug, self.slug])
@@ -74,7 +77,7 @@ class Product(models.Model):
         else:
             return ""
 
-    """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py"""
+    """ From https://github.com/dev-rathankumar/greatkart-pre-deploy/blob"""
     def averageReview(self):
         reviews = ProductReview.objects.filter(product=self).aggregate(average=Avg('review_rating'))
         avg = 0
@@ -133,9 +136,12 @@ class ImageVariant(models.Model):
 
 class ProductAttribute(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
-    image = models.ForeignKey(ImageVariant, on_delete=models.CASCADE, null=True, blank=True)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True,
+                              blank=True)
+    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True,
+                             blank=True)
+    image = models.ForeignKey(ImageVariant, on_delete=models.CASCADE,
+                              null=True, blank=True)
     in_stock = models.BooleanField(default=True)
     amount_in_stock = models.IntegerField()
     sale = models.BooleanField(default=False)
@@ -146,7 +152,7 @@ class ProductAttribute(models.Model):
         return self.product.name
 
 
-""" Adapted from https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/blob/master/main/models.py """
+""" Adapted from Code Artisan Lab eCommerce demo """
 
 
 class ProductReview(models.Model):

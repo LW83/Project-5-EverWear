@@ -167,7 +167,7 @@ def add_variation(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = ProductAttributeForm(request.POST, request.FILES)
+        form = ProductVariationForm(request.POST, request.FILES)
         if form.is_valid():
             product_variant = form.save()
             messages.success(request, 'Product variant has been successfully added.')

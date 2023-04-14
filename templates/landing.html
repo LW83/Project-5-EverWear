@@ -52,13 +52,13 @@
 
     <title>EverWear {% block extra_title %}{% endblock %}</title>
     <meta name="description" 
-            content="Long-lasting clothes made with a conscious. From material to store buy clothing that you know looks great
+            content="Long-lasting clothes made with a conscience. From material to store at EverWear you can buy clothing that you know looks great
             and hasn't cost the Earth."
     >
     <meta name="keywords" 
-        content="Hoodies, t-shirts, caps, organic clothing, fairtrade clothing, casual style, athleisure, clothing with a conscience, sustainable, 
-        environmentally-friendly, eco-conscious, sustainable-style, everwear."
-        >
+        content="Hoodies, t-shirts, baseball caps, organic clothing, fairtrade clothing, casual style, athleisure, clothing with a conscience, sustainable, 
+        environmentally-friendly, eco-conscious, sustainable-style, high-quality clothing, ethical clothing brand, everwear, Irish brand."
+    >
   </head>
   
   <body id="landing-body">
@@ -75,7 +75,7 @@
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                          <a href="{% url 'add_product' %}" class="dropdown-item">Manage Store</a>
+                          <a href="{% url 'manage_store' %}" class="dropdown-item">Manage Store</a>
                         {% endif %}
                         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>

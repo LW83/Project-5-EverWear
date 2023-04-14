@@ -344,28 +344,102 @@ __Add to Wishlist__
 
 
 ### Checkout
+ - On proceeding to checkout the user can complete the delivery information and see a summary of their order. 
+ - The delivery information is pre-populated for a logged in user where this has been completed in their profile. Alternatively, the can select to save their populated information to their profile. 
 
+  ![Checkout](./media/readme/functionalilty/checkout.png)
+
+ - If any required information is not populated validation messages will be displayed. 
+
+  ![Profile Data](./media/readme/functionalilty/profile_validation.png)
+
+ - If there is any issue with the credit card information entered, warning messages will be displayed. 
+
+  ![Payment Validation](./media/readme/functionalilty/payment_validation1.png)
+  ![Payment Validation](./media/readme/functionalilty/payment_validation2.png)
+  ![Payment Validation](./media/readme/functionalilty/payment_validation3.png)
+
+__Order Confirmation__
+ - Upon successful processing of a payment, the order confirmation page will be displayed to the user and a success message.
+
+  ![Order Confirmation](./media/readme/functionalilty/orderpage_sshot.png)
+
+ - The user will also receive an email confirming their order to the email address logged as part of the order completion. 
+
+  ![Order Confirmation Email](./media/readme/functionalilty/email_order_confirm.png)
+
+ - The order will also display in the Admin where the store owner can edit/delete or update the fulfillment status of the order.
+
+  ![Order Admin](./media/readme/functionalilty/order_admin.png)
+
+### Profile 
+ - For logged in users, the My Account section of the site is accessible from the account icon in the top right of the page or via the link in the footer. This will display their save order delivery information which can be updated as needed and their order history. 
+
+![My Profile](./media/readme/functionalilty/my_profile.png)
+
+ - If information is updated, the user will receive a success message if saved successfully. 
+
+![Profile Update](./media/readme/functionalilty/profile_update.png)
+
+ - If the user selects to view a historic order they will be shown the details of the order and an alert that it is historic.
+
+![Order History](./media/readme/functionalilty/order_history.png)
 
 
 ### SuperUser
 
 __Manage Store__
+ - If the logged in user has superuser rights, from the My Account icon they will have the option of Manage Store. 
+ - From Manage Store various product management activities can be performed.
+
+ ![Manage Store](./media/readme/functionalilty/manage_store.png)
 
 __Add Category__
+ - The Add Category functionality will enable superusers to create a new product category. 
+
+ ![New Category Form](./media/readme/functionalilty/add_category.png)
+
+ - When added the user will receive a success message.
+
+ ![Add Category Sucess](./media/readme/functionalilty/category_success.png)
+
+ - The new category will autopopulate a category card on the homepage with the image selected.
+
+ ![Homepage](./media/readme/functionalilty/newcategory_homepage.png)
+
+ - The new category will be available to select from in the Add Product functionality.
+
+ ![Homepage](./media/readme/functionalilty/newcategoryinaddproduct.png)
+
+ - The new category is visible in the admin panel for editing/deletion.
+
+ ![Homepage](./media/readme/functionalilty/new_category_admin.png)
 
 __Add Product__
 
+- The Add Product functionality will enable superusers to create a new product. 
+
+ ![New Product Form](./media/readme/functionalilty/addproduct_sshot.png)
+
+ - When added the user will receive a success message.
+
+ - The new product will autocreate a product on the site under the respective category chosen with the image selected.
+
+ ![Homepage](./media/readme/functionalilty/added_product.png
+
+ - NOTE: Currently variations for the new product need to be added via the Admin panel, but a future feature development is to enable this through the front end also. This was no feasible due to time constraints.
+
+ - The new product is visible in the admin panel for editing/deletion.
+
 __Edit Product__
+
+
 
 __Delete Product__
 
 __Admin Panel__
 
 __Order Status__
-
-
-### Informational Pages
-
 
 
 ### Logout
@@ -377,12 +451,13 @@ __Order Status__
 __Social Media__
 
 
-__Links__
+__Informational Pages__
 
 
 __Newsletter__
 
 
+### Error 404 Page
 
 
 

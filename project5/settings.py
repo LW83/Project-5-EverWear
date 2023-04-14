@@ -66,8 +66,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-X_FRAME_OPTIONS = 'ALLOWALL'
-
 ROOT_URLCONF = 'project5.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -163,26 +163,3 @@ class ProductReview(models.Model):
 
     def get_review_rating(self):
         return self.review_rating
-
-
-""" DNL Bowers"""
-#     def save(self, *args, **kwargs):
-#         """
-#         Override the original save method to set the price
-#         according to if it has a sale or not
-#         """
-#         self.get_rating()
-
-#         if self.stock_level <= 0:
-#             self.in_stock = False
-#         else:
-#             self.in_stock = True
-
-#         self.slug = slugify(self.name)
-
-#         if self.has_sale:
-#             self.price = self.discounted_price
-#         else:
-#             self.price = self.rrp
-
-#         super().save(*args, **kwargs)

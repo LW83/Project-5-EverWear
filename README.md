@@ -409,15 +409,15 @@ __Add Category__
 
  - The new category will be available to select from in the Add Product functionality.
 
- ![Homepage](./media/readme/functionalilty/newcategoryinaddproduct.png)
+ ![Category Option](./media/readme/functionalilty/newcategoryinaddproduct.png)
 
  - The new category is visible in the admin panel for editing/deletion.
 
- ![Homepage](./media/readme/functionalilty/new_category_admin.png)
+ ![New Category Admin](./media/readme/functionalilty/new_category_admin.png)
 
 __Add Product__
 
-- The Add Product functionality will enable superusers to create a new product. 
+ - The Add Product functionality will enable superusers to create a new product. 
 
  ![New Product Form](./media/readme/functionalilty/addproduct_sshot.png)
 
@@ -425,37 +425,130 @@ __Add Product__
 
  - The new product will autocreate a product on the site under the respective category chosen with the image selected.
 
- ![Homepage](./media/readme/functionalilty/added_product.png
+ ![Added Product](./media/readme/functionalilty/added_product.png)
 
- - NOTE: Currently variations for the new product need to be added via the Admin panel, but a future feature development is to enable this through the front end also. This was no feasible due to time constraints.
+ - The newly added product can then be selected in the Add Product Variant functionality. 
+
+ ![Product Option](./media/readme/functionalilty/newproduct_productvariant.png)
 
  - The new product is visible in the admin panel for editing/deletion.
 
+ ![New Product Admin ](./media/readme/functionalilty/newproduct_admin.png)
+
+
+__Add Product Variant__
+
+- The Add Product Variant functionality will enable superusers to create a new product variant. 
+
+ ![New Product Form](./media/readme/functionalilty/addproductvariation.png)
+
+ - When added the user will receive a success message.
+
+ ![Addition Success](./media/readme/functionalilty/variant_success.png)
+
+ - The newly added product variation can then be seen in the store for selection by customers. 
+
+ ![Product Variant](./media/readme/functionalilty/variant_live.png)
+
+ - The new product variant is visible in the admin panel for editing/deletion.
+
+ ![New Product Variant Admin ](./media/readme/functionalilty/variant_admin.png)
+
+
 __Edit Product__
 
+- Superusers can edit products from the product card itself.
 
+![Product Edit Option](./media/readme/functionalilty/product_edit_option.png)
+
+- Selecting Edit will bring the Superuser to the product information which can be edited and saved. 
+
+![Product Edit](./media/readme/functionalilty/product_edit.png)
+
+- The user will also be shown an alert message when a product is being edited. 
+
+![Product Edit Option](./media/readme/functionalilty/edit_alert.png)
+
+- The user then gets a success message when this update has been successfully made.
+
+![Product Update](./media/readme/functionalilty/edit_success.png)
+
+- All changes are then reflected on the site and in the Admin panel. 
 
 __Delete Product__
 
+- Superusers can delete products from the product card itself.
+
+![Product Delete Option](./media/readme/functionalilty/product_edit_option.png)
+
+- The user then gets a success message when the product has been successfully deleted.
+
+![Product Update](./media/readme/functionalilty/delete_success.png)
+
+- All changes are then reflected on the site and in the Admin panel. 
+
 __Admin Panel__
 
-__Order Status__
+- All core aspects of the site including products, orders, users and reviews can be managed from within the Admin panel. 
+
+![Admin Overview](./media/readme/functionalilty/delete_success.png)
+
+![Category Admin](./media/readme/functionalilty/category_admin.png)
+![Product Admin](./media/readme/functionalilty/product_admin.png)
+![Color Admin](./media/readme/functionalilty/color_admin.png)
+![Size Admin](./media/readme/functionalilty/size_admin.png)
+![Image Admin](./media/readme/functionalilty/image_admin.png)
+![Product Attribute Admin](./media/readme/functionalilty/attribute_admin.png)
+
+- The order status can also be updated to reflect the current fulfillment status. 
+
+![Order Admin](./media/readme/functionalilty/order_admin_status.png)
 
 
 ### Logout
 
+- If a user wishes to log out they can select this from the My Account icon and will be taken to the sign out page. 
 
+![Sign Out](./media/readme/functionalilty/signout.png)
+
+- Upon signing out the user will be redirected to the landing page of the site. 
 
 ### Footer
 
+- The footer of the site is styled to maintain consistency with the rest of the site. The text-muted style has been used as whilst this is less readable it improved the look of the site and was considered to be acceptable for the footer alone as a items were either duplication links or links less frequently accessed by users. 
+
+![Footer](./media/readme/functionalilty/footer.png)
+
+- The My Account links in the footer replicate the links in the navigation bar to give the user another option for navigating the site.
+
 __Social Media__
 
+- Social media links to Facebook, Twitter and Instagram have been included all of which open in a new tab. 
+- A dummy Facebook page has been created and linked. The links for Twitter and Instagram are to the respective homepages only. 
+
+![Facebook](./media/readme/marketing/facebook1.png)
+![Facebook](./media/readme/marketing/facebook2.png)
+![Facebook](./media/readme/marketing/facebook3.png)
+![Facebook](./media/readme/marketing/facebook4.png)
+![Facebook](./media/readme/marketing/facebook5.png)
+![Facebook](./media/readme/marketing/facebook6.png)
+![Facebook](./media/readme/marketing/facebook7.png)
 
 __Informational Pages__
 
+ - The footer contains links to an About Us page, Shipping & Returns page and Privacy Policy page. 
+
+ ![About Us](./media/readme/functionalilty/aboutus.png)
+ ![Shipping](./media/readme/functionalilty/shipping.png)
+ ![Privacy](./media/readme/functionalilty/privacy_policy.png)
 
 __Newsletter__
 
+- A user has the option to subscribe for the company newsletter from within the footer if they desire. 
+- This has been implemented using Mailchimp.
+- A success message is displayed on successful sign up. 
+
+![Newsletter](./media/readme/functionalilty/newsletter.png)
 
 ### Error 404 Page
 

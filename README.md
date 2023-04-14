@@ -89,8 +89,7 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
     * [**Languages Used**](#languages-used)
     * [**Technologies Utilised**](#technologies-utilised)
   * [**Credits**](#credits)
-    * [**Resources**](#resources)
-    * [**Code Utilisation**](#code-utilisation)
+    * [**Resources & Code Utilisation**](#resources)
 
 ***
 ## Concept and Planning 
@@ -153,11 +152,10 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 ### Design
 
 - The design of the site is intended to be simple and functional with a visually appealing interface that reflects the brand, values and marketing style of the company.
+- The Miu Miu store and Surfdome store both provided inspiration for different design elements of the site. 
 -  The core site aim is to be the online store for the brand with additional useful company information accessible from the site.  
 - Google fonts (Montserrat) has been used. In selecting the font, I wanted a powerful, highly legible font style to make a statement. Sans serif fonts are considered clean and modern and can help demonstrate a no-nonsense attitude which is fitting for EverWear. They are also often considered good for clothing brands. 
 - In addition, a favicon of the E from the brand name has been created and added as a favicon for the page for brand consistency across the site. 
-
-SITE INSPIRATIONS??
 
 ### Database Planning
 
@@ -166,6 +164,15 @@ SITE INSPIRATIONS??
 ![Final Models](./media/readme/finalmodels_sshot.png)
 
 - The model attributes in yellow are not currently utilised in the site functionality but are there to support future feature enhancements noted below. These have not been implemented due to time constraints on the project. 
+
+***
+## Business Model & Marketing
+
+### Business Model
+
+### Marketing
+
+### SEO Approach
 
 ***
 ## Existing Features 
@@ -618,7 +625,7 @@ __Newsletter__
 
   - The site code has been passed through the following online validation tools: 
 
-  ![Code Validations](./media/readme/)
+  ![Code Validations](./media/readme/testing/code_validations.png)
 
 __HTML Validation__
   
@@ -656,9 +663,10 @@ __JS Validation__
 
 ### Accesibility Testing
 
-  - In addition to the lighthouse reports, site accessibility was also tested via [Accessibility Test](https://accessibilitytest.org/) with a score of 98%.
+  - In addition to the lighthouse reports, site accessibility was also tested via [Accessibility Test](https://accessibilitytest.org/) with a score of 90%.
+  - There are areas where this score can be improved that were not feasible to implement in time. Other areas have been deliberate choices such as displaying text in the footer in lighter grey for visual purposes and given the frequency of access. 
 
-  ![Accessibility](./media/readme/)
+  ![Accessibility](./media/readme/testing/site_accessability.png)
 
 ### Fixed Bugs   
   - The following key bugs arose and were fixed during the development of the site: 
@@ -768,7 +776,6 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
      - [JSHint Validator](https://jshint.com/)
      - [Heroku](https://id.heroku.com/login): To deploy the site
-     - [Lucidchart](https://www.lucidchart.com): To create a flow chart of the site logic ***********
      - [Elephant SQL](https://www.elephantsql.com/): For the database underpinning the site
      - [Django](https://www.djangoproject.com/): For site build framework
      - [Boostrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/): For site styling
@@ -785,24 +792,11 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
 ***
 ## Credits   
 
-### Resources
+### Resources & Code Utilisation
  - The following resources were key to helping me build functionality critical to the working of the site: 
-   - For getting object by id: https://stackoverflow.com/questions/73338018/how-to-get-an-object-by-id-in-django
-   - For Int Pk URL structure: https://github.com/fabricius1/DjangoFilmsCRUD/blob/master/films/urls.py
-   - For adding delete button to table rows: https://stackoverflow.com/questions/60616526/how-to-add-delete-button-in-each-row-of-my-table
-   - Delete buttons: https://stackoverflow.com/questions/55705666/django-tables2-with-edit-and-delete-buttons-how-to-do-it-properly
-   - For adding extra fields in registration form: https://stackoverflow.com/questions/45708119/how-to-add-extra-fields-to-django-registration-form
-   - For creating an AND Django filter: https://stackoverflow.com/questions/769843/how-to-use-and-in-a-django-filter
-   - For adding calendars to dates in forms through DatePicker Plus: https://django-bootstrap-datepicker-plus.readthedocs.io/en/latest/Walkthrough.html
-   - Amending Admin view to bring in additional fields: https://stackoverflow.com/questions/48011275/custom-user-model-fields-abstractuser-not-showing-in-django-admin
-   - For linking the edit button to the icon: https://docs.djangoproject.com/en/4.1/intro/tutorial04/
-   - To add deletion confirmation to deletion actions: https://stackoverflow.com/questions/64070378/how-can-i-use-django-deleteview-in-my-template
-   - For displaying messages: https://docs.djangoproject.com/en/4.1/ref/contrib/messages/#:~:text=The%20messages%20framework%20allows%20you,%2C%20warning%20%2C%20or%20error%20).
-   - To create accept and reject booking functions: https://www.w3schools.com/django/django_update_record.php
    - Bootstrap documentation
    - Django documentation
 
-### Code Utilisation
  - The following elements of code have specifically been inspired from the following sources: 
     - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
     - As noted in the code, I also took inspiration from XYZ  and their [Out and Proud](https://github.com/keelback-code/out-proud/blob/main/README.md) project particularly in relation to the code for Creating and Editing Profiles.

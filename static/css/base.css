@@ -260,7 +260,8 @@ input[name='q']::placeholder {
 }
 
 .login-a, 
-.checkout_anchor {
+.checkout_anchor,
+.wishlist_product {
     color:#575656 !important;
 }
 

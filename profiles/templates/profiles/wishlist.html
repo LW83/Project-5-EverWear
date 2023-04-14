@@ -25,20 +25,14 @@
                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
                     {% else %}
-                    <a href="">
+                    <a href="{{ MEDIA_URL }}noimage.png">
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                     </a>
                 {% endif %}
-                <!-- {% for image in product.product_image.all  %}
-                {% if image.is_feature %}
-                <img class="img-fluid d-block p-2" width="135px" src="{{ image.image.url }}"
-                    alt="{{ image.image.alt_text }}" />
-                {% endif %}
-                {% endfor %} -->
             </div>
             <div class="col-md-10">
                 <div class="card-body">
-                <h5 class="card-title">{{product.name}}</h5>
+                <a class="wishlist_product" href="{% url 'product_detail' product.id %}"><h5 class="card-title">{{product.name}}</h5></a>
                 <p class="card-text">{{product.description}}</p>
                 <p class="card-text"><small class="text-muted">€{{product.price}}</small></p>
                 <a type="button" class="btn btn-everwear-grey rounded-1 fw500" href="{% url 'add_to_wishlist' product.id %}">Remove from Wishlist</a>

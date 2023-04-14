@@ -21,7 +21,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
         <!--Link to CSS Stylesheet-->
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <!--Favicon Links-->
@@ -44,7 +44,7 @@
         <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
         <!--Link to Custom JS-->
-        <link type="text/javascript" href="{% static 'js/custom.js' %}">
+        <script src="{% static 'js/custom.js' %}"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -64,7 +64,6 @@
   <body id="landing-body">
     <header class="container-fluid fixed-top">
         <div class="col-12">
-          <div class="row"></div>
           <ul class="list-inline list-unstyled text-right mt-2">
             <li class="list-inline-item dropdown">
                 <a class="text-everwear-grey nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +85,6 @@
                 </div>
             </li>
           </ul>
-          </div>
         </div>
     </header>
 

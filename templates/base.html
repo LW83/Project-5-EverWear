@@ -90,7 +90,7 @@
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item dropdown">
-                <a class="text-everwear-grey nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="text-everwear-grey nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><span class="material-symbols-outlined">account_circle</span></div>
                     </div>
@@ -177,12 +177,12 @@
             {% if request.user.is_authenticated %}
                 <li><a class="text-muted" href="{% url 'profile' %}">My Account</a></li>
             {% else %}
-                <li><a class="text-muted" href="{% url 'account_signup' %}" class="dropdown-item">My Account</a></li>
+                <li><a class="text-muted" href="{% url 'account_signup' %}">My Account</a></li>
             {% endif %}
             {% if request.user.is_authenticated %}
                 <li><a class="text-muted" href="{% url 'wishlist' %}">Wishlist</a></li>
             {% else %}
-                <li><a class="text-muted" href="{% url 'account_signup' %}" class="dropdown-item">Wishlist</a></li>
+                <li><a class="text-muted" href="{% url 'account_signup' %}">Wishlist</a></li>
             {% endif %}
                 <li><a class="text-muted" href="{% url 'view_bag' %}">Checkout</a></li>
             </ul>
@@ -218,13 +218,15 @@
                     </form>
                 </div>
             </div>
+        </div>
     </footer>
 
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script>
         (function($) {
             window.fnames = new Array(); 
             window.ftypes = new Array();

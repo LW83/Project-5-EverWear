@@ -47,7 +47,7 @@ Would your business have a budget to spend on advertising? Or would it need to w
 
 Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providing high end high quality clothing. The EverWear ethos is that all things are equal, period, no exceptions and this is reflected in the company's use of organic fairtrade materials in the production of their clothing. This means all clothes produced by the company ensure that all members of the supply chain are treated equitably and the production of the clothing does not have a negative impact on natural resources or the earth. Similarly, in a bid to avoid the impact disposable fashion is having on the planet, EverWear clothing is designed to be classic and hardwearing so it can last you a lifetime. This site is the online store for EverWear.
 
-![Responsiveness Demo](./media/)
+![Responsiveness Demo](./media/readme/resposive_sshot.png)
 
 ## Live Site
 
@@ -99,296 +99,308 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 
 - __Target Audience__
 
-   - The target audience for this application are primarily male and female consumers in the 18-40 age demographic.
+   - This is a B2C website for the sale of high end casual wear. The target audience for this application are primarily male and female consumers in the 18-40 age demographic.
 
 - __User Stories__
 
-   - As a User, I want to be able to create a Connector account for my Pound so that I can upload dogs in my pound that need placement in a rescue.
-   - As a Pound user, I want to create my own log in details so that I can keep my account information secure. 
-   - As a Pound user, I want to be able to edit my user details including my password so that I can keep this information accurate and secure. 
-   - As a Pound user, I want to be able to add details about that dog including breed, age, gender, neuter and microchip status as well as key dates and urgency of placement so that Rescue users can clearly see what type of dog they are booking.  
-   - As a Pound user, I want to be able to view a list of all of my currently available dogs so that I know what profiles are active on the site. 
-   - As a Pound user, I want to be able to edit details for dogs uploaded so that profiles accurately reflect the status of all dogs. 
-   - As a Pound user, I want to be able to delete a profile if necessary so that my profiles accurately reflect dogs in my care. 
-   - As a Pound user, I want to be able to see details of proposed bookings by Rescues including contact information and proposed collection date so that I can determine suitability. 
-   - As a Pound user, I want to be able to accept or reject these bookings so that I can confirm the collection with the Rescue or make the dog available again. 
-   - As a Pound user, I want to be able to view a list of all accepted bookings so that I can see which dogs are pending collection. 
-   - As a Pound user, I want to be able to confirm when a dog has been transferred to Rescue so that I can keep the status of dogs current and accurate. 
-   - As a Pound user, I want to be able to see a history of uploaded dogs and their final status so that I can use this data for any reporting requirements I have. 
-   - As a Pound user, I want to be able to log out of my account so that I can keep my information secure. 
-
-   - As a Rescue user, I want to be able to create a Connector account for my Rescue so that I can book dogs that are in the Pound that my Rescue has space to take in.
-   - As a Rescue user, I want to create my own log in details so that I can keep my account information secure. 
-   - As a Rescue user, I want to be able to edit my user details including my password so that I can keep this information accurate and secure. 
-   - As a Rescue user, I want to be able to view details about a dog including breed, age, gender, neuter and microchip status as well as key dates and urgency of placement so that I can determine which dogs are suitable for my Rescue to take in, when they are available and which dogs are most in need of urgent placement.  
-   - As a Rescue user, I want to be able to 'book' a dog to take into my Rescue from the Pound.
-   - As a Rescue user, I want to be able to edit details of my bookings if the collection infomation is no longer accurate so that the Pound user has the latest information. 
-   - As a Rescue user, I want to be able to delete a booking if necessary so that the dog becomes available for another Rescue to book if I can no longer take them.  
-   - As a Rescue user, I want to be able to view a list of all currently proposed bookings so that I can see what is pending acceptance by a Pound user. 
-   - As a Rescue user, I want to be able to view a list of all accepted bookings so that I can see which dogs are pending my collection. 
-   - As a Rescue user, I want to be able to confirm when a dog has been transferred to Rescue so that I can keep the status of bookings current and accurate. 
-   - As a Rescue user, I want to be able to see a history of rescued dogs so that I can use this data for any reporting requirements I have. 
-   - As a Rescue user, I want to be able to log out of my account so that I can keep my information secure. 
-
-   - As a User, I can navigate the site easily and intuitively.
-
-   - As an Admin user, I want to be able to view all Users of Connector.
-   - As an Admin user, I want to be able to manage the permissions of Users of Connector.
-   - As an Admin user, I want to be able to edit the details for Users if required. 
-   - As an Admin user, I want to be able to delete users as required. 
-   - As an Admin user, I want to be able to edit and delete profiles created by users if required. 
-   - As an Admin user, I want to be able to edit and delete bookings created by users if required. 
-
+   - As a consumer I want to easily see what products are available so that I can decide if I wish to purchase anything
+   - As a consumer I want to be able to search for a product
+   - As a consumer I want to be able to view categories of products
+   - As a consumer I want to be able to see more details for a specific product so that I can decide if I wish to purchase it
+   - As a consumer I want to be able to select the size and colour of product I wish to purchase
+   - As a consumer I want to add items I wish to puchase to my bag 
+   - As a consumer I want to be able to view the items I currently have in my bag and decide whether to purchase these or continue shopping
+   - As a consumer I want to be able to update the contents of my bag prior to checkout so that they reflect what I wish to buy
+   - As a consumer I want to purchase items that I know are in stock so that I know I will receive the items soon
+   - As a consumer I want to be able to find out about shipping information so that I know pricing and delivery timelines
+   - As a consumer I want to be able to easily and efficiently complete payment for my items
+   - As a consumer I want to enter payment details in a way that keeps the information secure and private
+   - As a consumer I want to receive confirmation of my orders so that I know they have been received
+   - As a consumer I can contact the store so that I can clarity any questions or issues in relation to my order
+   - As a consumer I want to be able to create an account so I can make purchases more easily
+   - As a consumer I want to be able to create an account so that I can leave reviews on purchases I have made
+   - As a consumer I want to be able to sign up to receive information of new products or special offers
+   - As a consumer I want to view my previous orders so that I can see what I previously ordered and when
+   - As a consumer I want to be able to manage my profile information so that I can update it for any changes
+   - As a consumer I want to be be able to add items to a wishlist so that I can potentially purchase these items later
+   - As a consumer I want to be able to easily log out of my account and reset my password if required to ensure my account information is secure. 
+   - As a user I want to be able to navigate the site easily and intuitively
+   - As a consumer I want to be able to find out more about the company and its ethos so that I can decide it they are a company I wish to purchase from
+   - As a consumer I want to know how my information is utilised so that I can decide if I wish to use the site
+   
+   - As store owner I can update product details so that the store reflects the latest stock information and prices
+   - As store owner I can add new products so that the store reflects the latest stock offerings
+   - As store owner I can remove products so that the store reflects the latest stock offerings
+   - As store owner I can manage orders based on queries from customers so that the orders are correct
 
 - __Site Aims__
  
   - The site aims to meet the above user requirements through the following: 
-    - Providing a requirement to log in or register for an account (Pound or Rescue) upon reaching the landing homepage.
-    - Upon sign in, the user can easily navigate to the element of the site they wish to use based on their user specific dashboard.
-    - Pound users can easily create a profile for a dog in their care from their dashboard which is then added to the main dashboard and visible to other users. 
-    - Users can easily view all dogs currently uploaded by Pounds, their details, location and urgency by viewing all dogs from their dashboard. For Rescue Users, this dashboard also allows the user to book a specific dog that they may have space to take in. If a proposed booking is made, this temporarily removes the profile from the main dashboard until the Pound user has either accepted or rejected the booking in order to avoid multiple booking requests. 
-    - Pound users can edit and delete profiles of dogs from within their Current dogs and Previous dogs dashbaords to maintain their details and status. 
-    - Pound users can easily view all proposed bookings for their dogs that they have received from Rescue users by accessed their Proposed bookings from their dashboard. From this dashboad they can accept or reject bookings. Accepted bookings move directly to their Bookings dashboard. Reject bookings move back to the Current dogs dashboard with an Available status again. 
-    - From their dashboard, Rescue users can view, edit and delete their bookings if they are no longer in a position to take a dog as proposed. 
-    - From their dashboard, users can see their collected or previous dogs if they wish to view historic data. 
+    - Providing an option to log in or register for an account upon reaching the landing homepage if desired.
+    - Users can easily navigate to the element of the site they wish to use be it informational or browsing of products.
+    - Users can easily view all products, search for products, sort products as desired and view further product specific information. 
+    - Users can select the specific product variation they desire to purchase and add it to their bag.
+    - Logged in users alternatively can add an item to their wishlist. 
+    - From their bag users can edit all contents to finalise the items and quantity they wish to purchase before proceeding to checkout. 
+    - Users can complete their purchases safely, efficiently and securely and receive confirmation that their order has been successfully processed. 
+    - Logged in users can leave reviews for products if desired. 
+    - Logged in users can edit their profile information and view historic order information. 
     - Users can logout upon completion of their session in order to keep their profile and information secure. 
-    - An admin dashboard and superuser rights have been created in order to enable to the management of users, profiles and bookings to ensure the management of the site. 
-
-### Logic
-
-- I used [Lucidchart](https://www.lucidchart.com) to set out the main logic of the site: 
-
-![Lucidchart Diagram](./static/images/readme/lucidchart.png)
+    - Users can opt to subscribe to the company newsletter if desired.
+    - Useful information is provided to the user in the form of About Us, Shipping and Privacy information. 
+    - Key store management functionality can be accessed from the front end of the site for superusers without the need to access the Admin panel. 
 
 ### Design
 
-- The design of the site is simple and functional. The core site aim is provide a practical and useful functionality to Pound and Rescue users and in this context a deliberate effort was made to keep the UI clean and clutterfree and to focus on the functionality and views required by the users. 
-- Google fonts Fredoka One (Brand) and Varela Round (body) have been used to soften the default font applied by Bootstrap and to add a 'friendlier' feel to the UI. 
-- In addition, a simple pawprint has been added as a favicon for the page, again to add an element of warmth and friendliness and in a nod to the core purpose of the site. This icon was sourced from Font Awesome. 
+- The design of the site is intended to be simple and functional with a visually appealing interface that reflects the brand, values and marketing style of the company.
+-  The core site aim is to be the online store for the brand with additional useful company information accessible from the site.  
+- Google fonts (Montserrat) has been used. In selecting the font, I wanted a powerful, highly legible font style to make a statement. Sans serif fonts are considered clean and modern and can help demonstrate a no-nonsense attitude which is fitting for EverWear. They are also often considered good for clothing brands. 
+- In addition, a favicon of the E from the brand name has been created and added as a favicon for the page for brand consistency across the site. 
 
-### Wireframes
-
-- High level wireframes for the site were mocked up in gSheets with a focus on the table views that the user types would require. 
-
-Homepage: 
-
-- From the start of planning, I intended the homepage to be a gateway to Connector with a clean simple view. This has been carried through to the final design with the main changes being the addition of the header and footer styling for the page. 
-
-![Homepage View](./static/images/readme/homepage_view.png)
-
-All Users:
-
-- The plan was to have a table visible to all users that sets out all of the dogs available for rescue. From this initial mock-up there were some functionality goals that were not possible to implement in the timeframe and actually never made it to the user stories including formal notifications (outside of onscreen messages). Similarly I decided not to let Pound users amend the collection date at this time but potentially may enable in future functionality the ability to propose an alternative date. 
-
-![All User View](./static/images/readme/all_user_view.png)
-
-Pound Users: 
-
-- The final structure of the site for Pound users largely includes the same functionality as the original mock-up. The primary difference was the decision to split the various tables into their own pages for a cleaner UI and to then add a user dashboard to simplify navigation between these views. I also decided not to implement the comment field in the table again to keep the view clean however this may be something worth revisiting in the future. 
-
-![Pound View](./static/images/readme/pound_view.png)
-
-Rescue Users:
-
-- Similarly, the final structure of the site for Rescue users largely includes the same functionality as the original mock-up again with the primary difference being the decision to split the various tables into their own pages for a cleaner UI and to then add a user dashboard to simplify navigation between these views.
-
-![Rescue View](./static/images/readme/rescue_view.png)
+SITE INSPIRATIONS??
 
 ### Database Planning
 
 - The final model structure implemented for the site is as follows: 
 
-![Final Models](./static/images/readme/final_model_structure.png)
+![Final Models](./media/readme/finalmodels_sshot.png)
+
+- The model attributes in yellow are not currently utilised in the site functionality but are there to support future feature enhancements noted below. These have not been implemented due to time constraints on the project. 
 
 ***
 ## Existing Features 
 
 ### Landing Page
 
-![Landing Page Screenshot](./static/images/readme/homepage.png)
+![Landing Page Screenshot](./media/readme/functionalilty/landingpage_sshot.png)
+ - On arrival at the page, there is a simple landing page with a Shop button and Account icon. This landing page was created to add to the feel of the brand and to give the impression of a gateway into the site. 
+ - The Shop button takes the user to the homepage of the site. 
 
- - On arrival at the page, there is a header with the site brand name (Connector) and slogan ('Giving Pound Dogs their Second Chance').
+![Account Icon Dropdown - Logged Out](./media/readme/functionalilty/accounticon_loggedout.png)
+ - The account icon for a logged out user gives the option of Register or Login and will direct the user to the respective page accordingly.
+
+![Account Icon Dropdown - Superuser](./media/readme/functionalilty/accounticon_suser.png)
+ - The account icon for a logged in superuser gives the account options of Manage Store, My Profile and Logout. For non-superusers, a logged in viewer will only see My Profile and Logout.
 
 __Log In__
 
-  - The landing page requires the user to either Log In or Register in order to proceed with using the site further. 
   - Upon selecting Login, the user is taken to the log in screen to enter their information. 
   - From this view, the user also has a Register or Login button in the top right corner of their screen as part of the header. This is in case the user easily wishes to navigate to Register instead of Login.
 
-![LogIn](./static/images/readme/login.png)
+![LogIn](./media/readme/functionalilty/login_sshot.png)
 
   - If the details entered are incorrect, they will receive an error notification.
 
-![Login Error](./static/images/readme/login_error.png)
+![LogIn Error](./media/readme/functionalilty/login_error_sshot.png)
+
+  - Once logged in the user will see a success message confirming their sign in.
+
+![LogIn Confirmation](./media/readme/functionalilty/login_success_sshot.png)
 
 __Register__
 
- - If the user opts to Register from the landing page they will be taken to the Sign Up screen to select which type of user they wish to register as; Pound or Rescue.
+ - If the user opts to Register they will be taken to the Sign Up screen to do so.
 
-![Signup Page](./static/images/readme/signup_page.png)
+![Signup Page](./media/readme/functionalilty/signup_sshot.png)
 
- - If the user selects Pound they will be taken to a form to create a Pound User account. 
+ - This form will display errors if the fields are not completed correctly.  
 
-![Pound Register](./static/images/readme/pound_register.png)
+![Sign Up Errors](./media/readme/functionalilty/signup_validation_sshot.png)
 
- - If the user selects Rescue they will be taken to a form to create a Rescue User account.
+ - Once submitted, the user is notified that a confirmation email has been sent to the email address submitted. 
 
-![Rescue Register](./static/images/readme/rescue_register.png)
+![Confirmation](./media/readme/functionalilty/signup_confirm_sshot.png)
 
- - If the registration form is not validly completed for either type of user, the user will be notified of the errors to be corrected in order to be able to create their account.
+ - The user receives an email from which they can validate their account. 
 
-![Registration Error](./static/images/readme/registration_error.png)
+![Confirmation Email](./media/readme/functionalilty/email_confirm_sshot.png)
 
-### User Dashboards
+ - They then receive a final confirm step and a success message when signed in. 
 
-__Navigation__
-  - Once logged in the user will be taken to the dashboard view specific to their user type. 
-  - In addition, the navigation bar will now display that they are logged in as user (example) Joe Bloggs and display a Log Out and My Dashboard button to faciliate easy navigation of the site. 
+ ![Final Confirm](./media/readme/functionalilty/final_confirm_sshot.png)
+ ![Sign In Success](./media/readme/functionalilty/signup_success_sshot.png)
 
-![Rescue Navigation](./static/images/readme/rescue_nav.png)
-![Pound Navigation](./static/images/readme/pound_nav.png)
+### HomePage
 
-__Pound Dashboard__
-   - For Pound users, their dashboard will allow them to navigate to the following views: 
-       - See All Dogs: displays all dogs currently uploaded to Connector and with a Hold (will be available once Hold period completed) or Available status.
-       - Add a Dog: displays a form for the Pound user to create a dog profile on the site.
-       - My Current Dogs: displays all dogs with Available/Hold status that are specific to that Pound user.
-       - My Previous Dogs: displays all of that Pound user's dogs with a status of Transferred to Rescue, Rehomed, Reclaimed, PTS or Death Natural Causes.
-       - My Booked Dogs: displays all of that Pound user's dogs with a status of Booked and the respective booking information for the Rescue.
-       - My Proposed Bookings: display all of that Pound user's dogs with a proposed booking and requires acceptance or rejection by the Pound user.
+![Homepage Screenshot](./media/readme/functionalilty/homepage_sshot.png)
+ - The homepage is the core page for the user from where they can select which products, product categories or information pages they wish to view. 
 
-![Pound Dashboard](./static/images/readme/pound_dashboard.png)
+__Search Functionality__
+ - From the search box at the top of the page the user can search for a product name or description and see what products are available. 
 
-__Rescue Dashboard__
-  - For Rescue users, their dashboard will allow them to navigate to the following views: 
-       - See All Dogs: displays all dogs currently uploaded to Connector and with a Hold (will be available once Hold period completed) or Available status.
-       - My Rescued Dogs: displays all of the dogs with a status of Transferred to Rescue for that Rescue user.
-       - My Booked Dogs: displays all of the dogs with a status of Booked where the booking party is the Rescue user.
-       - My Proposed Bookings: display all of the dogs with a proposed booking from that Rescue user that is pending acceptance or rejection by the Pound user.
+ ![Hoody Search](./media/readme/functionalilty/hoody_search.png)
+ ![Hoody Result](./media/readme/functionalilty/hoody_result.png)
 
-__Logout__
-  - Upon logging out, the user is returned to the landing page of the site, displaying the Login and Register buttons.
+ ![Organic Search](./media/readme/functionalilty/organic_search.png)
+ ![Orgnanic Result](./media/readme/functionalilty/organic_result.png)
 
-### Views
+__All Products__
+ - From the navigation bar the user can select to view all products by price or by category.
+ - Multiple product pages display a card of the product with an image (or no image image if not available), the product name, product category, price and rating. 
 
-__Pound Views__
+  ![All Products by Price](./media/readme/functionalilty/allproducts_price.png)
+  ![All Products by Category](./media/readme/functionalilty/allproducts_category.png)
 
-  - See All Dogs: For See All Dogs, a Pound user can view the detailed information uploaded for each dog that is looking for placement. This will include dogs from their Pound and others with a status of Hold or Available.
-  - These dog profiles are sorted based on urgency with the view to tryin to get placement for the most in need dogs as a priority.
-  - Pagination has been added to this view to add pages where the tables exceeds 25 entries. 
+__Category__
+ - From the navigation bar or from the category card on the homepage, the user can select to view all products of a specific category.
 
-![All Dogs Pound](./static/images/readme/all_dogs_pound.png)
+  ![Products by Category](./media/readme/functionalilty/product_category.png)
 
-  - Add a Dog: From Add a Dog, a Pound user is taken to a form whereby they can create a profile for display on the site. This form includes validation if any fields are left unpopulated. 
+__Sort Functionality__
+ - The user may also sort the products displayed by various criteria from the sort box.
 
-![Add a Profile](./static/images/readme/create_a_profile.png)
+  ![Sortbox](./media/readme/functionalilty/sortbox_sshot.png)
 
-  - Once a profile has been created, the Pound user will see a message to confirm that the profile has been successfully created and be taken back to the See All Dogs view so they can see the profile that has been added. 
+### Product Page
 
-![Profile Creation](./static/images/readme/profile_sucess.png)
+__Product Display__
+ - The top half of the product detail page displays the product name, price, average and count of reviews for the product, product description and purchase options. 
+ - The user can navigate back to the Products listing via the Keep Shopping link or back to the Homepage or Product Category via the breadcrumbs.
 
-  - My Current Dogs: From My Current Dogs, a Pound user can see all of their dogs that have a status of Hold or Available. From this view, they can individually edit or delete any of these profiles. 
+  ![Product](./media/readme/functionalilty/product_detail_sshot.png)
 
-![My Current Dogs](./static/images/readme/my_current_dogs.png)
+__Options__
+ - The Add to Bag button is inactive on the product bag until both a color and size option have been selected in order to avoid items being added to the bag without proper specifications. 
 
-  - Edit a Profile: If the Pound user selects to edit a profile they are taken to a form prepopulated with the information for that dog so that it can be edited. If the user deletes information without replacing, an error will be displayed and the profile update cannot be saved.
+  ![Pre-selection](./media/readme/functionalilty/pre_select_sshot.png)
 
-![Edit a Profile](./static/images/readme/edit_profile.png)
-![Edit a Profile Error](./static/images/readme/edit_profile_error.png)
+ - On selecting the color, this option will be highlighted and the size options available for that color will be displayed. 
 
-  - When the profile is successfully updated, the user will be notified and returned to the See All Dogs view of the site. 
+  ![Color Selection](./media/readme/functionalilty/color_select_sshot.png)
+  ![Size Selection](./media/readme/functionalilty/size_select_sshot.png)
 
-![Edit a Profile Success](./static/images/readme/profile_edit_success.png)
+__Reviews__
+ - The bottom half of the product detail page displays a marketing image set for the category in question and reviews for the product being viewed.
 
-  - Delete a Profile: If the Pound user selects to delete a profile they are asked to confirm this action. Once confirmed they will again receive a message to confirm successful deletion. 
+  ![Reviews](./media/readme/functionalilty/reviews_sshot.png)
 
-![Delete Confirmation](./static/images/readme/delete_confirm_request.png)
-![Delete Success](./static/images/readme/deletion_confirmation.png)
+ - If the user is logged in and has not left a review for that product they will have the option to 'Add a Review'
 
- - My Proposed Bookings: From My Proposed Bookings, a Pound user can see all of their dogs that have a booking proposed by a Rescue. From this view, they can individually accept or reject the proposed booking.
+  ![Reviews](./media/readme/functionalilty/productwithadd_sshot.png)
 
-![Pound Proposed Bookings](./static/images/readme/pound_proposed_bookings.png)
+  - If the user wishes to add a review, clicking the Add a Review button will produce a modal where they can provide rating text and a score out of 5. Once submitted this will auto refresh the reviews and the review count and average.
 
- - Accept a Booking: Where a Pound accepts a booking, the profile status for the dog is updated to Booked and the profile will now display in the users My Bookings view. Upon acceptance the user receives notification of successful acceptance.
+  ![Review](./media/readme/functionalilty/review_modal_sshot.png)
 
-![Pound Booking Accepted](./static/images/readme/booking_accepted.png)
+  - If the user is not logged in, they will be able to see reviews left but will not have the option to Add a Review.
 
- - Reject a Booking: Where a Pound rejects a booking, the profile status for the dog is updated to Available and the profile will now display in the users My Current Dogs view. Upon rejection the user receives a request to confirm the rejection and notification of successful rejection upon confirmation.
+  ![Reviews Logged Out](./media/readme/functionalilty/reviews_loggedout_sshot.png)
 
-![Pound Booking Reject Confirm](./static/images/readme/booking_reject_confirm.png)
-![Pound Booking Reject Success](./static/images/readme/booking_reject_success.png)
+  - Reviews can be deleted by superusers from the Admin panel if required.  
 
- - My Booked Dogs: From My Bookings, a Pound user can see all of their dogs that have a confirmed booking by a Rescue. From this view, they can individually delete a booking or confirm the collection of a dog by the Rescue.
+__Add to Bag__
 
-![My Booked Dogs](./static/images/readme/pound_my_bookings.png)
+- Once the color, size and quantity has been selected and added to the bag, a success message is displayed showing the user what they added, their current bag total and the delta to getting free delivery if applicable. 
 
- - Where a Pound deletes a booking, the profile status for the dog is updated to Available and the profile will now display in the users My Current Dogs view. Upon deletion the user receives a request to confirm the rejection and notification of successful rejection upon confirmation.
+  ![Add to Bag](./media/readme/functionalilty/add_to_bag_success.png)
 
-![Pound Booking Delete Confirm](./static/images/readme/booking_delete_confirm.png)
+__Add to Wishlist__
 
-  - Where a Pound confirms collection, the profile status for the dog is updated to Transferred to Rescue and the profile will now display in the users My Previous Dogs view.
+ - For users that are not logged in, clicking the Add to Wishlist button on the product page will reroute them to the login page for the site. 
 
-![Pound Collection Confirmation](./static/images/readme/pound_collection_confirmed.png)
+ - For logged in users, adding a product to the wishlist will display a success message. 
 
-- My Previous Dogs: From My Previous Dogs, a Pound user can see all of their dogs that have a status of Reclaimed, Rehomed, PTS, Transferred to Rescue or Death Natural Causes. From this view, they can individually edit or delete any of these profiles if required.
-- Pagination has been added to this view to add pages where the tables exceeds 25 entries. 
+  ![Wishlist Success](./media/readme/functionalilty/wishlist_sucess.png)
 
-![My Previous Dogs](./static/images/readme/previous_dogs.png)
+### Bag
+ - From their bag which can be accessed via the bag icon at the top of the page, the checkout link in the footer or the checkout link in the add to bag pop up message, the user will see each product they have added to their bag in an individual line for that product specification.  
+ - The line details the product image (bar on small mobile screens), name, size, color, sku, individual price and quantity, the subtotal (bar on small mobile screens) and the option to update the quantity or remove the item from the bag. 
+ - The total, delivery cost and grand total are displayed at the bottom with the option to proceed to payment or to keep shopping. 
 
-__Rescue Views__
+  ![Bag](./media/readme/functionalilty/bag1.png)
+  ![Bag](./media/readme/functionalilty/bag2.png)
 
-  - See All Dogs: For See All Dogs, a Rescue User can view the detailed information uploaded for each dog that is looking for placement. This will include dogs with a status of Hold or Available. For Rescue Users, they can also see a Rescue Me button whereby they can create a booking request against any dog profile.
-  - These dog profiles are sorted based on urgency with the view to tryin to get placement for the most in need dogs as a priority.
-  - Pagination has been added to this view to add pages where the tables exceeds 25 entries. 
+ - The user can also tell if there are items in their bag as the bag icon will turn blue.
 
-![All Dogs Rescue](./static/images/readme/all_dogs_rescue.png)
+  ![Bag Icon](./media/readme/functionalilty/bag_icon.png)
 
-  - Booking Request: If the Rescue user selects Rescue Me from the See All Dogs dashboard, they are taken to a form to complete to create a booking for the specific dog selected. This form has validation and input guidance to ensure the user can successfully save their request. 
+ - If the user changes the quantity of a specific product variation in their bag they will receive a success message with the details and the bag totals will recalculate. 
 
-![Booking Request](./static/images/readme/booking_request.png)
+  ![Quantity Change](./media/readme/functionalilty/update_quantity.png)
 
-  - Upon the booking being successfully saved, the Rescue user will receive notification of success and be returned to the See All Dogs dashboard so they can book further dogs if desired. 
+ - If the user deletes and item from their bag, that specific product variation will be removed, a sucess message displayed and the bag total recalculated. 
 
-![Booking Success](./static/images/readme/booking_success.png)
+  ![Remove Item from Bag](./media/readme/functionalilty/remove_item.png)
 
-- My Proposed Bookings: From My Proposed Bookings, a Rescue User can see all of the dogs that they have proposed a booking for. From this view, they can individually edit or delete a submitted booking request if required.
+ - If the user does not have any items in their bag, the follow view will be displayed: 
 
-![Rescue Proposed Bookings](./static/images/readme/rescue_my_proposed.png)
+  ![Empty Bag](./media/readme/functionalilty/empty_bag.png)
 
- - Edit a Booking: Where a Rescue decides to edit a booking, they are taken to a booking form prepopulated with the previous booking information. 
+  
+### Wishlist
+ - The user can view their wishlist by clicking the heart button at the top of the screen or the Wishlist link in the footer. This will display the products that they have added to their wishlist. 
 
-![Edit Rescue Booking](./static/images/readme/edit_booking_form.png)
+  ![Wishlist](./media/readme/functionalilty/wishlist_sshot.png)
 
- - When successfully completed and saved, the Rescue user will be notified of their successful update and returned to their dashboard to select their next action. The form will display an error to the user if the fields are not correctly populated. 
+ - If they wish to purchase the item clicking on the product name will take them to the product detail page for that product.
 
- ![Edit Rescue Booking Success](./static/images/readme/rescue_booking_edit_success.png)
+ - If they wish to remove the item from their wishlist, they can click the Remove button and they will see a success message that the item has been removed. 
 
- - Delete a Booking: Where a Rescue decides to delete a booking, the profile status for the dog is updated to Available again. Upon deletion the user receives a request to confirm the deletion and notification of successful deletion upon confirmation.
+  ![Remove Item from Wishlist](./media/readme/functionalilty/wishlist_removal.png)
 
-![Rescue Booking Delete Confirm](./static/images/readme/rescue_delete_confirm.png)
+ - If the users wishlist is empty they will see the following view:
+  
+  ![Empty Wishlist](./media/readme/functionalilty/wishlist_empty.png)
 
-![Rescue Booking Delete Success](./static/images/readme/rescue_delete_success.png)
 
-  - My Booked Dogs: This view displays all of the dogs with a status of Booked where the booking party is the Rescue user. From this view the user can again edit or delete the booking if required or confirm collection of the dog by their Rescue.
+### Checkout
 
-![Rescue My Bookings](./static/images/readme/rescue_my_bookings.png)
 
- - Where a confirmed booking is edited, the status of the dog will revert to Booking Proposed again so that the Pound user can reaccept this revised booking. As above, all successful edits and deletions to bookings are notified to the user. 
 
-![Rescue Booking Update](./static/images/readme/rescue_booking_update.png)
+### SuperUser
 
-  - Where a Rescue user selects to confirm collection, the status of the dog is updated to Transferred To Rescue and will be visible to the Rescue user from their My Rescued Dogs view. Again, the user receives confirmation of this update when selected. 
+__Manage Store__
 
-![Rescue Collection Confirmation](./static/images/readme/rescue_collection_confirmation.png)
+__Add Category__
 
-  - My Rescued Dogs: My Rescued Dogs shows the specific Rescue user all of the dogs with a status of Transferred to Rescue for that Rescue user.
-  - Pagination has been added to this view to add pages where the tables exceeds 25 entries. 
+__Add Product__
 
-![Rescued Dogs](./static/images/readme/my_rescued_dogs.png)
+__Edit Product__
 
-  - For all dashboards and users, where there is no information to be displayed this is explicitly stated to the user to avoid any confusion that the information may not be loading.
+__Delete Product__
 
-![Blank Dashboard](./static/images/readme/blank_dashboard.png)
+__Admin Panel__
+
+__Order Status__
+
+
+### Informational Pages
+
+
+
+### Logout
+
+
+
+### Footer
+
+__Social Media__
+
+
+__Links__
+
+
+__Newsletter__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ***
 ## Feature Enhancements

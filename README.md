@@ -552,31 +552,31 @@ __Newsletter__
 
 ### Error 404 Page
 
+- In the event that the user is routed to a page that does not exist they will see a custom 404 error page. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![404 Error](./media/readme/functionalilty/404.png)
 
 ***
 ## Feature Enhancements
 
- - There are a number of feature enhancements that I believe would be beneficial to the site and further enhance its usefulness to the user but which I was time constrained to try and incorporate prior to the submission deadline for this project. These include: 
+ - There are a number of feature enhancements that I believe would be beneficial to the site and further enhance its usefulness to the user but which I was time constrained to try and incorporate prior to the submission deadline for this project. Some of the model set up has already been implemented with the view to implementing some of these functionalities. These include: 
 
-     - 
-       
+     - Further CRUD functionality: Enhancing the ability for superusers to manage the store from the front end by including the ability to edit/delete categories, edit/delete product variants, and add/edit/delete colors, sizes and image variants.
+     - Image carousel: Implement an image carousel on the product detail page to display the various image variants for a product.
+     - Stock functionality: Implement a check whereby if the stock for the specific product color and size is less than 1, the product variant will not be available. 
+     - Stock funtionality: Update the stock number when an order is completed or an order is deleted. 
+     - Sale price functionality: Where a sale price is in place for a product variant display this price and charge this price for a product variant selected. 
+     - Error pages: Further error pages to be built into the site
+     - Contact Us: Model to be implemented to enable better tracking of queries and their status.
+     - Reviews: Ability for User to edit and delete their reviews.
+     - Navigation Bar: Implement dynamic update for new category.
+     - Bag: Add empty bag button to clear bag in one action.  
+     - Wishlist: Add ability to add specific product variation to wishlist and ability to add to bag from within wishlist. 
+     - Login: Implement social media sign in functionality.
+     - Discount codes: Enable functionality to add discount code at checkout.
+     - Delete: Add warning prior to deletion of categories/products/variants.
+     - Product Suggestions: Implement product suggestions section to bag and product detail pages. 
+
 ***
 ## Testing 
 
@@ -584,7 +584,7 @@ __Newsletter__
 
  - All user stories identified have been tested against the final design with the outcome of this testing set out below. 
 
-![User Story Testing](./media/readme/)
+  ![User Story Testing](./media/readme/testing/userstory_testing.png)
 
 ### Features Testing
 
@@ -592,23 +592,27 @@ __Newsletter__
  - Screenshots have also been included in the Features section above to show the validation output for the various steps completed by the user. 
  - Testing was completed in my local terminal and also in Heroku post deployment. 
 
-![Features Testing](./media/readme/)
+  ![Features Testing](./media/readme/testing/feature_testing.png)
 
 ### Permissions Testing
 
  - All urls have been tested to ensure that only the correct user profiles can access the functionality available to them. The outcome of this testing is set out below. 
 
-![Permissions Testing](./media/readme/)
+  ![Permissions Testing](./media/readme/testing/access_testing.png)
 
 ### Browser Testing
   - The site was developed and tested using Google's Chrome browser. 
   - The site has also been tested on Safari and functions as intended. 
 
-![Browser Testing](./media/readme/)
+  ![Browser Testing](./media/readme/testing/browser_testing.png)
 
   - The site has been tested for responsiveness across the different pages of the site on different screen sizes. The outcome of this testing is set out below.  
 
-![Responsiveness]((./media/readme/)
+  ![Responsiveness](./media/readme/testing/siteresponsiveness_testing.png)
+
+  - The outcome at an individual page level is set out below. 
+
+  ![Responsiveness](./media/readme/testing/pageresponsiveness_testing.png)
  
 ### Code Validation Testing 
 

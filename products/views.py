@@ -68,7 +68,6 @@ def all_products(request):
 def product_detail(request, id):
     """ A view to show individual product details """
 
-    # reviews = ProductReview.objects.filter(product_id=product.id)
     product = Product.objects.get(id=id)
     product_attributes = ProductAttribute.objects.filter(product=product)
     category = Category.objects.all()

@@ -74,19 +74,6 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
-    # def delete(self): FROM DNL BOWERS
-    #     """
-    #     If order gets deleted all lineitems are deleted first
-    #     and order stock get added back to the product
-    #     """
-    #     for lineitem in self.lineitems.all():
-
-    #         product = AllProducts.objects.get(id=lineitem.product.id)
-    #         product.stock_level += lineitem.quantity
-    #         product.save()
-
-    #     super().delete()
-
     def __str__(self):
         return self.order_number
 

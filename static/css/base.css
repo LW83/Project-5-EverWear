@@ -125,6 +125,10 @@ footer button {
     border: none;
 }
 
+.choose-color {
+    font-size: 0;
+}
+
 /* from Bulma */
 .btn {
     border-radius: 2px;

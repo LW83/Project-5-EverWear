@@ -35,7 +35,7 @@
                 <a class="wishlist_product" href="{% url 'product_detail' product.id %}"><h5 class="card-title">{{product.name}}</h5></a>
                 <p class="card-text">{{product.description}}</p>
                 <p class="card-text"><small class="text-muted">€{{product.price}}</small></p>
-                <a type="button" class="btn btn-everwear-grey rounded-1 fw500" href="{% url 'add_to_wishlist' product.id %}">Remove from Wishlist</a>
+                <a class="btn btn-everwear-grey rounded-1 fw500" href="{% url 'add_to_wishlist' product.id %}">Remove from Wishlist</a>
                 </div>
             </div>
             </div>

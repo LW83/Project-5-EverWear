@@ -38,7 +38,7 @@ class ProductForm(forms.ModelForm):
 
 
 class ProductVariationForm(forms.ModelForm):
-    """Form to allow editing of products"""
+    """Form to allow editing of product variants"""
 
     class Meta:
         model = ProductAttribute
@@ -49,6 +49,7 @@ class ProductVariationForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
+    """Form to allow editing of reviews"""
     class Meta:
         model = ProductReview
         fields = ['review_text', 'review_rating']

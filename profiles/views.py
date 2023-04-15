@@ -68,6 +68,7 @@ def wishlist(request):
 
 @login_required
 def add_to_wishlist(request, id):
+    """Add to user's wishlist items from Very Academy Tutorial """
     product = get_object_or_404(Product, id=id)
     if product.wishlist.filter(id=request.user.id).exists():
         product.wishlist.remove(request.user)

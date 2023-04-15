@@ -165,7 +165,7 @@ def add_product(request):
 
 @login_required
 def add_variation(request):
-    """ Add a variation to the store """
+    """ Add a variation to the store - adapted from LadCode 2021"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

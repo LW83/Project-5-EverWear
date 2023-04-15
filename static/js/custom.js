@@ -31,6 +31,8 @@ $(document).ready(function(){
 	// End
 });
 
+/// Added color and size info to hidden input field ///
+
 function storeColor(id_product_color) {
 	var color = id_product_color.getAttribute('data-color-name'); 
 	$('#js_data_input').val(color);

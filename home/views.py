@@ -11,7 +11,7 @@ def landing_page(request):
 
 
 def index(request):
-    ''' View to display index page '''
+    """ View to display index page """
 
     return render(request, 'home/index.html')
 
@@ -35,6 +35,7 @@ def privacy(request):
 
 
 def all_categories(request):
+    """ Get all categories for display of cards on homepage """
 
     categories = Category.objects.all()
     paginate_by = 9

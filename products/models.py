@@ -68,6 +68,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    """ From Celikyuksell Django eCommerce Project - see Readme"""
     def image_tag(self):
         if self.image:
             if self.image.url is not None:
@@ -94,6 +95,7 @@ class Product(models.Model):
 
 
 class Color(models.Model):
+    """Model for product colors"""
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=10, blank=True, null=True)
 
@@ -108,6 +110,7 @@ class Color(models.Model):
 
 
 class Size(models.Model):
+    """Model for product sizes"""
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=10, blank=True, null=True)
 
@@ -116,6 +119,7 @@ class Size(models.Model):
 
 
 class ImageVariant(models.Model):
+    """Model for product images"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=True)
     image_variant_alt = models.CharField(max_length=50, blank=True)
@@ -135,6 +139,7 @@ class ImageVariant(models.Model):
 
 
 class ProductAttribute(models.Model):
+    """Model for product attributes"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True,
                               blank=True)
@@ -152,10 +157,8 @@ class ProductAttribute(models.Model):
         return self.product.name
 
 
-""" Adapted from Code Artisan Lab eCommerce demo """
-
-
 class ProductReview(models.Model):
+    """ Adapted from Code Artisan Lab eCommerce demo """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     review_text = models.TextField()

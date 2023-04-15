@@ -17,6 +17,7 @@
             </div>
         </div>
         <div class="row">
+            <!--Product Sorting Functionality-->
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 col-lg-3 my-auto order-m-last d-flex justify-content-center justify-content-m-end">
@@ -43,6 +44,7 @@
                         </p>
                     </div>
                 </div>
+                <!--Product Display-->
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -85,6 +87,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--Displaying product cards on different screen sizes-->
                         {% if forloop.counter|divisibleby:1 %}
                             <div class="col-12 d-sm-none mb-5">
                             </div>
@@ -106,6 +109,7 @@
             </div>
         </div>
     </div>
+    <!--Back to Top button-->
     <div class="btt-button shadow-sm">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-chevron-up text-everwear-grey mx-auto my-auto"></i>

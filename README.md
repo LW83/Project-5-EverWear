@@ -828,19 +828,22 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
 
 ### Resources & Code Utilisation
  - The following resources were key to helping me build functionality critical to the working of the site: 
-   - Helping resolve reverse login errors: https://forum.djangoproject.com/t/reverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6
-   Resources
-https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7 for Wishlist
-Adding marksafe to file: https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django
+    - Helping resolve reverse login errors: [Django Project](https://forum.djangoproject.com/treverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6)   
+    - Adding marksafe to file to allow image thumbnails to display in admin panel [StackOverflow](https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django)
+    - Bootstrap documentation - general research and guidance
+    - Django documentation - general research and guidance
+    - Stackoverflow - general research and guidance
+    - Slack - general research and guidance
 
-https://www.youtube.com/@YukselCELIK/search?query=Django - Tried to get product variations but could not get working
-   - Bootstrap documentation
-   - Django documentation
-   - Stackoverflow
-   - Slack
-
- - The following elements of code have specifically been inspired from the following sources: 
-    - Adding product variations to the bag: LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
-    - The review ratings was adapted from a combination of https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py and 
+    - The following elements of code have specifically been inspired from the following sources: 
     - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
-    - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project particularly in relation to 
+    - Product app models including displaying image thumbnails is admin paneladapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
+    - Wishlist functionality: Adapted from Very Academy's Django eCommerce Project [Django eCommerce Project](https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7)
+    - Breadcrumbs: Adapted from [Celikyuksell - Django eCommerce Project](https://github.com/celikyuksell/Django-E-Commerce/blob/master/home/templates/product_detail.html)
+    - Adding color and size selections: Adapted from [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
+    - Adding product variations to the bag and to the store: Adapted from LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
+    - The Proudct review functionality was adapted from a combination of [Dev Rathankumar - GreatKart](https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py) and [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
+    - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project 
+
+### People
+ - Jason in Tutor support for his assistance in resolving my issue with the webhook handler. 

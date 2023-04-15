@@ -115,7 +115,7 @@
                     </div>
                 </a>
             </li>
-            <li class="list-inline-item"><!--Update if not grand total need to ensure logged in-->
+            <li class="list-inline-item">
                 <a class="{% if wishlist.count %}text-everwear-red{% else %}text-everwear-grey{% endif %} nav-link" href="{% url 'wishlist' %}">
                     <div class="text-center">
                         <div><span class="material-symbols-outlined">favorite</span></div>
@@ -159,7 +159,8 @@
 
     {% block content %}
     {% endblock %}
-
+    
+    <!--Footer-->
     <footer class="pt-4 mt-4 container-fluid">
         <div class="row">
             <div class="col-12 col-md mb-4">
@@ -196,6 +197,7 @@
             </ul>
             </div>
             <div class="col-12 col-md">
+                <!--Newsletter sign up - adapted from Mailchimp-->
                 <h5>Stay Connected</h5>
                 <p class="text-muted">Sign up to our newsletter for details of new products and sales</p>
                 <div class="form-group" id="mc_embed_signup">
@@ -222,6 +224,7 @@
     </footer>
 
     {% block postloadjs %}
+    <!--To display toasts-->
     <script>
         $('.toast').toast('show');
     </script>

@@ -45,7 +45,6 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
     * [**Permissions Testing**](#permissions-testing)
     * [**Browser Testing**](#browser-testing)
     * [**Code Validation Testing**](#code-validation-testing)
-    * [**Lighthouse Performance Testing**](#lighthouse-performance-testing)
     * [**Accessibility Testing**](#accessibility-testing)
     * [**Fixed Bugs**](#fixed-bugs)
     * [**Unfixed Bugs**](#unfixed-bugs)
@@ -697,23 +696,6 @@ __JS Validation__
   
   - There are no errors for the site when passed through the JSHint validator. 
   - Scripts at the bottom of HTML templates were also checked with no warnings.
-
-### Lighthouse Performance Testing
-
-  - Lighthouse testing was performed on the site with perfomance and accessibility scores consistently in the 90%+ range.
-
-  ![Homepage Lighthouse](./media/readme/)
-  ![Login Lighthouse]
-  ![Sign Up Options Lighthouse]
-  ![Registration Lighthouse]
-  ![Dashboard Lighthouse]
-  ![Current Dogs Lighthouse]
-  ![Add a Profile Lighthouse]
-  ![Edit a Profile Lighthouse]
-  ![My Current Dogs Lighthouse]
-  ![My Bookings Lighthouse]
-  ![My Proposed Bookings Lighthouse]
-  ![My Previous Dogs Lighthouse]
 
 ### Accesibility Testing
 

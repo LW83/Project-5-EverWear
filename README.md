@@ -29,7 +29,7 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
   * [**Existing Features**](#existing-features)
     * [**Landing Page**](#landing-page)
     * [**Site Header**](#site-header)
-    * [**HomePage**](#hompage)
+    * [**HomePage**](#homepage)
     * [**Product Page**](#product-page)
     * [**Bag**](#bag)
     * [**Wishlist**](#wishlist)
@@ -51,12 +51,12 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
   * [**Deployment**](#deployment)
     * [**Workspace SetUp**](#workspace-setup)
     * [**Deployment**](#deployment-1)
-  * [**Languages, Technologies & Libraries**](#languages-technologies--libraries) **
+  * [**Languages, Technologies & Libraries**](#languages-technologies--libraries)
     * [**Languages Used**](#languages-used)
     * [**Technologies Utilised**](#technologies-utilised)
   * [**Credits**](#credits)
     * [**Images**](#images)
-    * [**Resources & Code Utilisation**](#resources) **
+    * [**Resources & Code Utilisation**](#resources)
     * [**People**](#people)
 
 
@@ -697,7 +697,7 @@ __JS Validation__
   - There are no errors for the site when passed through the JSHint validator. 
   - Scripts at the bottom of HTML templates were also checked with no warnings.
 
-### Accesibility Testing
+### Accessibility Testing
 
   - In addition to the lighthouse reports, site accessibility was also tested via [Accessibility Test](https://accessibilitytest.org/) with a score of 90%.
   - There are areas where this score can be improved that were not feasible to implement in time. Other areas have been deliberate choices such as displaying text in the footer in lighter grey for visual purposes and given the frequency of access. 
@@ -781,9 +781,9 @@ Steps to Set up Workspace and Install Django:
 - Create a requirements.txt file:
           pip freeze --local > requirements.txt
 - Create a project via the following command:
-          django-admin startproject PROJECT_NAME . (in the case of this project, the project name was "project4")
+          django-admin startproject PROJECT_NAME . 
 - Create an app within the project:
-          python manage.py startapp APP_NAME (in the case of this project, the app name was "connector")
+          python manage.py startapp APP_NAME 
 - Add your new app to the list of installed apps in setting.py
 - Migrate these changes via:
           python manage.py migrate
@@ -807,38 +807,38 @@ Heroku:
    
 Gitpod:
 
-    Env.py file
-    - These database and secret key URLs are also added to your env.py file in gitHub and this file is included in the gitignore file to ensure config vars are not publically available on Github.
-    - In env.py import os
-    - Add os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
-    - os.environ["SECRET_KEY"] = "Paste in your randomSecretKey"
+  Env.py file
+  - These database and secret key URLs are also added to your env.py file in gitHub and this file is included in the gitignore file to ensure config vars are not publically available on Github.
+  - In env.py import os
+  - Add os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
+  - os.environ["SECRET_KEY"] = "Paste in your randomSecretKey"
 
-    Settings.py file
-    - Under from pathlib import Path add:
-        import os
-        import dj_database_url
-        if os.path.isfile("env.py"):
-          import env
-    - Replace the secret key: SECRET_KEY = os.environ.get('SECRET_KEY')
-    - if 'DATABASE_URL' in os.environ:
-              DATABASES = {
-                  'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-              }
-              else:
-                  DATABASES = {
-                      'default': {
-                          'ENGINE': 'django.db.backends.sqlite3',
-                          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-                      }
-                  }
-    - Migrate these changes
-    - Link file to the templates directory in Heroku (Place under the BASE_DIR line) via: 
-          TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-    - Change the templates directory to TEMPLATES_DIR. Place within the TEMPLATES array
-    - Add Heroku Hostname to ALLOWED_HOSTS; 
-          ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
-    - Create a procfile at the top level directory and add: web: gunicorn PROJ_NAME.wsgi
-    - Add, commit and push the changes in the terminal
+  Settings.py file
+  - Under from pathlib import Path add:
+      import os
+      import dj_database_url
+      if os.path.isfile("env.py"):
+        import env
+  - Replace the secret key: SECRET_KEY = os.environ.get('SECRET_KEY')
+  - if 'DATABASE_URL' in os.environ:
+            DATABASES = {
+                'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+            }
+            else:
+                DATABASES = {
+                    'default': {
+                        'ENGINE': 'django.db.backends.sqlite3',
+                        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                    }
+                }
+  - Migrate these changes
+  - Link file to the templates directory in Heroku (Place under the BASE_DIR line) via: 
+        TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+  - Change the templates directory to TEMPLATES_DIR. Place within the TEMPLATES array
+  - Add Heroku Hostname to ALLOWED_HOSTS; 
+        ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
+  - Create a procfile at the top level directory and add: web: gunicorn PROJ_NAME.wsgi
+  - Add, commit and push the changes in the terminal
 
 AWS: 
  - Sign in to your AWS account (or set one up if required).
@@ -1014,22 +1014,22 @@ The live link can be found here: [EverWear](https://project-5.herokuapp.com/home
 
 ### Resources & Code Utilisation
  The following resources were key to helping me build functionality critical to the working of the site: 
-    - Helping resolve reverse login errors: [Django Project](https://forum.djangoproject.com/treverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6)   
-    - Adding marksafe to file to allow image thumbnails to display in admin panel [StackOverflow](https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django)
-    - Bootstrap documentation - general research and guidance
-    - Django documentation - general research and guidance
-    - Stackoverflow - general research and guidance
-    - Slack - general research and guidance
+  - Helping resolve reverse login errors: [Django Project](https://forum.djangoproject.com/treverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6)   
+  - Adding marksafe to file to allow image thumbnails to display in admin panel [StackOverflow](https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django)
+  - Bootstrap documentation - general research and guidance
+  - Django documentation - general research and guidance
+  - Stackoverflow - general research and guidance
+  - Slack - general research and guidance
 
-  The following elements of code have specifically been inspired from the following sources: 
-    - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
-    - Product app models including displaying image thumbnails is admin paneladapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
-    - Wishlist functionality: Adapted from Very Academy's Django eCommerce Project [Django eCommerce Project](https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7)
-    - Breadcrumbs: Adapted from [Celikyuksell - Django eCommerce Project](https://github.com/celikyuksell/Django-E-Commerce/blob/master/home/templates/product_detail.html)
-    - Adding color and size selections: Adapted from [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
-    - Adding product variations to the bag and to the store: Adapted from LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
-    - The Proudct review functionality was adapted from a combination of [Dev Rathankumar - GreatKart](https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py) and [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
-    - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project 
+The following elements of code have specifically been inspired from the following sources: 
+  - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
+  - Product app models including displaying image thumbnails is admin paneladapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
+  - Wishlist functionality: Adapted from Very Academy's Django eCommerce Project [Django eCommerce Project](https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7)
+  - Breadcrumbs: Adapted from [Celikyuksell - Django eCommerce Project](https://github.com/celikyuksell/Django-E-Commerce/blob/master/home/templates/product_detail.html)
+  - Adding color and size selections: Adapted from [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
+  - Adding product variations to the bag and to the store: Adapted from LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
+  - The Proudct review functionality was adapted from a combination of [Dev Rathankumar - GreatKart](https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py) and [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
+  - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project 
 
 ### People
  - Jason in Tutor support for his assistance in resolving my issue with the webhook handler. 

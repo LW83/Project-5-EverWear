@@ -1,38 +1,3 @@
-Bugs
-1. Reverse URL error - had wishlist in url on wishlist template instead of Add to Wishlist - Stakcoverflow: https://stackoverflow.com/questions/25359441/using-request-meta-gethttp-referer-in-url-reverse-in-django
-
-
-Resources
-https://favicon.io/ for creation of favicon
-https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7 for Wishlist
-Adding marksafe to file: https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django
-
-https://www.youtube.com/@YukselCELIK/search?query=Django - Tried to get product variations but could not get working
-
-Ratings from https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py
-
-
-Bugs: 
-Login redirect error - had a login url in commented out code. Meant couldnt view product detail page when not logged in. Link; https://forum.djangoproject.com/t/reverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6
-Getting sizes to display dynamically - needed to have color_id in size fields in view
-
-Adding variations to the bag: https://github.com/LADCode2021/pp5-vape-city/blob/main/basket/contexts.py
-Int errors/key errors
-
-Fixing the footer to stay at bottom regardless of content and screen size: https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
-
-Deployment - 400 Bad Request on Product detail - Slack - debug to true and got a not of suspicious operation and needed to remove slash before custom js file link at bottom of page. 
-Deployment - Logos - not displaying on Heroku if they are standalone images (e.g. logo), make sure that the path in HTML is correct - /media/ will only work in Gitpod; for Heroku (and for both actually), you need {{ MEDIA_URL }} - like this: src="{{ MEDIA_URL }}my_image.jpg"
-
-
-
-Credits
-Stock images
-DNL Bowers
-LadCode
-Privacy Policy Generator: https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#
-
-
 # EverWear 
 ***
 ## Overview 
@@ -685,24 +650,65 @@ __JS Validation__
   ![Accessibility](./media/readme/testing/site_accessability.png)
 
 ### Fixed Bugs   
-  - The following key bugs arose and were fixed during the development of the site: 
+  - During this project I found there was a lot of trial and error in getting functionality to work as expected and get objects to display as desired but the following are the key bugs that arose and were fixed during the development of the site: 
 
-    1. Login template not being identified: 
-          - Issue:  
+    
+    1. Displaying Color and Size fields Dynamically:
+          - Issue: I wanted to display sizes dynamically in that the sizes that were available for a certain color would display once the color had been selected. This was not feeding through and I was not getting the size options displaying. 
+          - Solution: In the product detail view I needed to have color_id in size fields in order for the sizes to correctly display for the given color. 
+          - Resource: CodeArtisanLab eCommerce Tutorial
+    2. Variations - Add to Bag:
+          - Issue: I had configured my product detail page and my Add to Bag view but was finding that the color and size options were not coming through to the bag. 
+          ![Wishlist](./media/readme/testing/reverselogin_bug.png)
           - Solution: 
-          - Resource:  
-      
+            A. As the color and size options were configured as inputs with a button type they did not seem to be picking up the value of the selected item (color or size). I created a hidden input field below them on the product detail page with some javascript to pick up selected color and size attributes and add it as the value of the hidden button which enabled me to pass this to the add to bag view. 
+            B. The Add to Bag view was still not pulling through the color and size attributes of the product selected so ultimately I had to create an item in the view that pulled in both the size and color values to allow the specific product variation to be added to the bag. 
+          - Resource: Use of hidden input field was via research of Stackoverflow. Resolution of the Add to Bag view was a combination of reworking Boutique Ado code and code from LadCode2021 Vape City (see credits below).
+    3. Variations - Remove from Bag:
+          - Issue: When first implemented, my remove from bag view was removing all products of that type from the bag rather than the specific product variation i.e. if I had two hoodies in my bag, one black and one navy if I removed one all hoodies were removed which would have made for a very frustrating user experience.  
+          - Solution: After a bit of trial and error I ended up basically using the same code as the add to bag view to remove the product variant from the bag and updated the script in the template to also pick up the size and color variants being removed. 
+          - Resource: Self resolved through trial and error of reworking Boutique Ado code.
+    4. Webhook & Confirmation emails:
+          - Issue: During testing I realised my confirmation emails were not sending which made me check the Stripe dashboard to see what was happening with the webhooks. Whilst the orders were being created successfully, the webhook was failing and so no confirmation email was being sent. 
+          - Solution: First, I updated the endpoint in Stripe for gitpod as the server id had changed. I imported Stripe within the webhook file. Then I had realised I had not added the code to get the Stripe charge object or updated the billing_details and grand_total variables within the Webhook handler.
+                          stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+            With this all fixed the payment intents were succeeding in Stripe but no emails were being sent. After reviewing the code I realised I had an extra checkout in the file path to the confirmation emails which was stopping the emails from being sent out. 
+          - Resource: Support from Jason in Tutor Support on the Webhook handler, the rest was self resolved. 
+    5. URL Errors: 
+          - Issue: Clicking from the products page to the product detail page was throwing me a reverse URL error
+          ![Login](./media/readme/testing/add_to_bag_bug.png)
+          - Solution: After a bit of research I realised it was as simple as the fact that I had wishlist in the url of the product detail template instead of add_to_wishlist
+          - Issue: When not logged in it was not possible to view the product details page as a NoReverseMatch error was being raised
+          ![Wishlist](./media/readme/testing/reverselogin_bug.png)
+          - Solution: I realised that there was a login url in a snippet of commented out code in the product detail page. I had not appreciated that this would throw an error if commented out but once removed the issue was resolved. 
+          - Resource: General research on reverse urls on Stackoverflow & Djangoproject.com
+    6. Footer: 
+          - Issue: My footer would not play nice and was either fixing mid-page below the content or fixing to the bottom regardless of main content height.
+          - Solution: I added the following to the base css file: 
+                                  body {
+                                        min-height: 100vh;
+                                        display: grid;
+                                        grid-template-rows: 1fr auto;
+                                      }
+          - Resource: 30 Seconds of Code https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
+    7. Heroku Deployment: 
+          - Issue: On deployment to Heroku, I was getting a 400 Bad Request on the product detail page. 
+          - Solution: I temporarily switched debug to true and got a warning suspicious operation in the custom JS file. I needed to remove slash before custom js file link at bottom of page which resolved the issue.
+          - Resource: Slack Community
+          - Issue: On deployment to Heroku, the brand symbols were not displaying on the landing page or homepage despite all images having been loaded to AWS.  
+          - Solution: After some resarch on Slack I found that if images are standalone images such as logos the /media/ file path will only work in Gitpod; for Heroku I needed to use {{ MEDIA_URL }} as part of the source url e.g. src="{{ MEDIA_URL }}my_image.jpg. Once this was changed the images displayed fine.
+          - Resource: Slack Community
+
 ### Unfixed Bugs
 - The are no known bugs that remain unfixed in the site that impact functionality however there are some minor styling items on the site that it was not possible to fix before the submission deadline: 
- - Checkout page: 
- - Checkout page: 
- - Checkout page:
- - Products page: 
- - Product detail page: 
- - Wishlist: 
+ - Bag page: The quantity input box border is slightly visible through the decrease quantity button when the quantity is 1.
+ - Bag page: On screens under 420px wide a line appears under the checkout button which despite having inspected I have not been able to resolve what is causing it. 
+ - Checkout page: The spinner on the loading page is slightly off centre and needs to be centred. 
+ - Products page: The sort box is not sitting fully to the right of the page as I would like for aesthetic reasons. 
+ - Product detail page: The size options for Hoodies are not displaying in sequential order (XS, S, M, L, XL), I think this is due to the original data entry in the backend on setting up the product but have not had time to fix.
+ - Wishlist: When an item is added to the wishlist the heart icon should turn red to display to the user that there are items in their wishlist. This is currently only displaying when the user is in the wishlist so the code needs to be reworked to correct this. 
 
-
-- In addition, there are feature enhancements as noted above that I would like to incorporate into the functionality of the site at a futre point as well as looking at refactoring the code where possible. 
+- In addition, there are feature enhancements as noted above that I would like to incorporate into the functionality of the site at a futre point as well as looking at refactoring the code where possible and implementing some of the recommended accessability enhancements. 
 
 ***
 
@@ -807,23 +813,34 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/): For use in across all forms on the site
      - [Font Awesome](https://fontawesome.com/): For icon used on site
      - [Google Fonts](https://fonts.google.com/): For site fonts
-     AWS
-     Google Icons
-     Privacy Generator
-     Tiny PNG
-     https://www.xml-sitemaps.com/
-     favicon
+     - [Favicon.io](https://favicon.io/): For creation of favicon
+     - [XML Sitemaps](https://www.xml-sitemaps.com/): For creation of sitemap
+     - [Tiny PNG]
+     - [Privacy Policy Generator](https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#): For creation of privacy policy
+     - AWS
+     - Google Icons
 
 ***
 ## Credits   
 
+### Images
+
+
 ### Resources & Code Utilisation
  - The following resources were key to helping me build functionality critical to the working of the site: 
+   - Helping resolve reverse login errors: https://forum.djangoproject.com/t/reverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6
+   Resources
+https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7 for Wishlist
+Adding marksafe to file: https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django
+
+https://www.youtube.com/@YukselCELIK/search?query=Django - Tried to get product variations but could not get working
    - Bootstrap documentation
    - Django documentation
+   - Stackoverflow
+   - Slack
 
  - The following elements of code have specifically been inspired from the following sources: 
+    - Adding product variations to the bag: LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
+    - The review ratings was adapted from a combination of https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py and 
     - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
-    - As noted in the code, I also took inspiration from XYZ  and their [Out and Proud](https://github.com/keelback-code/out-proud/blob/main/README.md) project particularly in relation to the code for Creating and Editing Profiles.
-    - For guidance on user types & permission decorators: https://simpleisbetterthancomplex.com/tutorial/2018/01/18/how-to-implement-multiple-user-types-with-django.html. In the end I decided on a different permssion structure for the page than using decorators but still utilised a lot of the user registration sign up from this tutorial in creating the sign up templates and views. 
-
+    - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project particularly in relation to 

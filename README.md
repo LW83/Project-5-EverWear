@@ -84,14 +84,14 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
    - As a consumer I want to be able to easily and efficiently complete payment for my items
    - As a consumer I want to enter payment details in a way that keeps the information secure and private
    - As a consumer I want to receive confirmation of my orders so that I know they have been received
-   - As a consumer I can contact the store so that I can clarity any questions or issues in relation to my order
+   - As a consumer I can contact the store so that I can clarify any questions or issues in relation to my order
    - As a consumer I want to be able to create an account so I can make purchases more easily
    - As a consumer I want to be able to create an account so that I can leave reviews on purchases I have made
    - As a consumer I want to be able to sign up to receive information of new products or special offers
    - As a consumer I want to view my previous orders so that I can see what I previously ordered and when
    - As a consumer I want to be able to manage my profile information so that I can update it for any changes
    - As a consumer I want to be be able to add items to a wishlist so that I can potentially purchase these items later
-   - As a consumer I want to be able to easily log out of my account and reset my password if required to ensure my account information is secure. 
+   - As a consumer I want to be able to easily log out of my account and reset my password if required to ensure my account information is secure 
    - As a user I want to be able to navigate the site easily and intuitively
    - As a consumer I want to be able to find out more about the company and its ethos so that I can decide it they are a company I wish to purchase from
    - As a consumer I want to know how my information is utilised so that I can decide if I wish to use the site
@@ -134,7 +134,7 @@ __Planning__
 
 __Colors__
 
-- The color scheme adopted for the site is tied to the core colour of the Company logo which is dark grey (Hex #575656). Grey is considered a good representation of neutrality and balance which wasin keeping with the company’s desire to treat all things equally. In addition, grey tied in with the company’s fusion of the urban and outdoors with grey being reflective of streetscapes and buildings in an urban setting but also stone and rock in a more outdoor environment. This color also allows good contrast on the site for accessibility. 
+- The color scheme adopted for the site is tied to the core colour of the company logo which is dark grey (Hex #575656). Grey is considered a good representation of neutrality and balance which was in-keeping with the company’s desire to treat all things equally. In addition, grey tied in with the company’s fusion of the urban and outdoors with grey being reflective of streetscapes and buildings in an urban setting but also stone and rock in a more outdoor environment. This color also allows good contrast on the site for accessibility. 
 - Secondary colors are black, white, EverWear Sand (Hex #daccb5), EverWear Green (Hex #00442a), EverWear Navy (Hex #101f45) and EverWear Blue (Hex #0067b2). These are the color options for which products are available and tie in with the background imagery used in the site. These colours again are representative of natural hues and shades whilst still being bold and impactful. 
 
 __Fonts__
@@ -170,9 +170,9 @@ __Imagery__
 The marketing plan for the company is as follows: 
  - SEO: Ensure the site is optimised for organic search in particular with the set up of Google Search Console. 
  - SEM: Focus on Google Ads campaigns to drive immediate clicks and awareness pending organic search growth. This will need to be configured to correctly track conversions to ensure accurate assessment of campaign impact. 
- - Organic Social Media: The company has established a Facebook page but an Instagram page would also be highly impactful given the visual nature of the product and the demographic targeted. Twitter will also likley be set up as a good 'real time' mechanism for interacting with consumers and any feedback or issues they may have.  
+ - Organic Social Media: The company has established a Facebook page but an Instagram page would also be highly impactful given the visual nature of the product and the demographic targeted. Twitter will also likely be set up as a good 'real time' mechanism for interacting with consumers and any feedback or issues they may have.  
  - Social Media Advertising: Paid advertising campaigns (possibly boosted posts in the short term for budget reasons) across Facebook and Instagram to increase visibility, follows and brand awareness. Facebook pixel should also be set up to drive data from future advertising campaigns. 
- - Email Marketing: A newsletter sign up has been built into the site and periodic communications can be sent to people signed up with exclusive offers, early access to new product ranges or sales and discount codes. This will be an important way of reaching consumers already engaged with the brand and retain loyalty. 
+ - Email Marketing: A newsletter sign up has been built into the site and periodic communications can be sent to people signed up with exclusive offers, early access to new product ranges or sales and discount codes. This will be an important way of reaching consumers already engaged with the brand and retaining loyalty. 
  - Traditional Marketing: As a clothing brand, more traditional marketing channels may also be relevant such as print advertising, TV advertising and potential sponsorship or endorsement arrangements with a partner company or individual. 
 
 The short term focus would be on Google Ads, boosted Facebook & Instagram posts and establishing e-mail marketing. Advertising budgets can be increased as the business establishes. 
@@ -367,7 +367,7 @@ __Mobile Views__
 
   ![Quantity Change](./media/readme/functionalilty/update_quantity.png)
 
- - If the user deletes and item from their bag, that specific product variation will be removed, a sucess message displayed and the bag total recalculated. 
+ - If the user deletes and item from their bag, that specific product variation will be removed, a success message displayed and the bag total recalculated. 
 
   ![Remove Item from Bag](./media/readme/functionalilty/remove_item.png)
 
@@ -547,7 +547,7 @@ __Admin Panel__
 
 - All core aspects of the site including products, orders, users and reviews can be managed from within the Admin panel. 
 
-![Admin Overview](./media/readme/functionalilty/delete_success.png)
+![Admin Overview](./media/readme/functionalilty/admin_overview.png)
 
 ![Category Admin](./media/readme/functionalilty/category_admin.png)
 ![Product Admin](./media/readme/functionalilty/product_admin.png)
@@ -571,7 +571,7 @@ __Admin Panel__
 
 ### Site Footer
 
-- The footer of the site is styled to maintain consistency with the rest of the site. The text-muted style has been used as whilst this is less readable it improved the look of the site and was considered to be acceptable for the footer alone as a items were either duplication links or links less frequently accessed by users. 
+- The footer of the site is styled to maintain consistency with the rest of the site. The text-muted style has been used as whilst this is less readable it improved the look of the site and was considered to be acceptable for the footer alone as items were either duplication links or links less frequently accessed by users. 
 
 ![Footer](./media/readme/functionalilty/footer.png)
 
@@ -745,7 +745,7 @@ __JS Validation__
                                         display: grid;
                                         grid-template-rows: 1fr auto;
                                       }
-          - Resource: 30 Seconds of Code https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
+          - Resource: [30 Seconds of Code](https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20).
     7. Heroku Deployment: 
           - Issue: On deployment to Heroku, I was getting a 400 Bad Request on the product detail page. 
           - Solution: I temporarily switched debug to true and got a warning suspicious operation in the custom JS file. I needed to remove slash before custom js file link at bottom of page which resolved the issue.
@@ -776,19 +776,31 @@ Steps to Set up Workspace and Install Django:
 
 - In your repository install Django and gunicorn with the following command: pip install 'django<4' gunicorn
 - Install supporting libraries:
+          ```
           pip install dj_database_url psycopg2
           pip install dj3-cloudinary-storage
+          ```
 - Create a requirements.txt file:
+          ```
           pip freeze --local > requirements.txt
+          ```
 - Create a project via the following command:
+          ```
           django-admin startproject PROJECT_NAME . 
+          ```
 - Create an app within the project:
+          ```
           python manage.py startapp APP_NAME 
+          ```
 - Add your new app to the list of installed apps in setting.py
 - Migrate these changes via:
+          ```
           python manage.py migrate
+          ```
 - Test the server works locally:
+          ```
           python manage.py runserver (Should display Django success page) 
+          ```
 
 ### Deployment
 
@@ -810,34 +822,47 @@ Gitpod:
   Env.py file
   - These database and secret key URLs are also added to your env.py file in gitHub and this file is included in the gitignore file to ensure config vars are not publically available on Github.
   - In env.py import os
-  - Add os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
-  - os.environ["SECRET_KEY"] = "Paste in your randomSecretKey"
-
+  - Add 
+      ```
+      os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
+      os.environ["SECRET_KEY"] = "Paste in your randomSecretKey"
+      ```
   Settings.py file
   - Under from pathlib import Path add:
+      ```
       import os
       import dj_database_url
       if os.path.isfile("env.py"):
         import env
+      ```
   - Replace the secret key: SECRET_KEY = os.environ.get('SECRET_KEY')
-  - if 'DATABASE_URL' in os.environ:
-            DATABASES = {
-                'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-            }
-            else:
-                DATABASES = {
-                    'default': {
-                        'ENGINE': 'django.db.backends.sqlite3',
-                        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-                    }
-                }
+      ```
+      if 'DATABASE_URL' in os.environ:
+              DATABASES = {
+                  'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+              }
+              else:
+                  DATABASES = {
+                      'default': {
+                          'ENGINE': 'django.db.backends.sqlite3',
+                          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                      }
+                  }
+      ```
   - Migrate these changes
   - Link file to the templates directory in Heroku (Place under the BASE_DIR line) via: 
+        ```
         TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+        ```
   - Change the templates directory to TEMPLATES_DIR. Place within the TEMPLATES array
   - Add Heroku Hostname to ALLOWED_HOSTS; 
+        ```
         ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
-  - Create a procfile at the top level directory and add: web: gunicorn PROJ_NAME.wsgi
+        ```
+  - Create a procfile at the top level directory and add: 
+        ```
+        web: gunicorn PROJ_NAME.wsgi
+        ```
   - Add, commit and push the changes in the terminal
 
 AWS: 
@@ -863,6 +888,7 @@ AWS:
   Bucket Permissions:
 
   - Under the permissions tab for the bucket, enter the following CORS config:
+    ```
      [
          {
              "AllowedHeaders": [
@@ -877,7 +903,7 @@ AWS:
              "ExposeHeaders": []
          }
      ]
-
+    ```
   - Under Bucket Policy select edit and in the new window select the Policy Generator button to open the AWS policy generator in a new tab
   - For Select Policy Type select "S3 Bucket Policy." from the drop down menu
   - Under Add Statement(s) enter " * " in the "Principal" section

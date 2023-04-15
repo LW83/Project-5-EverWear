@@ -16,18 +16,27 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 
 ***
 ## Table of Contents:
-* [**EverWear**](#everwear)
-  * [**Overview**](#overview)
-  * [**Concept and Planning**](#concept-and-planning)
-    * [**UX**](#ux)
-    * [**Logic**](#logic)
-    * [**Design**](#design)
-    * [**Wireframes**](#wireframes) **************************
-    * [**Database Planning**](#database-planning)
+* [**EverWear**](#everwear) 
+  * [**Overview**](#overview) 
+  * [**Concept and Planning**](#concept-and-planning) **
+    * [**UX**](#ux) 
+    * [**Design**](#design) 
+    * [**Database Planning**](#database-planning) 
+  * [**Business Model & Marketing**](#business-model--marketing) **
+    * [**Business Model**](#business-model) 
+    * [**Marketing**](#marketing) 
+    * [**SEO Approach**](#seo-approach) 
   * [**Existing Features**](#existing-features)
     * [**Landing Page**](#landing-page)
-    * [**User Dashboards**](#user-dashboards)
-    * [**Views**](#views)
+    * [**Homepage**](#hompage)
+    * [**Product Page**](#product-page)
+    * [**Bag**](#bag)
+    * [**Wishlist**](#wishlist)
+    * [**Checkout**](#checkout)
+    * [**Superuser**](#superuser)
+    * [**Logout**](#logout)
+    * [**Footer**](#footer)
+    * [**Error 404 Page**](#error-404-page)
   * [**Feature Enhancements**](#feature-enhancements)
   * [**Testing**](#testing)
     * [**User Story Testing**](#user-story-testing)
@@ -42,11 +51,14 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
   * [**Deployment**](#deployment)
     * [**Workspace SetUp**](#workspace-setup)
     * [**Deployment**](#deployment-1)
-  * [**Languages, Technologies & Libraries**](#languages-technologies--libraries)
+  * [**Languages, Technologies & Libraries**](#languages-technologies--libraries) **
     * [**Languages Used**](#languages-used)
     * [**Technologies Utilised**](#technologies-utilised)
   * [**Credits**](#credits)
-    * [**Resources & Code Utilisation**](#resources)
+    * [**Images**](#images)
+    * [**Resources & Code Utilisation**](#resources) **
+    * [**People**](#people)
+
 
 ***
 ## Concept and Planning 
@@ -108,11 +120,34 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 
 ### Design
 
+__Concept__
+
+- The core site aim is to be the online store for the brand with additional useful company information accessible from the site.  
+- The foundational design of the site is leveraged from the Boutique Ado walkthrough project. 
+- The design of the site was then inspired by two main sites [Surfdome](https://www.surfdome.ie/) for the feel of an outdoor clothing brand website and [Miu Miu](https://www.miumiu.com/ie/en/bags/shoulder_bags/products.Matelass%C3%A9_nappa_leather_shoulder_bag.5BH211_N88_F0458_V_TWO.html) for some of the page simplicity and high end feel of the site. 
+- I had originally intended to implement paralax as part of the website design utilising the striking background images however I could not get happy with a design where this was not overly distracting to the user and undermining the core purpose of the site.
 - The design of the site is intended to be simple and functional with a visually appealing interface that reflects the brand, values and marketing style of the company.
-- The Miu Miu store and Surfdome store both provided inspiration for different design elements of the site. 
--  The core site aim is to be the online store for the brand with additional useful company information accessible from the site.  
+
+__Planning__
+
+- The core functionality that I aimed to achieve with the site was set out and documented in the [User Story board](https://github.com/users/LW83/projects/4)
+
+__Colors__
+
+- The color scheme adopted for the site is tied to the core colour of the Company logo which is dark grey (Hex #575656). Grey is considered a good representation of neutrality and balance which wasin keeping with the company’s desire to treat all things equally. In addition, grey tied in with the company’s fusion of the urban and outdoors with grey being reflective of streetscapes and buildings in an urban setting but also stone and rock in a more outdoor environment. This color also allows good contrast on the site for accessibility. 
+- Secondary colors are black, white, EverWear Sand (Hex #daccb5), EverWear Green (Hex #00442a), EverWear Navy (Hex #101f45) and EverWear Blue (Hex #0067b2). These are the color options for which products are available and tie in with the background imagery used in the site. These colours again are representative of natural hues and shades whilst still being bold and impactful. 
+
+__Fonts__
+
 - Google fonts (Montserrat) has been used. In selecting the font, I wanted a powerful, highly legible font style to make a statement. Sans serif fonts are considered clean and modern and can help demonstrate a no-nonsense attitude which is fitting for EverWear. They are also often considered good for clothing brands. 
+
+__Favicon__
+
 - In addition, a favicon of the E from the brand name has been created and added as a favicon for the page for brand consistency across the site. 
+
+__Imagery__
+
+- The imagery on the site has been deliberately chosen to enhance the feel of the brand and convey what the brand represents. Powerful images help make an impression on the user and improve the user experience of the site as well as the desirability of the products. 
 
 ### Database Planning
 
@@ -606,7 +641,7 @@ __Newsletter__
 
   - The site code has been passed through the following online validation tools: 
 
-  ![Code Validations](./media/readme/testing/code_validations.png)
+  ![Code Validations](./media/readme/testing/code_validation.png)
 
 __HTML Validation__
   
@@ -707,6 +742,7 @@ __JS Validation__
  - Products page: The sort box is not sitting fully to the right of the page as I would like for aesthetic reasons. 
  - Product detail page: The size options for Hoodies are not displaying in sequential order (XS, S, M, L, XL), I think this is due to the original data entry in the backend on setting up the product but have not had time to fix.
  - Wishlist: When an item is added to the wishlist the heart icon should turn red to display to the user that there are items in their wishlist. This is currently only displaying when the user is in the wishlist so the code needs to be reworked to correct this. 
+ - Search on Mobile: The search icon is very slightly out of line with the remaining icons in the nav bar on a mobile view. 
 
 - In addition, there are feature enhancements as noted above that I would like to incorporate into the functionality of the site at a futre point as well as looking at refactoring the code where possible and implementing some of the recommended accessability enhancements. 
 
@@ -785,7 +821,7 @@ Steps to Set up Workspace and Install Django:
    - Scroll down to the new 'Manual Deploy' section and select 'Deploy Branch'
    - Wait until the deployment is finished running and select "View".
 
-The live link can be found here: [Connector](https://project4new.herokuapp.com/) 
+The live link can be found here: [EverWear](https://project-5.herokuapp.com/home/) 
 
 ***
 
@@ -820,12 +856,14 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      - [Privacy Policy Generator](https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#): For creation of privacy policy
      - [AWS](https://aws.amazon.com/): For static and media file storage
      - [Stripe](https://stripe.com/ie): For payment processing set up
+     - [Unsplash](https://unsplash.com/s/photos/outdoors-hoody): For scenery images
 
 ***
 ## Credits   
 
 ### Images
-
+  - Unbranded scenery images are images sourced from [Unsplash](https://unsplash.com/s/photos/outdoors-hoody)
+  - Images of branded goods are images that have been photoshopped to display the EverWear logo.
 
 ### Resources & Code Utilisation
  The following resources were key to helping me build functionality critical to the working of the site: 

@@ -18,18 +18,18 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 ## Table of Contents:
 * [**EverWear**](#everwear) 
   * [**Overview**](#overview) 
-  * [**Concept and Planning**](#concept-and-planning) **
+  * [**Concept and Planning**](#concept-and-planning) 
     * [**UX**](#ux) 
     * [**Design**](#design) 
     * [**Database Planning**](#database-planning) 
-  * [**Business Model & Marketing**](#business-model--marketing) **
+  * [**Business Model & Marketing**](#business-model--marketing) 
     * [**Business Model**](#business-model) 
     * [**Marketing**](#marketing) 
     * [**SEO Approach**](#seo-approach) 
   * [**Existing Features**](#existing-features)
     * [**Landing Page**](#landing-page)
     * [**Site Header**](#site-header)
-    * [**Homepage**](#hompage)
+    * [**HomePage**](#hompage)
     * [**Product Page**](#product-page)
     * [**Bag**](#bag)
     * [**Wishlist**](#wishlist)

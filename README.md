@@ -774,7 +774,10 @@ __JS Validation__
 
 Steps to Set up Workspace and Install Django:
 
-- In your repository install Django and gunicorn with the following command: pip install 'django<4' gunicorn
+- In your repository install Django and gunicorn with the following command: 
+          ```
+          pip install 'django<4' gunicorn
+          ```
 - Install supporting libraries:
           ```
           pip install dj_database_url psycopg2
@@ -821,7 +824,10 @@ Gitpod:
 
   Env.py file
   - These database and secret key URLs are also added to your env.py file in gitHub and this file is included in the gitignore file to ensure config vars are not publically available on Github.
-  - In env.py import os
+  - In env.py 
+      ```
+      import os
+      ```
   - Add 
       ```
       os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
@@ -835,8 +841,10 @@ Gitpod:
       if os.path.isfile("env.py"):
         import env
       ```
-  - Replace the secret key: SECRET_KEY = os.environ.get('SECRET_KEY')
+  - Replace the secret key: 
       ```
+      SECRET_KEY = os.environ.get('SECRET_KEY')
+      
       if 'DATABASE_URL' in os.environ:
               DATABASES = {
                   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -941,10 +949,13 @@ AWS:
 
 Gitpod: 
  - Back in Gitpod, install the following packages in order to use the AWS S3 Bucket in Django and freeze requirements:
+          ```
           pip install boto3
           pip install django-storages
+          ```
  - Add 'storages' to the bottom of the installed apps section of settings.py file
  - Create a custom_storages.py file and add the following: 
+          ```
           from django.conf import settings
           from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -953,8 +964,9 @@ Gitpod:
 
           class MediaStorage(S3Boto3Storage):
               location = settings.MEDIAFILES_LOCATION
-
+          ```
  - Ensure settings reflect the following for Static and Media files: 
+          ```
           STATIC_URL = '/static/'
           STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
@@ -984,6 +996,7 @@ Gitpod:
           # Override static and media URLs in production
           STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
           MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+          ```
 
 Heroku:
   - In Settings, ensure your AWS Access Key and AWS Secret Access Key have been added to your Config Variables.
@@ -1036,7 +1049,7 @@ The live link can be found here: [EverWear](https://project-5.herokuapp.com/home
 
 ### Images
   - Unbranded scenery images are images sourced from [Unsplash](https://unsplash.com/s/photos/outdoors-hoody)
-  - Images of branded goods are images that have been photoshopped to display the EverWear logo.
+  - Images of branded goods are images that I have created via Adobe Photoshop & Illustrator to display the EverWear logo.
 
 ### Resources & Code Utilisation
  The following resources were key to helping me build functionality critical to the working of the site: 
@@ -1049,12 +1062,12 @@ The live link can be found here: [EverWear](https://project-5.herokuapp.com/home
 
 The following elements of code have specifically been inspired from the following sources: 
   - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
-  - Product app models including displaying image thumbnails is admin paneladapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
+  - Product app models including displaying image thumbnails in the admin panel were adapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
   - Wishlist functionality: Adapted from Very Academy's Django eCommerce Project [Django eCommerce Project](https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7)
   - Breadcrumbs: Adapted from [Celikyuksell - Django eCommerce Project](https://github.com/celikyuksell/Django-E-Commerce/blob/master/home/templates/product_detail.html)
   - Adding color and size selections: Adapted from [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
   - Adding product variations to the bag and to the store: Adapted from LADCode2021 and their [Vape City](https://github.com/LADCode2021/pp5-vape-city)
-  - The Proudct review functionality was adapted from a combination of [Dev Rathankumar - GreatKart](https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py) and [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
+  - The product review functionality was adapted from a combination of [Dev Rathankumar - GreatKart](https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/store/models.py) and [CodeArtisanLab - eCommerce](https://github.com/codeartisanlab/ecommerce-website-in-django-3-and-bootstrap-4/)
   - I also took inspiration from DNLBowers and their [Vape Store](https://github.com/dnlbowers/Vape-Store) project 
 
 ### People

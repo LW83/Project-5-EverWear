@@ -33,14 +33,6 @@ LadCode
 Privacy Policy Generator: https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#
 
 
-Who are your users?
-Which online platforms would you find lots of your users?
-Would your users use social media? If yes, which platforms do you think you would find them on?
-What do your users need? Could you meet that need with useful content? If yes, how could you best deliver that content to them?
-Would your business run sales or offer discounts? How do you think your users would most like to hear about these offers?
-What are the goals of your business? Which marketing strategies would offer the best ways to meet those goals?
-Would your business have a budget to spend on advertising? Or would it need to work with free or low cost options to market itself?
-
 # EverWear 
 ***
 ## Overview 
@@ -163,16 +155,40 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
 
 ![Final Models](./media/readme/finalmodels_sshot.png)
 
-- The model attributes in yellow are not currently utilised in the site functionality but are there to support future feature enhancements noted below. These have not been implemented due to time constraints on the project. 
+- These models are implemented as orignally planned however model attributes in yellow are not currently utilised in the site functionality. Due to time constraints some features that were not critical have been left as future feature enhancements but rather than delete these aspects of the models, they are there to support the build out of the site and future feature enhancements noted below. 
 
 ***
 ## Business Model & Marketing
 
 ### Business Model
 
-### Marketing
+- EverWear is an environmentally-friendly high quality fashion brand focused on leisurewear.
+- The company is a B2C business with a target market of both men and women in the 18 to 40 age range. 
+- This site acts as the online presence and store selling the full current product range direct to end consumers worldwide. 
 
+### Marketing
+The marketing plan for the company is as follows: 
+ - SEO: Ensure the site is optimised for organic search in particular with the set up of Google Search Console. 
+ - SEM: Focus on Google Ads campaigns to drive immediate clicks and awareness pending organic search growth. This will need to be configured to correctly track conversions to ensure accurate assessment of campaign impact. 
+ - Organic Social Media: The company has established a Facebook page but an Instagram page would also be highly impactful given the visual nature of the product and the demographic targeted. Twitter will also likley be set up as a good 'real time' mechanism for interacting with consumers and any feedback or issues they may have.  
+ - Social Media Advertising: Paid advertising campaigns (possibly boosted posts in the short term for budget reasons) across Facebook and Instagram to increase visibility, follows and brand awareness. Facebook pixel should also be set up to drive data from future advertising campaigns. 
+ - Email Marketing: A newsletter sign up has been built into the site and periodic communications can be sent to people signed up with exclusive offers, early access to new product ranges or sales and discount codes. This will be an important way of reaching consumers already engaged with the brand and retain loyalty. 
+ - Traditional Marketing: As a clothing brand, more traditional marketing channels may also be relevant such as print advertising, TV advertising and potential sponsorship or endorsement arrangements with a partner company or individual. 
+
+The short term focus would be on Google Ads, boosted Facebook & Instagram posts and establishing e-mail marketing. Advertising budgets can be increased as the business establishes. 
+  
 ### SEO Approach
+The current steps taken to improve the SEO of the site include:
+ - Inclusion of a sitemap file
+ - Inclusion of a robots.txt file
+ - Use of semantic HTML including nav, footer, heading, strong tags used as appropriate
+ - Meta tags included in the head of all site pages
+ - Good products descriptions that are consistent with key words for the company and site
+ - An About Us page that gives more information about the company and its values
+ - Large images have been compressed to imrpove site load times 
+ - Dynamic page titles have been added for each page of the site
+
+The inclusion of an FAQ and/or blog page on the site may also be relevant to the company and help improve SEO further. 
 
 ***
 ## Existing Features 
@@ -677,7 +693,16 @@ __JS Validation__
           - Resource:  
       
 ### Unfixed Bugs
-- The are no existing bugs that remain unfixed in the site however there are feature enhancements as noted above that I would like to incorporate into the functionality of the site but was time constrained in completing these items prior to submission.   
+- The are no known bugs that remain unfixed in the site that impact functionality however there are some minor styling items on the site that it was not possible to fix before the submission deadline: 
+ - Checkout page: 
+ - Checkout page: 
+ - Checkout page:
+ - Products page: 
+ - Product detail page: 
+ - Wishlist: 
+
+
+- In addition, there are feature enhancements as noted above that I would like to incorporate into the functionality of the site at a futre point as well as looking at refactoring the code where possible. 
 
 ***
 
@@ -687,8 +712,8 @@ __JS Validation__
 
 Steps to Set up Workspace and Install Django:
 
- - In your repository install Django and gunicorn with the following command: pip install 'django<4' gunicorn
- - Install supporting libraries:
+- In your repository install Django and gunicorn with the following command: pip install 'django<4' gunicorn
+- Install supporting libraries:
           pip install dj_database_url psycopg2
           pip install dj3-cloudinary-storage
 - Create a requirements.txt file:

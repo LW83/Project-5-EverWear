@@ -813,12 +813,13 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
      - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/): For use in across all forms on the site
      - [Font Awesome](https://fontawesome.com/): For icon used on site
      - [Google Fonts](https://fonts.google.com/): For site fonts
+     - [Google Icons](https://fonts.google.com/icons): For nav bar icons
      - [Favicon.io](https://favicon.io/): For creation of favicon
      - [XML Sitemaps](https://www.xml-sitemaps.com/): For creation of sitemap
-     - [Tiny PNG]
+     - [Tiny PNG](https://tinypng.com/): For image compression
      - [Privacy Policy Generator](https://www.privacypolicygenerator.info/download.php?lang=en&token=kEMrvtBBmxCnXO76kmtbmizqJIKiJ5Gq#): For creation of privacy policy
-     - AWS
-     - Google Icons
+     - [AWS](https://aws.amazon.com/): For static and media file storage
+     - [Stripe](https://stripe.com/ie): For payment processing set up
 
 ***
 ## Credits   
@@ -827,7 +828,7 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
 
 
 ### Resources & Code Utilisation
- - The following resources were key to helping me build functionality critical to the working of the site: 
+ The following resources were key to helping me build functionality critical to the working of the site: 
     - Helping resolve reverse login errors: [Django Project](https://forum.djangoproject.com/treverse-for-logout-not-found-logout-is-not-a-valid-view-function-or-pattern-name-i-am-unable-to-redirect-a-url-page/10364/6)   
     - Adding marksafe to file to allow image thumbnails to display in admin panel [StackOverflow](https://stackoverflow.com/questions/72013969/nameerror-name-mark-safe-is-not-defined-django)
     - Bootstrap documentation - general research and guidance
@@ -835,7 +836,7 @@ The live link can be found here: [Connector](https://project4new.herokuapp.com/)
     - Stackoverflow - general research and guidance
     - Slack - general research and guidance
 
-    - The following elements of code have specifically been inspired from the following sources: 
+  The following elements of code have specifically been inspired from the following sources: 
     - Code Institute, Hello Django, I Think Therefore I Blog & Boutique Ado Demonstrations: For guidance and inspiration for this site, including guidance on deployment, messages, querysets, admin functionality, model creation and structure, url structure, form creation, pagination.  
     - Product app models including displaying image thumbnails is admin paneladapted from [Celikyuksell - Django eCommerce](https://github.com/celikyuksell/Django-E-Commerce/blob/master/product/models.py)
     - Wishlist functionality: Adapted from Very Academy's Django eCommerce Project [Django eCommerce Project](https://www.youtube.com/watch?v=OgA0TTKAtqQ&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_&index=7)

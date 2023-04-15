@@ -28,6 +28,7 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
     * [**SEO Approach**](#seo-approach) 
   * [**Existing Features**](#existing-features)
     * [**Landing Page**](#landing-page)
+    * [**Site Header**](#site-header)
     * [**Homepage**](#hompage)
     * [**Product Page**](#product-page)
     * [**Bag**](#bag)
@@ -35,7 +36,7 @@ Welcome to EverWear! EverWear is an Irish clothing brand with a focus on providi
     * [**Checkout**](#checkout)
     * [**Superuser**](#superuser)
     * [**Logout**](#logout)
-    * [**Footer**](#footer)
+    * [**Site Footer**](#site-footer)
     * [**Error 404 Page**](#error-404-page)
   * [**Feature Enhancements**](#feature-enhancements)
   * [**Testing**](#testing)
@@ -205,6 +206,11 @@ The inclusion of an FAQ and/or blog page on the site may also be relevant to the
 ![Account Icon Dropdown - Superuser](./media/readme/functionalilty/accounticon_suser.png)
  - The account icon for a logged in superuser gives the account options of Manage Store, My Profile and Logout. For non-superusers, a logged in viewer will only see My Profile and Logout.
 
+__Mobile Views__
+
+ ![Mobile View 1](./media/readme/functionalilty/landing_mobile1.png)
+ ![Mobile View 2](./media/readme/functionalilty/landing_mobile2.png)
+
 __Log In__
 
   - Upon selecting Login, the user is taken to the log in screen to enter their information. 
@@ -243,6 +249,16 @@ __Register__
  ![Final Confirm](./media/readme/functionalilty/final_confirm_sshot.png)
  ![Sign In Success](./media/readme/functionalilty/signup_success_sshot.png)
 
+### Site Header
+
+ - The header of the site is comprised of the primary header which includes the brand symbol and name, a search box, account icon, bag icon and wishlist icon.
+ - Underneath this is a secondary bar which contains the core navigation elements of the site enabling a user to navigate to all products sorted by price or category (from a dropdown) or direct to a category of their choice. This bar has been styled to be consistent with the logo branding and color. 
+ - The categories currently do not have dropdowns as there are no subcategories currently in the product catalogue but the ability to add these and have dropdown by category has been retained in the code. 
+
+ ![Site Header](./media/readme/functionalilty/site_header.png)
+
+ - When a user has an item in their bag, the bag icon will turn blue to indicate that it contains an item. 
+
 ### HomePage
 
 ![Homepage Screenshot](./media/readme/functionalilty/homepage_sshot.png)
@@ -273,6 +289,12 @@ __Sort Functionality__
  - The user may also sort the products displayed by various criteria from the sort box.
 
   ![Sortbox](./media/readme/functionalilty/sortbox_sshot.png)
+
+__Mobile Views__
+
+  ![Mobile View 1](./media/readme/functionalilty/homepage_mobile1.png)
+  ![Mobile View 2](./media/readme/functionalilty/homepage_mobile2.png)
+  ![Mobile View](./media/readme/functionalilty/products_mobile.png)
 
 ### Product Page
 
@@ -325,6 +347,11 @@ __Add to Wishlist__
 
   ![Wishlist Success](./media/readme/functionalilty/wishlist_sucess.png)
 
+__Mobile Views__
+
+  ![Mobile View 1](./media/readme/functionalilty/detail_mobile1.png)
+  ![Mobile View 2](./media/readme/functionalilty/detail_mobile2.png)
+
 ### Bag
  - From their bag which can be accessed via the bag icon at the top of the page, the checkout link in the footer or the checkout link in the add to bag pop up message, the user will see each product they have added to their bag in an individual line for that product specification.  
  - The line details the product image (bar on small mobile screens), name, size, color, sku, individual price and quantity, the subtotal (bar on small mobile screens) and the option to update the quantity or remove the item from the bag. 
@@ -349,7 +376,10 @@ __Add to Wishlist__
 
   ![Empty Bag](./media/readme/functionalilty/empty_bag.png)
 
-  
+__Mobile Views__
+
+  ![Mobile View](./media/readme/functionalilty/bag_mobile.png)
+
 ### Wishlist
  - The user can view their wishlist by clicking the heart button at the top of the screen or the Wishlist link in the footer. This will display the products that they have added to their wishlist. 
 
@@ -381,6 +411,10 @@ __Add to Wishlist__
   ![Payment Validation](./media/readme/functionalilty/payment_validation1.png)
   ![Payment Validation](./media/readme/functionalilty/payment_validation2.png)
   ![Payment Validation](./media/readme/functionalilty/payment_validation3.png)
+
+ __Mobile Views__
+
+  ![Mobile View](./media/readme/functionalilty/checkout_mobile.png)
 
 __Order Confirmation__
  - Upon successful processing of a payment, the order confirmation page will be displayed to the user and a success message.
@@ -536,7 +570,7 @@ __Admin Panel__
 
 - Upon signing out the user will be redirected to the landing page of the site. 
 
-### Footer
+### Site Footer
 
 - The footer of the site is styled to maintain consistency with the rest of the site. The text-muted style has been used as whilst this is less readable it improved the look of the site and was considered to be acceptable for the footer alone as a items were either duplication links or links less frequently accessed by users. 
 
@@ -572,6 +606,10 @@ __Newsletter__
 - A success message is displayed on successful sign up. 
 
 ![Newsletter](./media/readme/functionalilty/newsletter.png)
+
+__Mobile Views__
+
+![Mobile View 1](./media/readme/functionalilty/footer_mobile.png)
 
 ### Error 404 Page
 
@@ -774,10 +812,10 @@ Steps to Set up Workspace and Install Django:
 
 - Prior to deployment in Heroku a database was set up with ElephantSQL, the site was then deployed to Heroku following the below deployment steps: 
   
-  Heroku:
+Heroku:
    - Log in to Heroku (or create an account if required).
    - Click 'Create a new app'.
-   - Enter a name for the app (must be unique). I selected project4new. 
+   - Enter a name for the app (must be unique).
    - Select your region. For me, this is Europe being based in Ireland. 
    - Select "Create app".
    - In the new page for the app, select the Settings tab from the menu at the top of the main screen. 
@@ -785,7 +823,7 @@ Steps to Set up Workspace and Install Django:
    - Select 'Add' in the Settings tab of Heroku; in this line enter 'PORT' in the 'Key' field and a 'Value' of 8000. 
    - In these Settings all relevant secret keys and database URLs are also added. 
    
-  Gitpod:
+Gitpod:
 
     Env.py file
     - These database and secret key URLs are also added to your env.py file in gitHub and this file is included in the gitignore file to ensure config vars are not publically available on Github.
@@ -800,11 +838,17 @@ Steps to Set up Workspace and Install Django:
         if os.path.isfile("env.py"):
           import env
     - Replace the secret key: SECRET_KEY = os.environ.get('SECRET_KEY')
-    - Update the Databases value to: 
-          DATABASES = {
-            'default': 
-          dj_database_url.parse(os.environ.get("DATABASE_URL"))
-          }
+    - if 'DATABASE_URL' in os.environ:
+              DATABASES = {
+                  'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+              }
+              else:
+                  DATABASES = {
+                      'default': {
+                          'ENGINE': 'django.db.backends.sqlite3',
+                          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                      }
+                  }
     - Migrate these changes
     - Link file to the templates directory in Heroku (Place under the BASE_DIR line) via: 
           TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -814,12 +858,133 @@ Steps to Set up Workspace and Install Django:
     - Create a procfile at the top level directory and add: web: gunicorn PROJ_NAME.wsgi
     - Add, commit and push the changes in the terminal
 
-  Heroku:
-   - In Heroku, select the 'Deploy' section from the menu at the top of the page. 
-   - Select GitHub as the deployment method and 'Connect to GitHub'.
-   - Find the right repository (here project4new) via the Search functionality and then select 'Connect'.
-   - Scroll down to the new 'Manual Deploy' section and select 'Deploy Branch'
-   - Wait until the deployment is finished running and select "View".
+AWS: 
+ - Sign in to your AWS account (or set one up if required).
+
+  Create an S3 bucket:
+
+  - From Services in the top left-hand corner of the landing page select Storage and then S3.
+  - Select Create bucket
+  - Give the bucket a name
+  - Select the nearest location to you (in my case Ireland - eu-west-1)
+  - For Object Ownership select ACLS enabled
+  - For Block Public Access settings for this bucket section untick Block all public access and accept the warning notice.
+  - Click Create bucket
+
+  Bucket Properties:
+
+  - Select the bucket created and click on the properties tab at the top
+  - Edit Static website hosting to select enable
+  - Under Hosting type select Host a static website
+  - For index document enter index.html and for error document enter error.html and save changes
+
+  Bucket Permissions:
+
+  - Under the permissions tab for the bucket, enter the following CORS config:
+     [
+         {
+             "AllowedHeaders": [
+             "Authorization"
+             ],
+             "AllowedMethods": [
+             "GET"
+             ],
+             "AllowedOrigins": [
+             "*"
+             ],
+             "ExposeHeaders": []
+         }
+     ]
+
+  - Under Bucket Policy select edit and in the new window select the Policy Generator button to open the AWS policy generator in a new tab
+  - For Select Policy Type select "S3 Bucket Policy." from the drop down menu
+  - Under Add Statement(s) enter " * " in the "Principal" section
+  - From the s3:Action select s3:GetObject
+  - Enter the bucket ARN noted from the bucket page into the Amazon Resource Name (ARN) box and click Add Statement
+  - Proceed to Generate Policy
+  - Copy the policy and paste it into the bucket policy box
+  - In the same box add "/*" to the end of the resource key to allow access to all resources in this bucket and click save
+  - In the Access Control List select Edit and enable List for Everyone (public access), accept the warning message and save the changes
+
+  Create AWS User:
+  - Navigate from the search bar to AWS IAM
+  - From the menu on the left of the page go to User groups and select create group
+  - Enter a name and select Create Group
+
+  Create permissions policy:
+  - Click "Policies" in the left-hand menu and Create Policy
+  - Click Import managed policy
+  - Search for AmazonS3FullAccess select this policy, and click Import
+  - Click "JSON" under Policy Document to see the imported policy and paste the bucket ARN into the Resource section of the JSON snippet twice. The second time add "/*" to the end of the ARN to allow access to all resources in this bucket.
+  - Click through Tags, Review and Review Policy
+  - Name the policy and provide a brief description and click Create
+
+  Attach the Policy to the User Group:
+  - Navigate back to User Groups and select the user group created.
+  - Under the permissions section select Attach Policy and select the policy created and attach it
+
+  Create a User:
+  - Under Users in the left menu, select Add Users
+  - Enter a user name, select Programmatic access and AWS Management Console access and click Next
+  - Select Add user to group and select the user created. 
+  - Click through Tags, Review and Create User
+  - Download the CSV file which contains the Access key ID and Secret access key
+
+
+Gitpod: 
+ - Back in Gitpod, install the following packages in order to use the AWS S3 Bucket in Django and freeze requirements:
+          pip install boto3
+          pip install django-storages
+ - Add 'storages' to the bottom of the installed apps section of settings.py file
+ - Create a custom_storages.py file and add the following: 
+          from django.conf import settings
+          from storages.backends.s3boto3 import S3Boto3Storage
+
+          class StaticStorage(S3Boto3Storage):
+              location = settings.STATICFILES_LOCATION
+
+          class MediaStorage(S3Boto3Storage):
+              location = settings.MEDIAFILES_LOCATION
+
+ - Ensure settings reflect the following for Static and Media files: 
+          STATIC_URL = '/static/'
+          STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+          MEDIA_URL = '/media/'
+          MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+          if 'USE_AWS' in os.environ:
+          # Cache control
+          AWS_S3_OBJECT_PARAMETERS = {
+              'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+              'CacheControl': 'max-age=94608000',
+          }
+
+          # Bucket Config
+          AWS_STORAGE_BUCKET_NAME = heroku project name
+          AWS_S3_REGION_NAME = location selected
+          AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+          AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+          AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+          # Static and media files
+          STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+          STATICFILES_LOCATION = 'static'
+          DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+          MEDIAFILES_LOCATION = 'media'
+
+          # Override static and media URLs in production
+          STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+          MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+Heroku:
+  - In Settings, ensure your AWS Access Key and AWS Secret Access Key have been added to your Config Variables.
+  - Add a config variable for Use_AWS and set it to True.
+  - In Heroku, select the 'Deploy' section from the menu at the top of the page. 
+  - Select GitHub as the deployment method and 'Connect to GitHub'.
+  - Find the right repository via the Search functionality and then select 'Connect'.
+  - Scroll down to the new 'Manual Deploy' section and select 'Deploy Branch'
+  - Wait until the deployment is finished running and select "View".
 
 The live link can be found here: [EverWear](https://project-5.herokuapp.com/home/) 
 
